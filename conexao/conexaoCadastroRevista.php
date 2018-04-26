@@ -28,7 +28,7 @@
     $identificador = mysql_insert_id();
 
     $cadastro3 = ("INSERT INTO `sigb`.`possui` (`idEditora_FK`, `idObras_FK`)
-    VALUES ({$identificador}, {$id}");
+    VALUES ('$identificador', '$id')");
     mysql_query($cadastro3);
 
 	header("location:/Banco/cadastroRevista.php");

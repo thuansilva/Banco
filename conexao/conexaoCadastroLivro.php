@@ -21,16 +21,17 @@
     VALUES({$id}, '$volume')");
     mysql_query($cadastro1);
 
+    $idChave = mysql_insert_id();
+
  	$cadastro2 = ("INSERT INTO `editora` (`nome`)
     VALUES ('$editora')");
     mysql_query($cadastro2);
 
-    //$idEditora = ("SELECT `idEditora` FROM `editora` WHERE `nome` = '$editora'");
-   // $idObras = ("SELECT `idObras` FROM `obras` WHERE `nome` = '$nome'");
+    $identificador = mysql_insert_id();
 
-   $cadastro3 = ("INSERT INTO `sigb`.`possui` (`idEditora_FK`, `idObras_FK`)
-   VALUES ('$idEditora', '$idObras')");
-   mysql_query($cadastro3);
+    $cadastro3 = ("INSERT INTO `sigb`.`possui` (`idEditora_FK`, `idObras_FK`)
+    VALUES ('$identificador', '$id')");
+    mysql_query($cadastro3);
 
     $cadastro4 = ("INSERT INTO `autor` (`nome`)
     VALUES ('$autor')");
@@ -38,8 +39,8 @@
 
     $chave = mysql_insert_id();
 
-    $cadastro5 = ("INSERT INTO `tem` (`idAutor_FK`, `idLivro_FK`)
-    VALUES ({$chave}, {$id})");
+    $cadastro5 = ("INSERT INTO sigb.`tem` (`idAutor_FK`, `idLivro_FK`)
+    VALUES ('$chave', '$idChave')");
     mysql_query($cadastro5);
 
 	header("location:/Banco/cadastroLivro.php");
