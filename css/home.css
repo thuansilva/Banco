@@ -2,3 +2,15 @@
     background: url('../img/fundo.jpg') no-repeat;
     background-size: cover;
   }
+#divAluno{
+  width: 320px;
+    height: 420 px;
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-shadow: 5px 4px 50px #000;
+    border-radius: 20px;
+}
