@@ -7,6 +7,7 @@
 	$obs= $_POST['obs'];
 	$editora= $_POST['editora'];	
 	$autor= $_POST['autor'];
+    $isbn= $_POST['isbn'];
 
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
@@ -17,11 +18,9 @@
 
     $id = mysql_insert_id();
 
-	$cadastro1 = ("INSERT INTO `livros` (`idObras_FK`, `volume`)
-    VALUES({$id}, '$volume')");
+	$cadastro1 = ("INSERT INTO `livros` (`isbn`, `idObras_FK`, `volume`)
+    VALUES('$isbn', {$id}, '$volume')");
     mysql_query($cadastro1);
-
-    $idChave = mysql_insert_id();
 
  	$cadastro2 = ("INSERT INTO `editora` (`nome`)
     VALUES ('$editora')");
@@ -39,8 +38,8 @@
 
     $chave = mysql_insert_id();
 
-    $cadastro5 = ("INSERT INTO sigb.`tem` (`idAutor_FK`, `idLivro_FK`)
-    VALUES ('$chave', '$idChave')");
+    $cadastro5 = ("INSERT INTO sigb.`tem` (`idAutor_FK`, `isbn_FK`)
+    VALUES ('$chave', '$isbn')");
     mysql_query($cadastro5);
 
 	header("location:/Banco/cadastroLivro.php");

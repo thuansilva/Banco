@@ -26,6 +26,10 @@
 						<td ><input type="text" size="100" name="autor" maxlength="100"/></td>
 					</tr>
 					<tr>
+						<td width ="350">ISBN</td>
+						<td ><input type="text" size="100" name="isbn" maxlength="100"/></td>
+					</tr>
+					<tr>
 						<td width ="350">Ano da Publicação</td>
 						<td ><input type="text" size="100" name="anoPublicacao" maxlength="100"/></td>
 					</tr>

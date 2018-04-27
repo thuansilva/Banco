@@ -14,7 +14,7 @@
 		
 	</div>
 	<div class ="barra-2">
-		<form method="POST" action="/Banco/conexao/conexaoCadastroLivro.php">
+		<form method="POST" action="/Banco/conexao/conexaoCadastroRevista.php">
 			<div class="fundo-formulario">
 				<table id="formulario-cadastro" width="625" border="0">
 					<tr>
