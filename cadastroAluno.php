@@ -63,7 +63,7 @@
 		</nav>
 
 <!--																		Formularioooooo-->
-	<div class="container my-3 px-lg-3 " id="divAluno">
+	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
 		<fieldset>
 		<legend><h2>Aluno</h2></legend>
 		<form method="POST" action="/Banco/conexao/conexaoCadastroAluno.php">
