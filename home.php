@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <link rel="icon" href="../Banco/img/favicon.ico">
     <title>SiGB</title>
+    <!--\bootstrap CSS -->
     <link href="../Banco/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
     <link href="./css/home.css" rel="stylesheet">
   </head>
 
   <body>
-
-    <!--                    Navbar                        -->
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
     <div class="container ">
       <a class="navbar-brand h1" href="#home.php"> SIGB </a>
@@ -28,7 +27,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
                     <a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-                    <a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
+                    <a class="dropdown-item" href="#"> Livro</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
                   </div>
@@ -65,13 +64,6 @@
         </div>
     </div>     
   </nav>
-
-
-
-
-
-  
-    <!--                    BEm VIndo                        -->
   <div class="position-relative over  p-3 p-md-5 text-center " id="fundo">
       
       <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -79,10 +71,6 @@
         <p class="lead font-weight-normal "> Organizando sua Biblioteca com alguns Clicks</p>
       </div>
   </div>
-
-
- <!--                    Conteúdo                       -->
-
 
       <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
           <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5  
@@ -102,8 +90,6 @@
             </div>
         </div>
 
-<!--                    ROdapé (Footer)                      -->
-  
         <section id="contact">
           <div class="container">
               <div class="col-lg-6 mx-auto text-center ">
@@ -124,10 +110,6 @@
           </div>
         </section>
         <p class="mt-5 mb-3  text-center">&copy; SIGB Todos os Direitos Reservados</p>
-
-
-
-    
     <!-- Bootstrap JavaScript
     ================================================== -->
     <!-- -->

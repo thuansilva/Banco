@@ -8,10 +8,8 @@
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
 </head>
 <body>
-
-<!--     															  Navbar          -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
-				<div class="container">
+				<div class="container ">
 				  <a class="navbar-brand h1" href="home.php"> SIGB </a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite" 
 					data-target="#navbarSupportedContent">
@@ -25,7 +23,7 @@
 							  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
 								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
+								<a class="dropdown-item" href="#"> Livro</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
 							  </div>
@@ -61,21 +59,19 @@
 					   </ul>
 					</div>
 				</div>
-		</nav>
+	</nav>
 	
-	
-	<!--     															  Formulario        -->
-	<div class="container my-3 px-lg-3 p-md-3" id="divAluno">
-		
-			<h2>Professor(a)</h2>
+	<div class="container my-3 px-lg-3" id="divAluno">
+		<fieldset>
+			<legend><h2 >Professor(a)</h2></legend>
 	
 		<form method="POST" action="/Banco/conexao/conexaoCadastroProf">
 		<div class="form-row ">
-			<div class="form-group col-md-5">
+			<div class="form-group col-md-6">
 				<label >Nome Completo</label>
 				<input type="text" class="form-control" name="nome" required autofocus>
 			</div>
-			<div class="form-group col-md-5 ">
+			<div class="form-group col-md-6 ">
 				<label >Email</label>
 				<input type="email" class="form-control"  placeholder="exemple@exemple.com" name="email" required autofocus>
 			</div>
@@ -87,17 +83,14 @@
 			</div>
 		</div>
 		<center>
-				<button type="reset" class="btn btn-danger ">Cancelar</button>
-				<button type="submit" class="btn btn-primary  "> Salvar </button>
+				<button type="reset" class="btn btn-danger btn-lg mx-3">Cancelar</button>
+				<button type="submit" class="btn btn-primary btn-lg mx-3 "> Salvar </button>
 			<hr>
 		</center>
-
-		</form>
+	</fieldset>
+	</form>
 
 	</div>
-
-
-
 <!-- Bootstrap JavaScript
     ================================================== -->
     <!-- -->

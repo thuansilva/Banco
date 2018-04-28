@@ -8,7 +8,7 @@
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
 </head>
 <body>
-<!--     															  Navbar  -->
+
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
 				<div class="container ">
 				  <a class="navbar-brand h1" href="home.php"> SIGB </a>
@@ -24,7 +24,7 @@
 							  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
 								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
+								<a class="dropdown-item" href="#"> Livro</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
 							  </div>
@@ -62,7 +62,7 @@
 				</div>
 		</nav>
 
-<!--																		Formularioooooo-->
+
 	<div class="container my-3 px-lg-3 " id="divAluno">
 		<fieldset>
 		<legend><h2>Aluno</h2></legend>
@@ -96,8 +96,8 @@
 			</div>
 			<center>
 		
-					 <button type="reset" class="btn btn-danger ">Cancelar</button>
-					 <button type="submit" class="btn btn-primary  "> Salvar </button>
+					 <button type="reset" class="btn btn-danger btn-lg mx-3">Cancelar</button>
+					 <button type="submit" class="btn btn-primary btn-lg mx-3 "> Salvar </button>
 				 
        </center>
 			 <hr>

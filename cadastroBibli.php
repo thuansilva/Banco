@@ -10,7 +10,6 @@
 
 </head>
 <body>
-	<!--					Navbar  -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
 				<div class="container ">
 				  <a class="navbar-brand h1" href="home.php"> SIGB </a>
@@ -26,7 +25,7 @@
 							  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
 								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
+								<a class="dropdown-item" href="#"> Livro</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
 							  </div>
@@ -65,12 +64,12 @@
 	</nav>
 	
 	
-	<!--					Formulário -->
-	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
 	
+	<div class="container my-3 px-lg-3" id="divAluno">
+	<fieldset>
 		<legend><h2>Bibliotecario(a)</h2></legend>
 	
-	<form  class method="POST" action="/Banco/conexao/conexaoCadastroBibli.php">
+		<form  class method="POST" action="/Banco/conexao/conexaoCadastroBibli.php">
 		<div class="form-row ">
 			<div class="form-group col-md-6">
 				<label >Nome Completo</label>
@@ -85,7 +84,6 @@
 				<input type="tel" class= "form-control" id="inputtelefone" placeholder="(xx)xxxxx-xxxx" name="telefone"> 
 			</div>
 		</div>
-		
 
 		<div class="form-row ">
 			<div class="form-group col-md-5">
@@ -111,22 +109,19 @@
 			<div class="form-label-group col-md-4 ">
 			<label >Senha</label>
             <input type="password" name ="senha"  placeholder="password" class="form-control"  required autofocus>     
-			</div>
+        </div>
 		</div>
-		<div>
-			<center>
-				<button type="reset" class="btn btn-danger  ">Cancelar</button>
-				<button type="submit" class="btn btn-primary  "> Salvar </button>
-				<hr>
-		 	</center>		
-		</div>
-</form>
-	</div>
-
+	
+	
+		<center>
+			<button type="reset" class="btn btn-danger btn-lg mx-3">Cancelar</button>
+			<button type="submit" class="btn btn-primary btn-lg mx-3 "> Salvar </button>
+		<hr>
+		  </center>
+	</fieldset>
+</div>
 				
-
-
-
+</form>
  <!-- Bootstrap JavaScript
     ================================================== -->
     <!-- -->
