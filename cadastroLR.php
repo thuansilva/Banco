@@ -3,10 +3,12 @@
 <head>
 	<meta charset ="UTF-8"/>
 	<link rel="icon" href="../Banco/img/favicon.ico" >
-	<title> Cadastrar Aluno</title>
+	<title> Cadastrar Obras</title>
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
 </head>
+
+
 <body>
 <!--					Navbar-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
@@ -24,9 +26,9 @@
 							  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
 								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
+								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Obras</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
+								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecário(a)</a>
 							  </div>
 						</li>
 						<li class="nav-item dropdown px-2">
@@ -35,7 +37,7 @@
 								<div class="dropdown-menu" >
 									<a class="dropdown-item" href="#"> Professor</a>
 									<a class="dropdown-item" href="#"> Aluno</a>
-								  <a class="dropdown-item" href="#"> Livro</a>
+								  <a class="dropdown-item" href="#">Obras</a>
 								</div>
 						</li>
 						<ul class="navbar-nav px-2">
@@ -61,6 +63,7 @@
 					</div>
 				</div>
 		</nav>
+
 
 
 <!--abas de troca-->
@@ -183,9 +186,6 @@
 	
 			</div>
 </div>
-
-
-
 
 
 

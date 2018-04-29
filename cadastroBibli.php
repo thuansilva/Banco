@@ -28,7 +28,7 @@
 								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
 								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
+								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecário(a)</a>
 							  </div>
 						</li>
 						<li class="nav-item dropdown px-2">
@@ -70,7 +70,7 @@
 	
 		<legend><h2>Bibliotecario(a)</h2></legend>
 	
-	<form  class method="POST" action="/Banco/conexao/conexaoCadastroBibli.php">
+		<form  class method="POST" action="/Banco/conexao/conexaoCadastroBibli.php">
 		<div class="form-row ">
 			<div class="form-group col-md-6">
 				<label >Nome Completo</label>
@@ -120,7 +120,7 @@
 				<hr>
 		 	</center>		
 		</div>
-</form>
+		</form>
 	</div>
 
 				

@@ -1,10 +1,10 @@
 #fundo {
-    background: url('../img/fundo.jpg') no-repeat;
+    background: url('../img/b.jpg') no-repeat;
     background-size: cover;
   }
 #divAluno{
   width: 320px;
-    height: 420 px;
+    height: 420px;
     background: rgba(0,0,0,0.2);
     color: #fff;
     top: 50%;

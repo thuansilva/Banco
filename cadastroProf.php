@@ -10,6 +10,7 @@
 <body>
 
 <!--     															  Navbar          -->
+
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
 				<div class="container">
 				  <a class="navbar-brand h1" href="home.php"> SIGB </a>
@@ -25,9 +26,9 @@
 							  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
 								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
+								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Obras</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
+								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecário(a)</a>
 							  </div>
 						</li>
 						<li class="nav-item dropdown px-2">
@@ -36,7 +37,7 @@
 								<div class="dropdown-menu" >
 									<a class="dropdown-item" href="#"> Professor</a>
 									<a class="dropdown-item" href="#"> Aluno</a>
-								  <a class="dropdown-item" href="#"> Livro</a>
+								  <a class="dropdown-item" href="#"> Obras</a>
 								</div>
 						</li>
 						<ul class="navbar-nav px-2">
@@ -71,11 +72,11 @@
 	
 		<form method="POST" action="/Banco/conexao/conexaoCadastroProf">
 		<div class="form-row ">
-			<div class="form-group col-md-5">
+			<div class="form-group col-md-6">
 				<label >Nome Completo</label>
 				<input type="text" class="form-control" name="nome" required autofocus>
 			</div>
-			<div class="form-group col-md-5 ">
+			<div class="form-group col-md-6 ">
 				<label >Email</label>
 				<input type="email" class="form-control"  placeholder="exemple@exemple.com" name="email" required autofocus>
 			</div>

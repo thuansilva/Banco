@@ -9,6 +9,7 @@
 </head>
 <body>
 <!--     															  Navbar  -->
+
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
 				<div class="container ">
 				  <a class="navbar-brand h1" href="home.php"> SIGB </a>
@@ -24,9 +25,9 @@
 							  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
 								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Livro</a>
+								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Obras</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecario(a)</a>
+								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecaário(a)</a>
 							  </div>
 						</li>
 						<li class="nav-item dropdown px-2">
@@ -35,7 +36,7 @@
 								<div class="dropdown-menu" >
 									<a class="dropdown-item" href="#"> Professor</a>
 									<a class="dropdown-item" href="#"> Aluno</a>
-								  <a class="dropdown-item" href="#"> Livro</a>
+								  <a class="dropdown-item" href="#"> Obras</a>
 								</div>
 						</li>
 						<ul class="navbar-nav px-2">
@@ -64,7 +65,7 @@
 
 <!--																		Formularioooooo-->
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-		<fieldset>
+		
 		<legend><h2>Aluno</h2></legend>
 		<form method="POST" action="/Banco/conexao/conexaoCadastroAluno.php">
 			<div class="form-row ">
@@ -102,10 +103,9 @@
        </center>
 			 <hr>
 	
-	</form>
-	
-</fieldset>
-</div>
+		</form>
+
+	</div>
 
 
 
