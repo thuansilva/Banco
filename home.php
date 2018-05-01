@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -7,6 +6,8 @@
     <title>SiGB</title>
     <link href="../Banco/css/bootstrap.min.css" rel="stylesheet">
     <link href="../Banco/css/home.css" rel="stylesheet">
+    <link href="../Banco/css/testetitulo.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -75,7 +76,7 @@
   <div class="position-relative over  p-3 p-md-5 text-center " id="fundo">
       
       <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 class="display-4 font-weight-normal  ">Bem Vindo ao SIGB</h1>
+        <h1 class="display-4 font-weight-normal  " id="ap-bemvindo">Bem Vindo ao SIGB</h1>
         <p class=" lead font-weight-normal "> Organizando sua Biblioteca com alguns Clicks</p>
       </div>
   </div>
@@ -118,7 +119,7 @@
               </div>
               <div class="col-lg-4 mr-auto text-center">
                 <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
-                  <a href="mailto:your-email@your-domain.com">thaiszinharoxpg@gmail.com</a>
+                  <p><a href="mailto:your-email@your-domain.com">thaiszinharoxpg@gmail.com</a></p>
               </div>
             </div>
           </div>

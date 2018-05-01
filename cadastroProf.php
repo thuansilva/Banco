@@ -70,7 +70,7 @@
 		
 			<h2>Professor(a)</h2>
 	
-		<form method="POST" action="/Banco/conexao/conexaoCadastroProf">
+		<form method="POST" action="/Banco/conexao/conexaoCadastroProf.php">
 		<div class="form-row ">
 			<div class="form-group col-md-6">
 				<label >Nome Completo</label>
@@ -84,7 +84,25 @@
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label>CPF</label>
-				<input type="tel" class="form-control" name="telefone" placeholder="00000000-00" required autofocus>
+				<input type="text" class="form-control" name="cpf" placeholder="00000000-00" required autofocus>
+			</div>
+			<div class="form-group col-md-6">
+				<label>Telefone</label>
+				<input type="text" class="form-control" name="telefone" placeholder="(xx)xxxxx-xxxx" required autofocus>
+			</div>
+		</div>
+		<div class="form-row ">
+			<div class="form-group col-md-5">
+				<label >Rua</label>
+				<input type="text" class="form-control" placeholder="Coronel Serudo Martins" name="rua" required autofocus>
+			</div>
+			<div class="form-group col-md-5">
+				<label >Bairro</label>
+				<input type="text" class="form-control" placeholder="Iracy" name="bairro">
+			</div>
+			<div class="form-group col-md-2">
+				<label >Número</label>
+				<input type="tel" class="form-control" placeholder= "21" name="numero" required autofocus>
 			</div>
 		</div>
 		<center>
