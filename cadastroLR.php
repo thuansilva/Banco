@@ -35,9 +35,9 @@
 							<a class="nav-link dropdown-toggle" href="#" id="navbarSite" role="button" 
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pesquisar</a>
 								<div class="dropdown-menu" >
-									<a class="dropdown-item" href="#"> Professor</a>
-									<a class="dropdown-item" href="#"> Aluno</a>
-								  <a class="dropdown-item" href="#">Obras</a>
+									<a class="dropdown-item" href="/Banco/pesquisarProfessor.php"> Professor</a>
+									<a class="dropdown-item" href="/Banco/pesquisarAlunos.php"> Aluno</a>
+								  	<a class="dropdown-item" href="/Banco/pesquisarObras.php">Obras</a>
 								</div>
 						</li>
 						<ul class="navbar-nav px-2">

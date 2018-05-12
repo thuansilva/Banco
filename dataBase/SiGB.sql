@@ -10,7 +10,7 @@
 -- Banco de Dados(nome) ...: sigb					                 --
 --                                                                   --
 -- PROJETO => 1 Base de Dados                                        --
---         => 16 Tabelas                                             --
+--         => 18 Tabelas                                             --
 --                                                                   --
 -- ----------------------------------------------------------------- --
 
@@ -42,13 +42,27 @@ CONSTRAINT PK_telefoneUsuario PRIMARY KEY(telefone_PK),
 CONSTRAINT FK_USUARIOS_telefoneUsuario FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS(idUsuario)
 )ENGINE = InnoDB;
 
+CREATE TABLE TURMA(
+idTurma INTEGER NOT NULL AUTO_INCREMENT,
+nomeTurma VARCHAR(10) NOT NULL,
+CONSTRAINT PK_TURMA PRIMARY KEY(idTurma)
+)ENGINE = InnoDB;
+
+CREATE TABLE SERIE(
+idSerie INTEGER NOT NULL AUTO_INCREMENT,
+nomeSerie VARCHAR(10) NOT NULL,
+CONSTRAINT PK_SERIE PRIMARY KEY(idSerie)
+)ENGINE = InnoDB;
+
 CREATE TABLE ALUNOS (
 idUsuario_FK INTEGER NOT NULL,
-turma VARCHAR(10) NOT NULL,
 responsavel VARCHAR(50) NOT NULL,
-serie VARCHAR(10) NOT NULL,
 matricula VARCHAR(10) NOT NULL,
-CONSTRAINT FK_USUARIOS_ALUNOS FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS (idUsuario)
+idTurma_FK INTEGER NOT NULL,
+idSerie_FK INTEGER NOT NULL,
+CONSTRAINT FK_USUARIOS_ALUNOS FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS (idUsuario),
+CONSTRAINT FK_TURMA_ALUNOS FOREIGN KEY(idTurma_FK) REFERENCES TURMA(idTurma),
+CONSTRAINT FK_SERIE_ALUNOS FOREIGN KEY(idSerie_FK) REFERENCES SERIE(idSerie)
 )ENGINE = InnoDB;
 
 CREATE TABLE PROFESSORES (
