@@ -8,7 +8,7 @@
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
 </head>
 <body>
-<!--     															  Navbar  -->
+<!--     															  Navbar         -->
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
 				<div class="container ">

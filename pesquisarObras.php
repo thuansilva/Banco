@@ -84,14 +84,21 @@
 	</form>
 </div>
 
-	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
+	
 	<form id="lista" name="lista" method="post">
 		
-		<table width="1100" border="0" id="alter">
-			<tr class="dif">
-				<td width="100">ID</td>
-				<td width="400">NOME</td>
-				<td width="300">DATA DE CADASTRO</td>
+	<div class="table-responsive">
+			<div class="container  px-lg-3 p-md-3 text-lg-left ">
+
+				<table class="table table-hover   my-2  ">
+					<thead class="thead-light">
+						<tr>
+							<th scope="col">Identificador</th>
+							<th scope="col">Nome</th>
+							<th scope="col">Data de Cadastro</th>
+							
+						</tr>
+					</thead>
 
 			<?php
 			while ($tbl=$con->fetch_array()) {
@@ -109,8 +116,10 @@
 			<?php } ?>
 		
 		</table>
+			</div>
+			</div>
 			
-</div>
+
 
  <!-- Bootstrap JavaScript
     ================================================== -->
