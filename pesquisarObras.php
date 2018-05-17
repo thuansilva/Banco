@@ -60,6 +60,13 @@
 				</div>
 		</nav>
 
+	<?php
+	include("../Banco/conexao/conexao.php");
+	$consulta = "SELECT `obras`.`idObras`, `obras`.`nome`, `obras`.`dataCadastro`
+    FROM `obras`";
+	$con = $mysqli->query($consulta);
+	?> 
+
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
 	<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
 		<legend><h2>Pesquisar Obras</h2></legend>
@@ -75,6 +82,34 @@
 			</div>
 		</div>
 	</form>
+</div>
+
+	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
+	<form id="lista" name="lista" method="post">
+		
+		<table width="1100" border="0" id="alter">
+			<tr class="dif">
+				<td width="100">ID</td>
+				<td width="400">NOME</td>
+				<td width="300">DATA DE CADASTRO</td>
+
+			<?php
+			while ($tbl=$con->fetch_array()) {
+			#while ($tbl = mysql_fetch_array($con)) {
+			?>
+
+			<tr>
+				<td class="dif1"><?php echo $tbl["idObras"];?></td>
+				<td><?php echo $tbl["nome"];?></td>
+				<td><?php echo $tbl["dataCadastro"];?></td>
+			</tr>
+	
+			</tr>
+			</form>
+			<?php } ?>
+		
+		</table>
+			
 </div>
 
  <!-- Bootstrap JavaScript

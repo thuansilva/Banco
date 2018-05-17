@@ -1,161 +1,429 @@
--- --------   << Sistema Gerenciador de Biblioteca>>    ------------ --
---                                                                   --
---                    SCRIPT DE CRIACAO (DDL)                        --
---                                                                   --
--- Data Criacao ...........: 31/03/2018                              --
--- Autor(es) ..............: Anna Lopes		                         --
---                           Clinton Hudson 						 --
---							 Thuan Aguiar							 --
--- Banco de Dados .........: MySQL                                   --
--- Banco de Dados(nome) ...: sigb					                 --
---                                                                   --
--- PROJETO => 1 Base de Dados                                        --
---         => 18 Tabelas                                             --
---                                                                   --
--- ----------------------------------------------------------------- --
+-- phpMyAdmin SQL Dump
+-- version 4.0.4
+-- http://www.phpmyadmin.net
+--
+-- Máquina: localhost
+-- Data de Criação: 17-Maio-2018 às 18:47
+-- Versão do servidor: 5.6.12-log
+-- versão do PHP: 5.4.16
 
-CREATE DATABASE  IF NOT EXISTS sigb DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-USE sigb;
 
-CREATE TABLE USUARIOS (
-idUsuario INTEGER NOT NULL AUTO_INCREMENT,
-nome VARCHAR(50) NOT NULL,
-CONSTRAINT PK_USUARIOS PRIMARY KEY(idUsuario)
-)ENGINE = InnoDB;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
-CREATE TABLE enderecoUsuario (
-endUsuario_PK INTEGER NOT NULL AUTO_INCREMENT,
-idUsuario_FK INTEGER NOT NULL,
-rua VARCHAR(25) NOT NULL,
-numero INTEGER NOT NULL,
-bairro VARCHAR(25) NOT NULL, 
-CONSTRAINT PK_enderecoUsuario PRIMARY KEY(endUsuario_PK),
-CONSTRAINT FK_USUARIOS_enderecoUsuario FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS(idUsuario)
-)ENGINE = InnoDB;
+--
+-- Base de Dados: `sigb`
+--
+CREATE DATABASE IF NOT EXISTS `sigb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sigb`;
 
-CREATE TABLE telefoneUsuario (
-telefone_PK INTEGER NOT NULL AUTO_INCREMENT,
-telefone VARCHAR(15),
-idUsuario_FK INTEGER NOT NULL,
-CONSTRAINT PK_telefoneUsuario PRIMARY KEY(telefone_PK),
-CONSTRAINT FK_USUARIOS_telefoneUsuario FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS(idUsuario)
-)ENGINE = InnoDB;
+-- --------------------------------------------------------
 
-CREATE TABLE TURMA(
-idTurma INTEGER NOT NULL AUTO_INCREMENT,
-nomeTurma VARCHAR(10) NOT NULL,
-CONSTRAINT PK_TURMA PRIMARY KEY(idTurma)
-)ENGINE = InnoDB;
+--
+-- Estrutura da tabela `alunos`
+--
 
-CREATE TABLE SERIE(
-idSerie INTEGER NOT NULL AUTO_INCREMENT,
-nomeSerie VARCHAR(10) NOT NULL,
-CONSTRAINT PK_SERIE PRIMARY KEY(idSerie)
-)ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `alunos` (
+  `idUsuario_FK` int(11) NOT NULL,
+  `responsavel` varchar(50) NOT NULL,
+  `matricula` varchar(10) NOT NULL,
+  `idTurma_FK` int(11) NOT NULL,
+  `idSerie_FK` int(11) NOT NULL,
+  KEY `FK_USUARIOS_ALUNOS` (`idUsuario_FK`),
+  KEY `FK_TURMA_ALUNOS` (`idTurma_FK`),
+  KEY `FK_SERIE_ALUNOS` (`idSerie_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE ALUNOS (
-idUsuario_FK INTEGER NOT NULL,
-responsavel VARCHAR(50) NOT NULL,
-matricula VARCHAR(10) NOT NULL,
-idTurma_FK INTEGER NOT NULL,
-idSerie_FK INTEGER NOT NULL,
-CONSTRAINT FK_USUARIOS_ALUNOS FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS (idUsuario),
-CONSTRAINT FK_TURMA_ALUNOS FOREIGN KEY(idTurma_FK) REFERENCES TURMA(idTurma),
-CONSTRAINT FK_SERIE_ALUNOS FOREIGN KEY(idSerie_FK) REFERENCES SERIE(idSerie)
-)ENGINE = InnoDB;
+--
+-- Extraindo dados da tabela `alunos`
+--
 
-CREATE TABLE PROFESSORES (
-idUsuario_FK INTEGER NOT NULL,
-email VARCHAR(25) NOT NULL,
-cpf INTEGER NOT NULL,
-CONSTRAINT FK_USUARIOS_PROFESSORES FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS (idUsuario)
-)ENGINE = InnoDB;
+INSERT INTO `alunos` (`idUsuario_FK`, `responsavel`, `matricula`, `idTurma_FK`, `idSerie_FK`) VALUES
+(1, 'Antonio Souza', '123456789', 1, 6);
 
-CREATE TABLE BIBLIOTECARIA (
-idBibliotecaria INTEGER NOT NULL AUTO_INCREMENT,
-nomeBibliotecaria VARCHAR(50) NOT NULL,
-email VARCHAR(25) NOT NULL,
-nomeLogin VARCHAR(25) NOT NULL,
-senha VARCHAR(25) NOT NULL,
-CONSTRAINT PK_BIBLIOTECARIA PRIMARY KEY (idBibliotecaria)
-)ENGINE = InnoDB;
+-- --------------------------------------------------------
 
-CREATE TABLE enderecoBibliotecaria (
-endBibliotecaria_PK INTEGER NOT NULL AUTO_INCREMENT,
-idBibliotecaria_FK INTEGER NOT NULL,
-rua VARCHAR(25) NOT NULL,
-numero INTEGER NOT NULL,
-bairro VARCHAR(25) NOT NULL, 
-CONSTRAINT PK_enderecoBibliotecaria PRIMARY KEY(endBibliotecaria_PK),
-CONSTRAINT FK_BIBLIOTECARIA_enderecoBibliotecaria FOREIGN KEY(idBibliotecaria_FK) REFERENCES BIBLIOTECARIA(idBibliotecaria)
-)ENGINE = InnoDB;
+--
+-- Estrutura da tabela `autor`
+--
 
-CREATE TABLE telefoneBibliotecaria (
-telefone_PK INTEGER NOT NULL AUTO_INCREMENT,
-idBibliotecaria_FK INTEGER NOT NULL,
-telefone VARCHAR(15) NOT NULL,
-CONSTRAINT PK_telefoneBibliotecaria PRIMARY KEY(telefone_PK),
-CONSTRAINT FK_BIBLIOTECARIA_telefoneBibliotecaria FOREIGN KEY(idBibliotecaria_FK) REFERENCES BIBLIOTECARIA (idBibliotecaria)
-)ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `autor` (
+  `idAutor` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  PRIMARY KEY (`idAutor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-CREATE TABLE OBRAS (
-idObras INTEGER NOT NULL AUTO_INCREMENT,
-dataCadastro DATETIME NOT NULL,
-nome VARCHAR(50) NOT NULL,
-anoPublicacao INTEGER NOT NULL,
-obs VARCHAR(500),
-CONSTRAINT PK_OBRAS PRIMARY KEY(idObras)
-)ENGINE = InnoDB;
+-- --------------------------------------------------------
 
-CREATE TABLE LIVROS (
-isbn VARCHAR(20) NOT NULL,
-idObras_FK INTEGER NOT NULL,
-volume INTEGER,
-CONSTRAINT PK_LIVROS PRIMARY KEY(isbn),
-CONSTRAINT FK_OBRAS_LIVROS FOREIGN KEY(idObras_FK) REFERENCES OBRAS(idObras)
-)ENGINE = InnoDB;
+--
+-- Estrutura da tabela `bibliotecaria`
+--
 
-CREATE TABLE REVISTAS (
-idObras_FK INTEGER NOT NULL,
-titulo VARCHAR(50) NOT NULL,
-edicao INTEGER,
-CONSTRAINT FK_OBRAS_REVISTAS FOREIGN KEY(idObras_FK) REFERENCES OBRAS(idObras)
-)ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `bibliotecaria` (
+  `idBibliotecaria` int(11) NOT NULL AUTO_INCREMENT,
+  `nomeBibliotecaria` varchar(50) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `nomeLogin` varchar(25) NOT NULL,
+  `senha` varchar(25) NOT NULL,
+  PRIMARY KEY (`idBibliotecaria`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
-CREATE TABLE AUTOR (
-idAutor INTEGER NOT NULL AUTO_INCREMENT,
-nome VARCHAR(50) NOT NULL,
-CONSTRAINT PK_AUTOR PRIMARY KEY (idAutor)
-)ENGINE = InnoDB;
+--
+-- Extraindo dados da tabela `bibliotecaria`
+--
 
-CREATE TABLE tem (
-idAutor_FK INTEGER NOT NULL,
-isbn_FK VARCHAR(20) NOT NULL,
-CONSTRAINT FK_AUTOR_tem FOREIGN KEY(idAutor_FK) REFERENCES AUTOR(idAutor),
-CONSTRAINT FK_LIVROS_tem FOREIGN KEY(isbn_FK) REFERENCES LIVROS(isbn)
-)ENGINE = InnoDB;
+INSERT INTO `bibliotecaria` (`idBibliotecaria`, `nomeBibliotecaria`, `email`, `nomeLogin`, `senha`) VALUES
+(1, 'clinton hudson moreira pessoa', 'clinton@email.com', 'clinton', '123');
 
-CREATE TABLE EDITORA (
-idEditora INTEGER NOT NULL AUTO_INCREMENT,
-nome VARCHAR(50) NOT NULL,
-CONSTRAINT PK_EDITORA PRIMARY KEY(idEditora)
-)ENGINE = InnoDB;
+-- --------------------------------------------------------
 
-CREATE TABLE possui (
-idEditora_FK INTEGER NOT NULL,
-idObras_FK INTEGER NOT NULL,
-CONSTRAINT FK_EDITORA_possui FOREIGN KEY(idEditora_FK) REFERENCES EDITORA(idEditora),
-CONSTRAINT FK_OBRAS_possui FOREIGN KEY(idObras_FK) REFERENCES OBRAS (idObras)
-)ENGINE = InnoDB;
+--
+-- Estrutura da tabela `editora`
+--
 
-CREATE TABLE USUARIOS_EMPRESTIMO (
-idBibliotecaria_FK INTEGER NOT NULL,
-idObras_FK INTEGER NOT NULL,
-idUsuario_FK INTEGER NOT NULL,
-dataDevolucao DATETIME NOT NULL,
-dataEmprestimo DATETIME NOT NULL,
-CONSTRAINT FK_BIBLIOTECARIA_USUARIOS_EMPRESTIMO FOREIGN KEY(idObras_FK) REFERENCES OBRAS (idObras),
-CONSTRAINT FK_OBRAS_USUARIOS_EMPRESTIMO FOREIGN KEY(idUsuario_FK) REFERENCES USUARIOS (idUsuario),
-CONSTRAINT FK_USUARIOS_USUARIOS_EMPRESTIMO FOREIGN KEY(idBibliotecaria_FK) REFERENCES Bibliotecaria (idBibliotecaria)
-)ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `editora` (
+  `idEditora` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  PRIMARY KEY (`idEditora`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `enderecobibliotecaria`
+--
+
+CREATE TABLE IF NOT EXISTS `enderecobibliotecaria` (
+  `endBibliotecaria_PK` int(11) NOT NULL AUTO_INCREMENT,
+  `idBibliotecaria_FK` int(11) NOT NULL,
+  `rua` varchar(25) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `bairro` varchar(25) NOT NULL,
+  PRIMARY KEY (`endBibliotecaria_PK`),
+  KEY `FK_BIBLIOTECARIA_enderecoBibliotecaria` (`idBibliotecaria_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `enderecousuario`
+--
+
+CREATE TABLE IF NOT EXISTS `enderecousuario` (
+  `endUsuario_PK` int(11) NOT NULL AUTO_INCREMENT,
+  `idUsuario_FK` int(11) NOT NULL,
+  `rua` varchar(25) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `bairro` varchar(25) NOT NULL,
+  PRIMARY KEY (`endUsuario_PK`),
+  KEY `FK_USUARIOS_enderecoUsuario` (`idUsuario_FK`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `enderecousuario`
+--
+
+INSERT INTO `enderecousuario` (`endUsuario_PK`, `idUsuario_FK`, `rua`, `numero`, `bairro`) VALUES
+(1, 1, 'Caldas Novas', 234, 'Jardim Florestal');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `livros`
+--
+
+CREATE TABLE IF NOT EXISTS `livros` (
+  `isbn` varchar(20) NOT NULL,
+  `idObras_FK` int(11) NOT NULL,
+  `volume` int(11) DEFAULT NULL,
+  PRIMARY KEY (`isbn`),
+  KEY `FK_OBRAS_LIVROS` (`idObras_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `livros`
+--
+
+INSERT INTO `livros` (`isbn`, `idObras_FK`, `volume`) VALUES
+('', 1, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `obras`
+--
+
+CREATE TABLE IF NOT EXISTS `obras` (
+  `idObras` int(11) NOT NULL AUTO_INCREMENT,
+  `dataCadastro` date NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `anoPublicacao` int(11) NOT NULL,
+  `obs` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`idObras`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `obras`
+--
+
+INSERT INTO `obras` (`idObras`, `dataCadastro`, `nome`, `anoPublicacao`, `obs`) VALUES
+(1, '2018-05-14', 'Dom Casmurro', 1997, 'esse ano nao tem nada haver'),
+(2, '2018-05-01', 'Veja', 2018, 'sei la, vamo ver');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `possui`
+--
+
+CREATE TABLE IF NOT EXISTS `possui` (
+  `idEditora_FK` int(11) NOT NULL,
+  `idObras_FK` int(11) NOT NULL,
+  KEY `FK_EDITORA_possui` (`idEditora_FK`),
+  KEY `FK_OBRAS_possui` (`idObras_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `professores`
+--
+
+CREATE TABLE IF NOT EXISTS `professores` (
+  `idUsuario_FK` int(11) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `cpf` int(11) NOT NULL,
+  KEY `FK_USUARIOS_PROFESSORES` (`idUsuario_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `revistas`
+--
+
+CREATE TABLE IF NOT EXISTS `revistas` (
+  `idObras_FK` int(11) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `edicao` int(11) DEFAULT NULL,
+  KEY `FK_OBRAS_REVISTAS` (`idObras_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `revistas`
+--
+
+INSERT INTO `revistas` (`idObras_FK`, `titulo`, `edicao`) VALUES
+(2, 'A repugnacao dos repugnados', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `serie`
+--
+
+CREATE TABLE IF NOT EXISTS `serie` (
+  `idSerie` int(11) NOT NULL AUTO_INCREMENT,
+  `nomeSerie` varchar(10) NOT NULL,
+  PRIMARY KEY (`idSerie`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Extraindo dados da tabela `serie`
+--
+
+INSERT INTO `serie` (`idSerie`, `nomeSerie`) VALUES
+(1, '1'),
+(2, '2'),
+(3, '3'),
+(4, '4'),
+(5, '5'),
+(6, '6');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `telefonebibliotecaria`
+--
+
+CREATE TABLE IF NOT EXISTS `telefonebibliotecaria` (
+  `telefone_PK` int(11) NOT NULL AUTO_INCREMENT,
+  `idBibliotecaria_FK` int(11) NOT NULL,
+  `telefone` varchar(15) NOT NULL,
+  PRIMARY KEY (`telefone_PK`),
+  KEY `FK_BIBLIOTECARIA_telefoneBibliotecaria` (`idBibliotecaria_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `telefoneusuario`
+--
+
+CREATE TABLE IF NOT EXISTS `telefoneusuario` (
+  `telefone_PK` int(11) NOT NULL AUTO_INCREMENT,
+  `telefone` varchar(15) DEFAULT NULL,
+  `idUsuario_FK` int(11) NOT NULL,
+  PRIMARY KEY (`telefone_PK`),
+  KEY `FK_USUARIOS_telefoneUsuario` (`idUsuario_FK`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `telefoneusuario`
+--
+
+INSERT INTO `telefoneusuario` (`telefone_PK`, `telefone`, `idUsuario_FK`) VALUES
+(1, '9887438743', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tem`
+--
+
+CREATE TABLE IF NOT EXISTS `tem` (
+  `idAutor_FK` int(11) NOT NULL,
+  `isbn_FK` varchar(20) NOT NULL,
+  KEY `FK_AUTOR_tem` (`idAutor_FK`),
+  KEY `FK_LIVROS_tem` (`isbn_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `turma`
+--
+
+CREATE TABLE IF NOT EXISTS `turma` (
+  `idTurma` int(11) NOT NULL AUTO_INCREMENT,
+  `nomeTurma` varchar(10) NOT NULL,
+  PRIMARY KEY (`idTurma`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `turma`
+--
+
+INSERT INTO `turma` (`idTurma`, `nomeTurma`) VALUES
+(1, '16');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  PRIMARY KEY (`idUsuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`idUsuario`, `nome`) VALUES
+(1, 'dante');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios_emprestimo`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios_emprestimo` (
+  `idBibliotecaria_FK` int(11) NOT NULL,
+  `idObras_FK` int(11) NOT NULL,
+  `idUsuario_FK` int(11) NOT NULL,
+  `dataDevolucao` date NOT NULL,
+  `dataEmprestimo` date NOT NULL,
+  KEY `FK_BIBLIOTECARIA_USUARIOS_EMPRESTIMO` (`idObras_FK`),
+  KEY `FK_OBRAS_USUARIOS_EMPRESTIMO` (`idUsuario_FK`),
+  KEY `FK_USUARIOS_USUARIOS_EMPRESTIMO` (`idBibliotecaria_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `alunos`
+--
+ALTER TABLE `alunos`
+  ADD CONSTRAINT `FK_USUARIOS_ALUNOS` FOREIGN KEY (`idUsuario_FK`) REFERENCES `usuarios` (`idUsuario`),
+  ADD CONSTRAINT `FK_TURMA_ALUNOS` FOREIGN KEY (`idTurma_FK`) REFERENCES `turma` (`idTurma`),
+  ADD CONSTRAINT `FK_SERIE_ALUNOS` FOREIGN KEY (`idSerie_FK`) REFERENCES `serie` (`idSerie`);
+
+--
+-- Limitadores para a tabela `enderecobibliotecaria`
+--
+ALTER TABLE `enderecobibliotecaria`
+  ADD CONSTRAINT `FK_BIBLIOTECARIA_enderecoBibliotecaria` FOREIGN KEY (`idBibliotecaria_FK`) REFERENCES `bibliotecaria` (`idBibliotecaria`);
+
+--
+-- Limitadores para a tabela `enderecousuario`
+--
+ALTER TABLE `enderecousuario`
+  ADD CONSTRAINT `FK_USUARIOS_enderecoUsuario` FOREIGN KEY (`idUsuario_FK`) REFERENCES `usuarios` (`idUsuario`);
+
+--
+-- Limitadores para a tabela `livros`
+--
+ALTER TABLE `livros`
+  ADD CONSTRAINT `FK_OBRAS_LIVROS` FOREIGN KEY (`idObras_FK`) REFERENCES `obras` (`idObras`);
+
+--
+-- Limitadores para a tabela `possui`
+--
+ALTER TABLE `possui`
+  ADD CONSTRAINT `FK_EDITORA_possui` FOREIGN KEY (`idEditora_FK`) REFERENCES `editora` (`idEditora`),
+  ADD CONSTRAINT `FK_OBRAS_possui` FOREIGN KEY (`idObras_FK`) REFERENCES `obras` (`idObras`);
+
+--
+-- Limitadores para a tabela `professores`
+--
+ALTER TABLE `professores`
+  ADD CONSTRAINT `FK_USUARIOS_PROFESSORES` FOREIGN KEY (`idUsuario_FK`) REFERENCES `usuarios` (`idUsuario`);
+
+--
+-- Limitadores para a tabela `revistas`
+--
+ALTER TABLE `revistas`
+  ADD CONSTRAINT `FK_OBRAS_REVISTAS` FOREIGN KEY (`idObras_FK`) REFERENCES `obras` (`idObras`);
+
+--
+-- Limitadores para a tabela `telefonebibliotecaria`
+--
+ALTER TABLE `telefonebibliotecaria`
+  ADD CONSTRAINT `FK_BIBLIOTECARIA_telefoneBibliotecaria` FOREIGN KEY (`idBibliotecaria_FK`) REFERENCES `bibliotecaria` (`idBibliotecaria`);
+
+--
+-- Limitadores para a tabela `telefoneusuario`
+--
+ALTER TABLE `telefoneusuario`
+  ADD CONSTRAINT `FK_USUARIOS_telefoneUsuario` FOREIGN KEY (`idUsuario_FK`) REFERENCES `usuarios` (`idUsuario`);
+
+--
+-- Limitadores para a tabela `tem`
+--
+ALTER TABLE `tem`
+  ADD CONSTRAINT `FK_AUTOR_tem` FOREIGN KEY (`idAutor_FK`) REFERENCES `autor` (`idAutor`),
+  ADD CONSTRAINT `FK_LIVROS_tem` FOREIGN KEY (`isbn_FK`) REFERENCES `livros` (`isbn`);
+
+--
+-- Limitadores para a tabela `usuarios_emprestimo`
+--
+ALTER TABLE `usuarios_emprestimo`
+  ADD CONSTRAINT `FK_BIBLIOTECARIA_USUARIOS_EMPRESTIMO` FOREIGN KEY (`idObras_FK`) REFERENCES `obras` (`idObras`),
+  ADD CONSTRAINT `FK_OBRAS_USUARIOS_EMPRESTIMO` FOREIGN KEY (`idUsuario_FK`) REFERENCES `usuarios` (`idUsuario`),
+  ADD CONSTRAINT `FK_USUARIOS_USUARIOS_EMPRESTIMO` FOREIGN KEY (`idBibliotecaria_FK`) REFERENCES `bibliotecaria` (`idBibliotecaria`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,7 +1,8 @@
 #fundo {
     background: url('../img/fundo.jpg') no-repeat;
     background-size: cover;
-  }
+}
+
 #divAluno{
   width: 320px;
     height: 420px;

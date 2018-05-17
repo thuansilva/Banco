@@ -60,6 +60,16 @@
 				</div>
 		</nav>
 
+	<?php
+	include("../Banco/conexao/conexao.php");
+	$consulta = "SELECT `usuarios`.`idUsuario`, `usuarios`.`nome`, `serie`.`nomeSerie`, `turma`.`nomeTurma`
+    FROM `usuarios`
+    INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK`
+    INNER JOIN `serie` ON `alunos`.`idSerie_FK` = `serie`.`idSerie`
+    INNER JOIN `turma` ON `alunos`.`idTurma_FK` = `turma`.`idTurma`";
+	$con = $mysqli->query($consulta);
+	?> 
+
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
 	<form method="post" action="/Banco/conexao/conexaoPesquisarAluno.php">
 		<legend><h2>Pesquisar Aluno</h2></legend>
@@ -75,6 +85,36 @@
 			</div>
 		</div>
 	</form>
+</div>
+
+<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
+	<form id="lista" name="lista" method="post">
+		
+		<table width="1100" border="0" id="alter">
+			<tr class="dif">
+				<td width="100">ID</td>
+				<td width="400">NOME</td>
+				<td width="300">SERIE</td>
+				<td width="300">TURMA</td>
+
+			<?php
+			while ($tbl=$con->fetch_array()) {
+			#while ($tbl = mysql_fetch_array($con)) {
+			?>
+
+			<tr>
+				<td class="dif1"><?php echo $tbl["idUsuario"];?></td>
+				<td><?php echo $tbl["nome"];?></td>
+				<td><?php echo $tbl["nomeSerie"];?></td>
+				<td><?php echo $tbl["nomeTurma"];?></td>
+			</tr>
+	
+			</tr>
+			</form>
+			<?php } ?>
+		
+		</table>
+			
 </div>
 
  <!-- Bootstrap JavaScript

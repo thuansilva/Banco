@@ -60,6 +60,13 @@
 				</div>
 		</nav>
 
+	<?php
+	include("../Banco/conexao/conexao.php");
+	$consulta = "SELECT `usuarios`.`idUsuario`, `usuarios`.`nome`, `professores`.`email`, `professores`.`cpf` FROM 
+	`usuarios` INNER JOIN `professores` ON `usuarios`.`idUsuario` = `professores`.`idUsuario_FK`";
+	$con = $mysqli->query($consulta);
+	?> 
+
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
 	<form method="post" action="/Banco/conexao/conexaoPesquisarProfessor.php">
 		<legend><h2>Pesquisar Professor</h2></legend>
@@ -76,6 +83,36 @@
 		</div>
 	</form>
 </div>
+	
+<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
+	<form id="lista" name="lista" method="post">
+		
+		<table width="1100" border="0" id="alter">
+			<tr class="dif">
+				<td width="100">ID</td>
+				<td width="400">NOME</td>
+				<td width="300">EMAIL</td>
+				<td width="100">CPF</td>
+
+			<?php
+			while ($tbl=$con->fetch_array()) {
+			#while ($tbl = mysql_fetch_array($con)) {
+			?>
+
+			<tr>
+				<td class="dif1"><?php echo $tbl["idUsuario"];?></td>
+				<td><?php echo $tbl["nome"];?></td>
+				<td><?php echo $tbl["email"];?></td>
+				<td><?php echo $tbl["cpf"];?></td>
+			</tr>
+	
+			</tr>
+			</form>
+			<?php } ?>
+		
+		</table>
+			
+</div>
 
  <!-- Bootstrap JavaScript
     ================================================== -->
@@ -84,6 +121,5 @@
     <script src="./js/popper.min.js" ></script>
     <script src="./js/bootstrap.min.js" ></script>
 		
-
 </body>
 </html>
