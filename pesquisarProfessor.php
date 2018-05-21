@@ -38,7 +38,7 @@
 					</li>
 					<ul class="navbar-nav px-2">
 						<li class="nav-item ">
-							<a class="nav-link" href="#"> Empréstimo</a>
+							<a class="nav-link" href="/Banco/emprestimo.php"> Empréstimo</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav px-2">
