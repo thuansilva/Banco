@@ -3,12 +3,15 @@
 
 <head>
 	<meta charset="utf-8">
+	<link rel="icon" href="../Banco/img/favicon.ico">
 	<title>Pesquisar Alunos</title>
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet">
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
+	<link href="../Banco/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
+	<!-- Barra de Navegação -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
 		<div class="container ">
 			<a class="navbar-brand h1" href="home.php"> SIGB </a>
@@ -69,6 +72,7 @@
 	$con = $mysqli->query($consulta);
 	?>
 
+	<!-- Campo de Pesquisa -->
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
 		<form method="post" action="/Banco/conexao/conexaoPesquisarAluno.php">
 			<legend>
@@ -89,18 +93,21 @@
 	</div>
 
 
+	<!-- Tabela -->
 	<form id="lista" name="lista" method="post">
 
 		<div class="table-responsive">
 			<div class="container  px-lg-3 p-md-3 text-lg-left ">
-
-				<table class="table table-hover  my-2  ">
+				<table class="table my-2">
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">Identificador</th>
 							<th scope="col">Nome</th>
 							<th scope="col">Série</th>
 							<th scope="col">Turma</th>
+							<th>                 </th>
+
+
 						</tr>
 					</thead>
 
@@ -123,13 +130,87 @@
 						<td>
 							<?php echo $tbl["nomeTurma"];?>
 						</td>
-					</tr>
+						<td>	
+						<button type="button" class="btn btn-outline-info" data-toggle="modal"data-target="#PesquisaModal">
+						ssgsf
+						</button>
+						</td>
 
 					</tr>
+
 	</form>
 	<?php } ?>
 	</table>
 	</div>
+	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="PesquisaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="PesquisaModal">Dados do Aluno </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        			</button>
+				</div>
+				<div class="modal-body">
+					<!-- Formulario -->
+					<form method="POST" action="/Banco/conexao/conexaoCadastroAluno.php">
+						<div class="form-row ">
+							<div class="form-group col-md-8">
+								<label>Nome Completo</label>
+								<input type="text" class="form-control" name="nome" required autofocus>
+							</div>
+							<div class="form-group col-md-4">
+								<label>Telefone</label>
+								<input type="text" class="form-control" name="telefone" required autofocus>
+							</div>
+						</div>
+
+						<div class="form-row  ">
+							<div class="form-group col-md-12 mx-auto">
+								<label>Responsável</label>
+								<input type="text" class="form-control" name="responsavel" required autofocus>
+							</div>
+						</div>
+						<div class="form-row ">
+							<div class="form-group col-md-3">
+								<label>Turma</label>
+								<input type="text" class="form-control" name="turma" required autofocus>
+							</div>
+							<div class="form-group col-md-4">
+								<label>Série</label>
+								<input type="text" class="form-control" name="serie" required autofocus>
+							</div>
+							<div class="form-group col-md-5">
+								<label>Matrícula</label>
+								<input type="text" class="form-control" name="matricula" required autofocus>
+							</div>
+						</div>
+						<div class="form-row ">
+							<div class="form-group col-md-5">
+								<label>Rua</label>
+								<input type="text" class="form-control" name="rua" required autofocus>
+							</div>
+							<div class="form-group col-md-5">
+								<label>Bairro</label>
+								<input type="text" class="form-control" name="bairro">
+							</div>
+							<div class="form-group col-md-2">
+								<label>Número</label>
+								<input type="tel" class="form-control" name="numero" required autofocus>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 

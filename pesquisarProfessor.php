@@ -111,6 +111,9 @@
 								<td>
 									<?php echo $tbl["cpf"];?>
 								</td>
+								<td>
+									<button href="" class="btn btn-info">Info</button>
+								</td>
 							</tr>
 
 					</tr>
