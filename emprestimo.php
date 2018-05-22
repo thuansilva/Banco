@@ -109,7 +109,7 @@
 				</div>
 			</div>
 			<center>		
-				<button type="reset" class="btn btn-danger" onClick="document.formEmprestimo.submit()">
+				<button type="reset" class="btn btn-secondary" onClick="document.formEmprestimo.submit()">
 					Cancelar
 				</button>
 				<button type="submit" class="btn btn-primary" onClick="document.formEmprestimo.submit()">

@@ -127,7 +127,7 @@
 							</div>
 							</div>
 							<center>
-									<button type="reset" class="btn btn-danger ">Cancelar</button>
+									<button type="reset" class="btn btn-secondary ">Limpar</button>
 									<button type="submit" class="btn btn-primary "> Salvar </button>
 								<hr>
 							</center>
@@ -177,7 +177,7 @@
 								</div>
 						</div>
 						<center>
-								<button type="reset" class="btn btn-danger ">Cancelar</button>
+								<button type="reset" class="btn btn-secondary">Limpar</button>
 								<button type="submit" class="btn btn-primary "> Salvar </button>
 							<hr>
 						</center>
