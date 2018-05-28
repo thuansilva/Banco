@@ -75,11 +75,9 @@
 			<br/>
 			<div class="form-row ">
 				<div class="form-group col-md-8">
-					<!--		<label >Pesquisar</label> -->
 					<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
 				</div>
 				<div class="form-group col-md-4">
-
 					<button type="submit" class="btn btn-primary"> Buscar </button>
 				</div>
 			</div>
@@ -130,8 +128,6 @@
 	</table>
 	</div>
 	</div>
-
-
 
 
 	<!-- Modal -->

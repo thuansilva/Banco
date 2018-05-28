@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 17-Maio-2018 às 18:47
+-- Data de Criação: 28-Maio-2018 às 22:57
 -- Versão do servidor: 5.6.12-log
 -- versão do PHP: 5.4.16
 
@@ -29,22 +29,13 @@ USE `sigb`;
 --
 
 CREATE TABLE IF NOT EXISTS `alunos` (
-  `idUsuario_FK` int(11) NOT NULL,
+  `idUsuario_FK` int(11) NOT NULL AUTO_INCREMENT,
   `responsavel` varchar(50) NOT NULL,
   `matricula` varchar(10) NOT NULL,
-  `idTurma_FK` int(11) NOT NULL,
-  `idSerie_FK` int(11) NOT NULL,
-  KEY `FK_USUARIOS_ALUNOS` (`idUsuario_FK`),
-  KEY `FK_TURMA_ALUNOS` (`idTurma_FK`),
-  KEY `FK_SERIE_ALUNOS` (`idSerie_FK`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `alunos`
---
-
-INSERT INTO `alunos` (`idUsuario_FK`, `responsavel`, `matricula`, `idTurma_FK`, `idSerie_FK`) VALUES
-(1, 'Antonio Souza', '123456789', 1, 6);
+  `turma` varchar(10) NOT NULL,
+  `serie` varchar(10) NOT NULL,
+  KEY `FK_USUARIOS_ALUNOS` (`idUsuario_FK`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -72,13 +63,6 @@ CREATE TABLE IF NOT EXISTS `bibliotecaria` (
   `senha` varchar(25) NOT NULL,
   PRIMARY KEY (`idBibliotecaria`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `bibliotecaria`
---
-
-INSERT INTO `bibliotecaria` (`idBibliotecaria`, `nomeBibliotecaria`, `email`, `nomeLogin`, `senha`) VALUES
-(1, 'clinton hudson moreira pessoa', 'clinton@email.com', 'clinton', '123');
 
 -- --------------------------------------------------------
 
@@ -122,14 +106,7 @@ CREATE TABLE IF NOT EXISTS `enderecousuario` (
   `bairro` varchar(25) NOT NULL,
   PRIMARY KEY (`endUsuario_PK`),
   KEY `FK_USUARIOS_enderecoUsuario` (`idUsuario_FK`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `enderecousuario`
---
-
-INSERT INTO `enderecousuario` (`endUsuario_PK`, `idUsuario_FK`, `rua`, `numero`, `bairro`) VALUES
-(1, 1, 'Caldas Novas', 234, 'Jardim Florestal');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -145,13 +122,6 @@ CREATE TABLE IF NOT EXISTS `livros` (
   KEY `FK_OBRAS_LIVROS` (`idObras_FK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `livros`
---
-
-INSERT INTO `livros` (`isbn`, `idObras_FK`, `volume`) VALUES
-('', 1, 5);
-
 -- --------------------------------------------------------
 
 --
@@ -166,14 +136,6 @@ CREATE TABLE IF NOT EXISTS `obras` (
   `obs` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`idObras`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Extraindo dados da tabela `obras`
---
-
-INSERT INTO `obras` (`idObras`, `dataCadastro`, `nome`, `anoPublicacao`, `obs`) VALUES
-(1, '2018-05-14', 'Dom Casmurro', 1997, 'esse ano nao tem nada haver'),
-(2, '2018-05-01', 'Veja', 2018, 'sei la, vamo ver');
 
 -- --------------------------------------------------------
 
@@ -214,37 +176,6 @@ CREATE TABLE IF NOT EXISTS `revistas` (
   KEY `FK_OBRAS_REVISTAS` (`idObras_FK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `revistas`
---
-
-INSERT INTO `revistas` (`idObras_FK`, `titulo`, `edicao`) VALUES
-(2, 'A repugnacao dos repugnados', 2);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `serie`
---
-
-CREATE TABLE IF NOT EXISTS `serie` (
-  `idSerie` int(11) NOT NULL AUTO_INCREMENT,
-  `nomeSerie` varchar(10) NOT NULL,
-  PRIMARY KEY (`idSerie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
---
--- Extraindo dados da tabela `serie`
---
-
-INSERT INTO `serie` (`idSerie`, `nomeSerie`) VALUES
-(1, '1'),
-(2, '2'),
-(3, '3'),
-(4, '4'),
-(5, '5'),
-(6, '6');
-
 -- --------------------------------------------------------
 
 --
@@ -271,14 +202,7 @@ CREATE TABLE IF NOT EXISTS `telefoneusuario` (
   `idUsuario_FK` int(11) NOT NULL,
   PRIMARY KEY (`telefone_PK`),
   KEY `FK_USUARIOS_telefoneUsuario` (`idUsuario_FK`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `telefoneusuario`
---
-
-INSERT INTO `telefoneusuario` (`telefone_PK`, `telefone`, `idUsuario_FK`) VALUES
-(1, '9887438743', 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -296,25 +220,6 @@ CREATE TABLE IF NOT EXISTS `tem` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `turma`
---
-
-CREATE TABLE IF NOT EXISTS `turma` (
-  `idTurma` int(11) NOT NULL AUTO_INCREMENT,
-  `nomeTurma` varchar(10) NOT NULL,
-  PRIMARY KEY (`idTurma`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `turma`
---
-
-INSERT INTO `turma` (`idTurma`, `nomeTurma`) VALUES
-(1, '16');
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `usuarios`
 --
 
@@ -322,14 +227,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`idUsuario`, `nome`) VALUES
-(1, 'dante');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -356,9 +254,7 @@ CREATE TABLE IF NOT EXISTS `usuarios_emprestimo` (
 -- Limitadores para a tabela `alunos`
 --
 ALTER TABLE `alunos`
-  ADD CONSTRAINT `FK_USUARIOS_ALUNOS` FOREIGN KEY (`idUsuario_FK`) REFERENCES `usuarios` (`idUsuario`),
-  ADD CONSTRAINT `FK_TURMA_ALUNOS` FOREIGN KEY (`idTurma_FK`) REFERENCES `turma` (`idTurma`),
-  ADD CONSTRAINT `FK_SERIE_ALUNOS` FOREIGN KEY (`idSerie_FK`) REFERENCES `serie` (`idSerie`);
+  ADD CONSTRAINT `FK_USUARIOS_ALUNOS` FOREIGN KEY (`idUsuario_FK`) REFERENCES `usuarios` (`idUsuario`);
 
 --
 -- Limitadores para a tabela `enderecobibliotecaria`

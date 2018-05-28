@@ -130,9 +130,7 @@
 									<button type="button" href="" class="btn btn-info" data-toggle="modal"data-target="#PesquisaModal">Info</button>
 								</td>
 							</tr>
-
 					</tr>
-			
 			</form>
 			<?php } ?>
 	</table>
