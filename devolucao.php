@@ -2,9 +2,10 @@
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
-	<title>Empréstimo</title>
+	<title>Devolução</title>
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
+	<link href="../Banco/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
@@ -59,47 +60,78 @@
 	</div>
 </nav>
 
-	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-		<form method="post"  action="/Banco/conexao/conexaoEmprestimo.php">
-			<legend><h2>Empréstimo de Obras</h2></legend>
-			<br/>
-			<div class="form-row">
-				<div class="form-group col-md-4">
-					<label>Código bibliotecário(a)</label>
-					<input type="number" class="form-control" placeholder="Digite o identificador do bibliotecário(a)" name="bibliotecario" required autofocus>
-				</div>
-				<div class="form-group col-md-4" >
-					<label>Código da Obra</label>
-					<input type="number" class="form-control" placeholder="Digite o identificador da Obra" name="obra" required autofocus>
-				</div>
-				<div class="form-group col-md-4" >
-					<label>Código do usuário</label>
-					<input type="number" class="form-control" placeholder="Digite o identificador do usuário" name="usuario" required autofocus>
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-group col-md-4">
-					<label>Data do empréstimo</label>
-					<input type="date" class="form-control" name="dataEmprestimo" required autofocus>
-					
-				</div>
-				<div class="form-group col-md-4">
-					<label>Data de devolução</label>
-					<input type="date" class="form-control" name="dataDevolucao" required autofocus>
-					
-				</div>
-			</div>
+	<?php
+	include("../Banco/conexao/conexao.php");
+	$consulta = "SELECT `usuarios_emprestimo`.`idBibliotecaria_FK`, `usuarios_emprestimo`.`idObras_FK`, `usuarios_emprestimo`.`idUsuario_FK`, `usuarios_emprestimo`.`dataEmprestimo`, `usuarios_emprestimo`.`dataDevolucao`
+    FROM `usuarios_emprestimo`";
+	$con = $mysqli->query($consulta);
+	?>
 
-			<center>		
-				<button type="reset" class="btn btn-secondary" >
-					Limpar
+	<!-- Campo de Pesquisa -->
+	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
+		<form method="post" action="/Banco/conexao/conexaoPesquisarEmprestimo.php">
+			<legend>
+				<h2>Devolução de Obras</h2>
+			</legend>
+			<br/>
+			<div class="form-row ">
+				<div class="form-group col-md-8">
+					<input type="text" class="form-control" placeholder="Digite código da obra" name="obra" required autofocus>
+				</div>
+				<div class="form-group col-md-4">
+					<button type="submit" class="btn btn-primary"> Buscar </button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+	<!-- Tabela -->
+	<form id="lista" name="lista" method="post" action="/Banco/conexao/conexaoDevolucao.php">
+
+		<div class="table-responsive">
+			<div class="container  px-lg-3 p-md-3 text-lg-left ">
+				<table class="table my-2">
+					<thead class="thead-light">
+						<tr>
+							<th scope="col">Cod. Obra</th>
+							<th scope="col">Cod. Usuário</th>
+							<th scope="col">Data Empréstimo</th>
+							<th scope="col">Data Devolução</th>
+							<th>                 </th>
+						</tr>
+					</thead>
+
+
+		<?php
+			while ($tbl=$con->fetch_array()) {
+			#while ($tbl = mysql_fetch_array($con)) {
+		?>
+
+		<tr>
+			<td class="dif1">
+				<?php echo $tbl["idObras_FK"];?>
+			</td>
+			<td>
+				<?php echo $tbl["idUsuario_FK"];?>
+			</td>
+			<td>
+				<?php echo $tbl["dataEmprestimo"];?>
+			</td>
+			<td>
+				<?php echo $tbl["dataDevolucao"];?>
+			</td>
+			<td>
+				<button type="button" class="btn btn-outline-info" data-toggle="modal"data-target="#PesquisaModal">
+					Devolver
 				</button>
-				<button type="submit" class="btn btn-primary" >
-					Salvar
-				</button>			 
-       		</center>
-			 <hr>
-			 </form>
+			</td>
+		</tr>
+	</form>
+	<?php } ?>
+	
+	</table>
+	</div>
 	</div>
 
  <!-- Bootstrap JavaScript

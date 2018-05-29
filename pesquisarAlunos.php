@@ -45,7 +45,7 @@
 					</ul>
 					<ul class="navbar-nav px-2">
 						<li class="nav-item ">
-							<a class="nav-link" href="#"> Devolução</a>
+							<a class="nav-link" href="/Banco/devolucao.php"> Devolução</a>
 						</li>
 					</ul>
 				</ul>
@@ -64,11 +64,9 @@
 
 	<?php
 	include("../Banco/conexao/conexao.php");
-	$consulta = "SELECT `usuarios`.`idUsuario`, `usuarios`.`nome`, `serie`.`nomeSerie`, `turma`.`nomeTurma`
+	$consulta = "SELECT `usuarios`.`idUsuario`, `usuarios`.`nome`, `alunos`.`serie`, `alunos`.`turma`
     FROM `usuarios`
-    INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK`
-    INNER JOIN `serie` ON `alunos`.`idSerie_FK` = `serie`.`idSerie`
-    INNER JOIN `turma` ON `alunos`.`idTurma_FK` = `turma`.`idTurma`";
+    INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK`";
 	$con = $mysqli->query($consulta);
 	?>
 
@@ -125,10 +123,10 @@
 							<?php echo $tbl["nome"];?>
 						</td>
 						<td>
-							<?php echo $tbl["nomeSerie"];?>
+							<?php echo $tbl["serie"];?>
 						</td>
 						<td>
-							<?php echo $tbl["nomeTurma"];?>
+							<?php echo $tbl["turma"];?>
 						</td>
 						<td>	
 						<button type="button" class="btn btn-outline-info" data-toggle="modal"data-target="#PesquisaModal">

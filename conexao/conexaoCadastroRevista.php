@@ -31,5 +31,5 @@
     VALUES ('$identificador', '$id')");
     mysql_query($cadastro3);
 
-	header("location:/Banco/cadastroRevista.php");
+	header("location:/Banco/cadastroLR.php");
 ?>

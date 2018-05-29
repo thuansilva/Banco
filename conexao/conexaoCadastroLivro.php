@@ -42,5 +42,5 @@
     VALUES ('$chave', '$isbn')");
     mysql_query($cadastro5);
 
-	header("location:/Banco/cadastroLivro.php");
+	header("location:/Banco/cadastroLR.php");
 ?>

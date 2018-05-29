@@ -46,7 +46,7 @@
 						</ul>
 						<ul class="navbar-nav px-2">
 							<li class="nav-item ">
-							   <a class="nav-link" href="#"> Devolução</a>
+							   <a class="nav-link" href="/Banco/devolucao.php"> Devolução</a>
 							</li>
 						</ul>
 					  </ul>
