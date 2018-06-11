@@ -82,7 +82,7 @@
 
 
 			<div class="tab-content py-lg-3" id="myTabContent">
-				<div class="tab-pane fade show active" id="home"  aria-labelledby="home-tab">
+				<div class="tab-pane fade show active" id="home" aria-labelledby="home-tab">
 						<legend><h2>Livro</h2></legend>
 						<form  class method="POST" action="/Banco/conexao/conexaoCadastroLivro.php">
 							<div class="form-row ">

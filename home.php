@@ -89,21 +89,21 @@
           <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5  
           text-center text-white overflow-hidden" style="border-radius: 21px 21px 0 0">
               <h2>Quem Somos?</h2>
-              <p class="lead">Sistema criado por alunos da Universidade Federal do Amazonas
+              <p class="lead" align='justify'>Sistema criado por alunos da Universidade Federal do Amazonas
                   para auxiliar no gerencimanto de bibliotecas. somos um bando de azarados que nasceu                 
                   antes da exploração espacial e depois da epoca das navegações e agora tem que fazer essa merda</p>            
           </div>
           <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 mx-auto 
                text-center overflow-hidden "  style="border-radius: 21px 21px 0 0">
               <div class="my-3 p-3">
-                <h2 class="display-5">para voce !</h2>
-                <p class="lead">adasdasdasd dfsdfsdfsdfadfaasdfafadfasdfasdfasdfasdf  dadsadasdsadsadasddsdasdsad
+                <h2 class="display-5">Para vocÊ!</h2>
+                <p class="lead" align='justify'>adasdasdasd dfsdfsdfsdfadfaasdfafadfasdfasdfasdfasdf  dadsadasdsadsadasddsdasdsad
                 asdasdadasdadsadsadadadasdasadaaffjsdafjfadfjadjflçdajslfjalsjdfkl</p>
               </div>
             </div>
         </div>
 
-<!--                    ROdapé (Footer)                      -->
+<!--                    Rodapé (Footer)                      -->
   
         <section id="contact">
           <div class="container">
