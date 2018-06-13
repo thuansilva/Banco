@@ -4,7 +4,7 @@
 	$senha = "";
 	$banco = "sigb";
 
-
+	#$conn = mysqli_connect($host, $usuario, $senha, $banco);
 	$mysqli = new mysqli($host, $usuario, $senha, $banco);
 
 	if($mysqli->connect_error)

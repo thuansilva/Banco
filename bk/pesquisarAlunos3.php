@@ -63,7 +63,7 @@
 	</nav>
 
 	<?php
-	include("../Banco/conexao/conexao.php");
+	include_once("../Banco/conexao/conexao.php");
 
 	$consulta = "SELECT * FROM `usuarios`
     INNER JOIN `telefoneusuario` ON `usuarios`.`idUsuario` = `telefoneusuario`.`idUsuario_FK`
@@ -103,8 +103,8 @@
 				<table class="table my-2">
 					<thead class="thead-light">
 						<tr>
-							<th scope="col">Identificador</th>
-							<th scope="col">Nome do Aluno</th>
+							<th scope="col">#</th>
+							<th scope="col">Nome</th>
 							<th scope="col">Série</th>
 							<th scope="col">Turma</th>
 							<th>                 </th>
@@ -132,9 +132,11 @@
 							<?php echo $tbl['turma'];?>
 						</td>
 						<td>
-						<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">Visualizar</button>
+						<button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">Visualizar</button>
 
-						<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaModal" data-whatever="<?php echo $tbl['idUsuario'];?>" data-whatevernome="<?php echo $tbl['nome'];?>" data-whatevertelefone="<?php echo $tbl['telefone'];?>" data-whateverresponsavel="<?php echo $tbl['responsavel'];?>" data-whateverturma="<?php echo $tbl['turma'];?>" data-whateverserie="<?php echo $tbl['serie'];?>" data-whatevermatricula="<?php echo $tbl['matricula'];?>" data-whateverrua="<?php echo $tbl['rua'];?>" data-whateverbairro="<?php echo $tbl['bairro'];?>" data-whatevernumero="<?php echo $tbl['numero'];?>"> Editar</button>
+			<!--			<button type="button" class="btn btn-outline-info" data-toggle="modal"data-target="#PesquisaModal" data-whatever="<?php #echo $tbl["idUsuario"]; ?>">
+						Editar
+						</button> -->
 						
 						</td>
 					</tr>
@@ -147,18 +149,16 @@
 												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 											</div>
 											<div class="modal-body">
-												<p><?php echo "Identificador: ", $tbl['idUsuario']; ?></p>
-												<p><?php echo "Nome: ", $tbl['nome']; ?></p>
-												<p><?php echo "Telefone: ", $tbl['telefone']; ?></p>
-												<p><?php echo "Responsavel: ", $tbl['responsavel']; ?></p>
-												<p><?php echo "Turma: ", $tbl['turma']; ?></p>
-												<p><?php echo "Serie: ", $tbl['serie']; ?></p>
-												<p><?php echo "Matricula: ", $tbl['matricula']; ?></p>
-												<p><?php echo "Rua: ", $tbl['rua']; ?></p>
-												<p><?php echo "Bairro: ", $tbl['bairro']; ?></p>
-												<p><?php echo "Numero: ", $tbl['numero']; ?></p>
-
-											<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
+												<p><?php echo $tbl['idUsuario']; ?></p>
+												<p><?php echo $tbl['nome']; ?></p>
+												<p><?php echo $tbl['telefone']; ?></p>
+												<p><?php echo $tbl['responsavel']; ?></p>
+												<p><?php echo $tbl['turma']; ?></p>
+												<p><?php echo $tbl['serie']; ?></p>
+												<p><?php echo $tbl['matricula']; ?></p>
+												<p><?php echo $tbl['rua']; ?></p>
+												<p><?php echo $tbl['bairro']; ?></p>
+												<p><?php echo $tbl['numero']; ?></p>
 
 											</div>
 										</div>
@@ -172,66 +172,69 @@
 </form>
 
 	<!-- Modal -->
-	
+	<!--
 	<div class="modal fade" id="PesquisaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="PesquisaModal"></h5>
+					<h5 class="modal-title" id="PesquisaModal">Dados do Aluno </h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          				<span aria-hidden="true">&times;</span>
+          			<span aria-hidden="true">&times;</span>
         			</button>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body"> -->
 				
 
-					<!-- Formulario -->
+					<!-- Formulario 
 
-					<form method="post" action="/Banco/conexao/conexaoAtualizar.php">
-						<div class="form-row">
+					<form method="post"> action="/Banco/conexao/conexaoCadastroAluno.php"
+						<div class="form-row ">
 							<div class="form-group col-md-12">
-								<label for="nome">Nome Completo</label>
-								<input type="text" class="form-control" id="nome" name="nome" required autofocus >
+							<label>ID</label>
+								<input type="text" class="form-control" name="id" required autofocus >
+							</div>
+							<div class="form-group col-md-12">
+								<label>Nome Completo</label>
+								<input type="text" class="form-control" name="nome" required autofocus >
 							</div>
 							<div class="form-group col-md-4">
-								<label for="telefone">Telefone</label>
-								<input type="text" class="form-control" id="telefone" name="telefone" required autofocus >
+								<label>Telefone</label>
+								<input type="text" class="form-control" name="telefone" required autofocus >
 							</div>
 						</div>
 						<div class="form-row  ">
 							<div class="form-group col-md-12 mx-auto">
-								<label for="responsavel">Responsável</label>
-								<input type="text" class="form-control" id="responsavel" name="responsavel" required autofocus >
+								<label>Responsável</label>
+								<input type="text" class="form-control" name="responsavel" required autofocus >
 							</div>
 						</div>
 						<div class="form-row ">
 							<div class="form-group col-md-3">
-								<label for="turma">Turma</label>
-								<input type="text" class="form-control" id="turma" name="turma" required autofocus >
+								<label>Turma</label>
+								<input type="text" class="form-control" name="turma" required autofocus >
 							</div>
 							<div class="form-group col-md-4">
-								<label for="serie">Série</label>
-								<input type="text" class="form-control" id="serie" name="serie" required autofocus > 
+								<label>Série</label>
+								<input type="text" class="form-control" name="serie" required autofocus > 
 							</div>
 							<div class="form-group col-md-5">
-								<label for="matricula">Matrícula</label>
-								<input type="text" class="form-control" id="matricula" name="matricula" required autofocus >
+								<label>Matrícula</label>
+								<input type="text" class="form-control" name="matricula" required autofocus >
 							</div>
 						</div>
 						<div class="form-row ">
 							<div class="form-group col-md-5">
-								<label for="rua">Rua</label>
-								<input type="text" class="form-control" id="rua" name="rua" required autofocus >
+								<label>Rua</label>
+								<input type="text" class="form-control" name="rua" required autofocus >
 							</div>
 							<div class="form-group col-md-5">
-								<label for="bairro">Bairro</label>
-								<input type="text" class="form-control" id="bairro" name="bairro" required autofocus >
+								<label>Bairro</label>
+								<input type="text" class="form-control" name="bairro" required autofocus >
 							</div>
 							<div class="form-group col-md-2">
-								<label for="numero">Número</label>
-								<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
+								<label>Número</label>
+								<input type="tel" class="form-control" name="numero" required autofocus >
 							</div>
-							<input id="id_Aluno" type="hidden" name="id">
 						</div> 
 
 					<div class="modal-footer">
@@ -240,47 +243,33 @@
 					</div>
 					</form>
 				</div>
+				
 			</div>
 		</div>
 	</div>
 	-->
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+     Include all compiled plugins (below), or include individual files as needed 
     <script src="js/bootstrap.min.js"></script>
-    
 	<script type="text/javascript">
-		$('#PesquisaModal').on('show.bs.modal', function (event) {
+		$('#exampleModal').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Button that triggered the modal
 		  var recipient = button.data('whatever') // Extract info from data-* attributes
 		  var recipientnome = button.data('whatevernome')
-		  var recipienttelefone = button.data('whatevertelefone')
-		  var recipientresponsavel = button.data('whateverresponsavel')
-		  var recipientturma = button.data('whateverturma')
-		  var recipientserie = button.data('whateverserie')
-		  var recipientmatricula = button.data('whatevermatricula')
-		  var recipientrua = button.data('whateverrua')
-		  var recipientbairro = button.data('whateverbairro')
-		  var recipientnumero = button.data('whatevernumero')
+		  var recipientdetalhes = button.data('whateverdetalhes')
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
-		  modal.find('.modal-title').text('ID do Aluno: ' + recipient)
-		  modal.find('#id_Aluno').val(recipient)
-		  modal.find('#nome').val(recipientnome)
-		  modal.find('#telefone').val(recipienttelefone)
-		  modal.find('#responsavel').val(recipientresponsavel)
-		  modal.find('#turma').val(recipientturma)
-		  modal.find('#serie').val(recipientserie)
-		  modal.find('#matricula').val(recipientmatricula)
-		  modal.find('#rua').val(recipientrua)
-		  modal.find('#bairro').val(recipientbairro)
-		  modal.find('#numero').val(recipientnumero)
+		  modal.find('.modal-title').text('ID ' + recipient)
+		  modal.find('#id-curso').val(recipient)
+		  modal.find('#recipient-name').val(recipientnome)
+		  modal.find('#detalhes').val(recipientdetalhes)
 		  
 		})
 	</script>
-
+-->
 	<!-- Bootstrap JavaScript
     ================================================== -->
 	<!-- -->

@@ -5,11 +5,9 @@
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
     
-    $pesquisa = ("SELECT `usuarios`.`idUsuario`, `usuarios`.`nome`, `serie`.`nomeSerie`, `turma`.`nomeTurma`
+    $pesquisa = ("SELECT `usuarios`.`idUsuario`, `usuarios`.`nome`, `alunos`.`serie`, `alunos`.`turma`
     FROM `usuarios`
     INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK`
-    INNER JOIN `serie` ON `alunos`.`idSerie_FK` = `serie`.`idSerie`
-    INNER JOIN `turma` ON `alunos`.`idTurma_FK` = `turma`.`idTurma`
     WHERE `usuarios`.`nome` LIKE  '%$nome%'");
     $result = mysql_query($pesquisa);
 
@@ -27,8 +25,8 @@
         while ($tbl = mysql_fetch_array($result)) {
             $idUsuario = $tbl["idUsuario"];
             $nomeUsuario = $tbl["nome"];
-            $serie = $tbl["nomeSerie"];
-            $turma = $tbl["nomeTurma"];
+            $serie = $tbl["serie"];
+            $turma = $tbl["turma"];
             echo "<TR>";
             echo "<TD>$idUsuario </TD>";
             echo "<TD>$nomeUsuario </TD>";

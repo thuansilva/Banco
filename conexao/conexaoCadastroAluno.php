@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    $id = $_POST['id'];
 	$nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
 	$responsavel = $_POST['responsavel'];
@@ -32,5 +33,13 @@
     VALUES({$id}, '$rua', '$numero', '$bairro')");
     mysql_query($cadastro3);
 
-	header("location:/Banco/cadastroAluno.php");
+    if( $cadastro == '' || $cadastro1 == '' || $cadastro2 == '' || $cadastro3 == ''){
+    echo "<script>alert('Houve um erro ao cadastrar!');
+    location.href=\"/Banco/cadastroAluno.php\"</script>";
+    }else{
+    echo "<script>alert('Registro cadastrado com sucesso!');
+    location.href=\"/Banco/cadastroAluno.php\"</script>";
+    }
+
+	#header("location:/Banco/cadastroAluno.php");
 	?>
