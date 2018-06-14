@@ -69,56 +69,55 @@
 		<legend><h2>Aluno</h2></legend>
 		<form method="POST" action="/Banco/conexao/conexaoCadastroAluno.php">
 			<div class="form-row ">
-			  <div class="form-group col-md-8" >
-				<label >Nome Completo</label>
-				<input type="text" class="form-control" name="nome" required autofocus>
-			  </div>
-			  <div class="form-group col-md-4" >
-				<label >Telefone</label>
-				<input type="text" class="form-control" name="telefone" required autofocus>
-			  </div>
+				<div class="form-group col-md-8" >
+					<label >Nome Completo</label>
+					<input type="text" class="form-control" name="nome" required autofocus>
+				</div>
+				<div class="form-group col-md-4" >
+					<label >Telefone</label>
+					<input type="text" class="form-control" name="telefone" required autofocus>
+				</div>
 			</div>
 	
 			<div class="form-row  ">
-					<div class="form-group col-md-12 mx-auto" >
+				<div class="form-group col-md-12 mx-auto" >
 					<label >Responsável</label>
 					<input type="text" class="form-control" name="responsavel" required autofocus>
 					</div>
 				</div>
-				<div class="form-row ">
-					<div class="form-group col-md-3">
-						<label >Turma</label>
-						<input type="text" class="form-control" name="turma" required autofocus>
-					</div>
+			<div class="form-row ">
+				<div class="form-group col-md-3">
+					<label >Turma</label>
+					<input type="text" class="form-control" name="turma" required autofocus>
+				</div>
 				<div class="form-group col-md-4">
-						<label >Série</label>
-						<input type="text" class="form-control" name="serie" required autofocus>
+					<label >Série</label>
+					<input type="text" class="form-control" name="serie" required autofocus>
 				</div>
 				<div class="form-group col-md-5">
-						<label>Matrícula</label>
-						<input type="text" class="form-control" name="matricula" required autofocus>
+					<label>Matrícula</label>
+					<input type="text" class="form-control" name="matricula" required autofocus>
 				</div>
 			</div>
 			<div class="form-row ">
-			<div class="form-group col-md-5">
-				<label >Rua</label>
-				<input type="text" class="form-control" name="rua" required autofocus>
+				<div class="form-group col-md-5">
+					<label >Rua</label>
+					<input type="text" class="form-control" name="rua" required autofocus>
+				</div>
+				<div class="form-group col-md-5">
+					<label >Bairro</label>
+					<input type="text" class="form-control" name="bairro">
+				</div>
+				<div class="form-group col-md-2">
+					<label >Número</label>
+					<input type="tel" class="form-control" name="numero" required autofocus>
+				</div>
 			</div>
-			<div class="form-group col-md-5">
-				<label >Bairro</label>
-				<input type="text" class="form-control" name="bairro">
-			</div>
-			<div class="form-group col-md-2">
-				<label >Número</label>
-				<input type="tel" class="form-control" name="numero" required autofocus>
-			</div>
-		</div>
 			<center>
 		
 					 <button type="reset" class="btn btn-secondary">Limpar</button>
-					 <button type="submit" class="btn btn-primary  "> Salvar </button>
-				 
-       </center>
+					 <button type="submit" class="btn btn-primary  "> Salvar </button>	 
+       		</center>
 			 <hr>
 	
 		</form>

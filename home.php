@@ -7,7 +7,7 @@
     <link href="../Banco/css/bootstrap.min.css" rel="stylesheet">
     <link href="../Banco/css/home.css" rel="stylesheet">
     <link href="../Banco/css/testetitulo.css" rel="stylesheet">
-    <link href="..Banco/font/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../Banco/css/font-awesome.min.css">
   </head>
 
   <body>

@@ -62,8 +62,7 @@
 
 	<?php
 	include("../Banco/conexao/conexao.php");
-	$consulta = "SELECT `usuarios_emprestimo`.`idBibliotecaria_FK`, `usuarios_emprestimo`.`idObras_FK`, `usuarios_emprestimo`.`idUsuario_FK`, `usuarios_emprestimo`.`dataEmprestimo`, `usuarios_emprestimo`.`dataDevolucao`
-    FROM `usuarios_emprestimo`";
+	$consulta = "SELECT * FROM `usuarios_emprestimo`";
 	$con = $mysqli->query($consulta);
 	?>
 
@@ -122,11 +121,40 @@
 				<?php echo $tbl["dataDevolucao"];?>
 			</td>
 			<td>
-				<button type="button" class="btn btn-outline-info" data-toggle="modal"data-target="#PesquisaModal">
-					Devolver
+				<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario_FK']; ?>">
+					Visualizar
 				</button>
 			</td>
 		</tr>
+		<!-- Inicio Modal -->
+		<div class="modal fade" id="myModal<?php echo $tbl['idUsuario']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nome']; ?></h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+											<div class="modal-body">
+												<p><?php echo "Identificador: ", $tbl['idUsuario']; ?></p>
+												<p><?php echo "Nome: ", $tbl['nome']; ?></p>
+												<p><?php echo "Telefone: ", $tbl['telefone']; ?></p>
+												<p><?php echo "Responsavel: ", $tbl['responsavel']; ?></p>
+												<p><?php echo "Turma: ", $tbl['turma']; ?></p>
+												<p><?php echo "Serie: ", $tbl['serie']; ?></p>
+												<p><?php echo "Matricula: ", $tbl['matricula']; ?></p>
+												<p><?php echo "Rua: ", $tbl['rua']; ?></p>
+												<p><?php echo "Bairro: ", $tbl['bairro']; ?></p>
+												<p><?php echo "Numero: ", $tbl['numero']; ?></p>
+
+											<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Fim Modal -->
 	</form>
 	<?php } ?>
 	

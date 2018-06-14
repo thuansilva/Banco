@@ -5,9 +5,16 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="../Banco/img/favicon.ico">
 	<title>Pesquisar Alunos</title>
+	<link rel="stylesheet" href="../Banco/css/font-awesome.min.css">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet">
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
-	<link href="../Banco/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+	<script src="../Banco/js/slim.min.js"></script>
+	<script src="../Banco/js/popper.min.js"></script>
+	<script src="../Banco/js/bootstrap.min.js"></script>
+	<script src="../Banco/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -34,18 +41,18 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarSite" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pesquisar</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="/Banco/pesquisarProfessor.php"> Professor</a>
-							<a class="dropdown-item" href="/Banco/pesquisarAlunos.php"> Aluno</a>
-							<a class="dropdown-item" href="/Banco/pesquisarObras.php"> Obras</a>
+							<a class="dropdown-item" href="/Banco/pesquisarAlunos.php">Aluno</a>
+							<a class="dropdown-item" href="/Banco/pesquisarObras.php">Obras</a>
 						</div>
 					</li>
 					<ul class="navbar-nav px-2">
 						<li class="nav-item ">
-							<a class="nav-link" href="/Banco/emprestimo.php"> Empréstimo</a>
+							<a class="nav-link" href="/Banco/emprestimo.php">Empréstimo</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav px-2">
 						<li class="nav-item ">
-							<a class="nav-link" href="/Banco/devolucao.php"> Devolução</a>
+							<a class="nav-link" href="/Banco/devolucao.php">Devolução</a>
 						</li>
 					</ul>
 				</ul>
@@ -53,8 +60,8 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown">Usuário </a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#"> Perfil </a>
-							<a class="dropdown-item" href="index.php"> Sair</a>
+							<a class="dropdown-item" href="#">Perfil</a>
+							<a class="dropdown-item" href="index.php">Sair</a>
 						</div>
 					</li>
 				</ul>
@@ -132,9 +139,37 @@
 							<?php echo $tbl['turma'];?>
 						</td>
 						<td>
-						<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">Visualizar</button>
+						<button type="button" role="button" class="btn btn-outline-info"  data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
+							Visualizar
+							<i class="fa fa-info"></i>
+						</button>
 
-						<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaModal" data-whatever="<?php echo $tbl['idUsuario'];?>" data-whatevernome="<?php echo $tbl['nome'];?>" data-whatevertelefone="<?php echo $tbl['telefone'];?>" data-whateverresponsavel="<?php echo $tbl['responsavel'];?>" data-whateverturma="<?php echo $tbl['turma'];?>" data-whateverserie="<?php echo $tbl['serie'];?>" data-whatevermatricula="<?php echo $tbl['matricula'];?>" data-whateverrua="<?php echo $tbl['rua'];?>" data-whateverbairro="<?php echo $tbl['bairro'];?>" data-whatevernumero="<?php echo $tbl['numero'];?>"> Editar</button>
+						
+						
+
+						<button type="button" class="btn btn-outline-warning" 
+						data-toggle="modal" data-target="#PesquisaModal" 
+						data-whatever="<?php echo $tbl['idUsuario'];?>" 
+						data-whatevernome="<?php echo $tbl['nome'];?>" 
+						data-whatevertelefone="<?php echo $tbl['telefone'];?>" 
+						data-whateverresponsavel="<?php echo $tbl['responsavel'];?>"
+						 data-whateverturma="<?php echo $tbl['turma'];?>" 
+						 data-whateverserie="<?php echo $tbl['serie'];?>" 
+						 data-whatevermatricula="<?php echo $tbl['matricula'];?>" 
+						 data-whateverrua="<?php echo $tbl['rua'];?>" 
+						 data-whateverbairro="<?php echo $tbl['bairro'];?>" 
+						 data-whatevernumero="<?php echo $tbl['numero'];?>">
+						 Editar
+						 	<i class="fa fa-edit"></i>
+						 
+						 </button>
+
+						
+						
+						 <button type="button" role="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
+						 Excluir
+						 <i class="fa fa-trash "></i>
+						</button>
 						
 						</td>
 					</tr>
@@ -235,8 +270,8 @@
 						</div> 
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary">Salvar</button>
 					</div>
 					</form>
 				</div>
@@ -284,9 +319,7 @@
 	<!-- Bootstrap JavaScript
     ================================================== -->
 	<!-- -->
-	<script src="./js/slim.min.js"></script>
-	<script src="./js/popper.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
+	
 
 
 </body>
