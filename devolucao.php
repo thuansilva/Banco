@@ -73,14 +73,14 @@
 
 	<!-- Campo de Pesquisa -->
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-		<form method="post" action="/Banco/conexao/conexaoPesquisarEmprestimo.php">
+		<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
 			<legend>
 				<h2>Devolução de Obras</h2>
 			</legend>
 			<br/>
 			<div class="form-row ">
 				<div class="form-group col-md-8">
-					<input type="text" class="form-control" placeholder="Digite código da obra" name="obra" required autofocus>
+					<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
 				</div>
 				<div class="form-group col-md-4">
 					<button type="submit" class="btn btn-primary"> Buscar </button>
@@ -106,8 +106,6 @@
 							<th>                 </th>
 						</tr>
 					</thead>
-
-
 		<?php
 			while ($tbl=$con->fetch_array()) {
 			#while ($tbl = mysql_fetch_array($con)) {
@@ -135,9 +133,9 @@
 				Visualizar
 				<i class="fa fa-info"></i>
 			</button>					
-			<button type="button" role="button" class="btn btn-outline-danger"  
+			<button type="submit" role="button" class="btn btn-outline-danger"  
 			data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
-				Excluir
+				Devolver
 				<i class="fa fa-trash "></i>
 			</button>
 			</td>
@@ -154,8 +152,8 @@
 					</div>
 					<div class="modal-body">
 						<p><?php echo "Identificador Empréstimo: ", $tbl['idEmprestimo']; ?></p>
-						<p><?php echo "Identificador Obra: ", $tbl['nomeObras']; ?></p>
-						<p><?php echo "Identificador Usuário: ", $tbl['nomeUsuarios']; ?></p>
+						<p><?php echo "Nome Obra: ", $tbl['nomeObras']; ?></p>
+						<p><?php echo "Nome Usuário: ", $tbl['nomeUsuarios']; ?></p>
 						<p><?php echo "Data Empréstimo: ", $tbl['dataEmprestimo']; ?></p>
 						<p><?php echo "Data Devolução: ", $tbl['dataDevolucao']; ?></p>
 						<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->

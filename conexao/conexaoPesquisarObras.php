@@ -5,9 +5,9 @@
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
     
-    $pesquisa = ("SELECT `obras`.`idObras`, `obras`.`nome`, `obras`.`dataCadastro`
+    $pesquisa = ("SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
     FROM `obras`
-    WHERE `obras`.`nome` LIKE  '%$nome%'");
+    WHERE `obras`.`nomeObras` LIKE  '%$nome%'");
     $result = mysql_query($pesquisa);
 
     if(mysql_num_rows($result) > 0){
@@ -22,7 +22,7 @@
 
         while ($tbl = mysql_fetch_array($result)) {
             $idObra = $tbl["idObras"];
-            $nomeObra = $tbl["nome"];
+            $nomeObra = $tbl["nomeObras"];
             $dataCadastro = $tbl["dataCadastro"];
             echo "<tr>";
             echo "<td>$idObra </td>";
