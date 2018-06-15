@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios_emprestimo` (
-  `idEmprestimo` int(11) NOT NULL,
+  `idEmprestimo` int(11) NOT NULL AUTO_INCREMENT,
   `idBibliotecaria_FK` int(11) NOT NULL,
   `idObras_FK` int(11) NOT NULL,
   `idUsuario_FK` int(11) NOT NULL,

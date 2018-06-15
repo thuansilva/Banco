@@ -12,7 +12,7 @@
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
     
-    $cadastro = ("INSERT INTO `obras` (`dataCadastro`, `nome`, `anoPublicacao`, `obs`)
+    $cadastro = ("INSERT INTO `obras` (`dataCadastro`, `nomeObras`, `anoPublicacao`, `obs`)
     VALUES('$dataCadastro', '$nome', '$anoPublicacao', '$obs')");
     mysql_query($cadastro);
 
@@ -42,5 +42,13 @@
     VALUES ('$chave', '$isbn')");
     mysql_query($cadastro5);
 
-	header("location:/Banco/cadastroLR.php");
+    if( $cadastro == '' || $cadastro1 == '' || $cadastro2 == '' || $cadastro3 == ''){
+        echo "<script>alert('Houve um erro ao cadastrar!');
+        location.href=\"/Banco/cadastroLR.php\"</script>";
+    }else{
+        echo "<script>alert('Registro cadastrado com sucesso!');
+        location.href=\"/Banco/cadastroLR.php\"</script>";
+    }
+
+	#header("location:/Banco/cadastroLR.php");
 ?>

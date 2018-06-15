@@ -2,7 +2,7 @@
 
 	include("../Banco/conexao/conexao.php");
 
-	$consulta = "SELECT `usuarios`.`nome`, `telefoneusuario`.`telefone`, `alunos`.`responsavel`, `alunos`.`turma`, `alunos`.`serie`, `alunos`.`matricula`, `enderecousuario`.`rua`, `enderecousuario`.`bairro`, `enderecousuario`.`numero` 
+	$consulta = "SELECT `usuarios`.`nomeUsuarios`, `telefoneusuario`.`telefone`, `alunos`.`responsavel`, `alunos`.`turma`, `alunos`.`serie`, `alunos`.`matricula`, `enderecousuario`.`rua`, `enderecousuario`.`bairro`, `enderecousuario`.`numero` 
     FROM `usuarios`
     INNER JOIN `telefoneusuario` ON `usuarios`.`idUsuario` = `telefoneusuario`.`idUsuario_FK`
 	INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK`
@@ -13,7 +13,7 @@
 	#$select_query = mysql_query($consul);
 
 					$id = filter_input(INPUT_POST, 'idUsuario');
-					$nome = filter_input(INPUT_POST, 'nome');
+					$nome = filter_input(INPUT_POST, 'nomeUsuarios');
 					$telefone = filter_input(INPUT_POST, 'telefone');
 					$responsavel = filter_input(INPUT_POST, 'responsavel');
 					$turma = filter_input(INPUT_POST, 'turma');

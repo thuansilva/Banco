@@ -5,7 +5,10 @@
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
     
-    $devolucao = ("SELECT  `usuarios_emprestimo`.`idObras_FK`, `obras`.`nome`, `obras`.`obs` FROM `usuarios_emprestimo` INNER JOIN `obras` ON `usuarios_emprestimo`.`idObras_FK`= `obras`.`IdObras` WHERE `idObras_FK`='$obra'");
+    $devolucao = ("SELECT  `usuarios_emprestimo`.`idObras_FK`, `obras`.`nomeObras`, `obras`.`obs` 
+    FROM `usuarios_emprestimo` 
+    INNER JOIN `obras` ON `usuarios_emprestimo`.`idObras_FK`= `obras`.`IdObras` 
+    WHERE `idObras_FK`='$obra'");
     $result = mysql_query($devolucao);
 
     if(mysql_num_rows($result) > 0){
@@ -20,7 +23,7 @@
 
         while ($tbl = mysql_fetch_array($result)) {
             $idObra = $tbl["idObras_FK"];
-            $nome = $tbl["nome"];
+            $nome = $tbl["nomeObras"];
             $descricao = $tbl["obs"];
             echo "<tr>";
             echo "<td>$idObra </td>";

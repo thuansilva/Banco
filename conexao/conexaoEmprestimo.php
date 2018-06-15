@@ -11,8 +11,15 @@
 
     $emprestimo = ("INSERT INTO `usuarios_emprestimo` (`idBibliotecaria_FK`, `idObras_FK`, `idUsuario_FK`, `dataDevolucao`, `dataEmprestimo`)
      VALUES  ('$bibliotecario', '$obra', '$usuario', '$dataEmprestimo', '$dataDevolucao')");
-
     mysql_query($emprestimo);
 
-	header("location:/Banco/emprestimo.php");
+    if( $emprestimo == ''){
+        echo "<script>alert('Houve um erro ao fazer emprestimo!');
+        location.href=\"/Banco/emprestimo.php\"</script>";
+    }else{
+        echo "<script>alert('Emprestimo com sucesso!');
+        location.href=\"/Banco/emprestimo.php\"</script>";
+    }
+    
+    #header("location:/Banco/emprestimo.php");
 	?>

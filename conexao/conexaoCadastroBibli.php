@@ -24,7 +24,15 @@
 
     $cadastro2 = ("INSERT INTO `enderecoBibliotecaria` (`idBibliotecaria_FK`, `rua`, `numero`, `bairro`)
     VALUES ( {$id}, '$rua', '$numero', '$bairro')");
-    mysql_query($cadastro2);
+	mysql_query($cadastro2);
 
-	header("location:/Banco/cadastroBibli.php");
+	if( $cadastro == '' || $cadastro1 == '' || $cadastro2 == ''){
+		echo "<script>alert('Houve um erro ao cadastrar!');
+		location.href=\"/Banco/cadastroBibli.php\"</script>";
+	}else{
+		echo "<script>alert('Registro cadastrado com sucesso!');
+		location.href=\"/Banco/cadastroBibli.php\"</script>";
+	}
+
+	#header("location:/Banco/cadastroBibli.php");
 	?>

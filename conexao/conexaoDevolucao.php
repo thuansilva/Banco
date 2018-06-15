@@ -8,5 +8,13 @@
     $devolucao = ("DELETE FROM `usuarios_emprestimo` WHERE `idEmprestimo`='$devolucao'");
     $result = mysql_query($devolucao);
 
-	header("location:/Banco/devolucao.php");
+    if( $devolucao == ''){
+        echo "<script>alert('Houve um erro ao fazer devolucao!');
+        location.href=\"/Banco/devolucao.php\"</script>";
+    }else{
+        echo "<script>alert('Devolucao realizada com sucesso!');
+        location.href=\"/Banco/devolucao.php\"</script>";
+    }
+
+	#header("location:/Banco/devolucao.php");
 	?>

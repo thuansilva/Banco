@@ -15,7 +15,7 @@
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
     
-    $cadastro = ("INSERT INTO `usuarios` (`nome`)
+    $cadastro = ("INSERT INTO `usuarios` (`nomeUsuarios`)
     VALUES('$nome')");
     mysql_query($cadastro);
 

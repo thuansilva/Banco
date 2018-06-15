@@ -12,7 +12,7 @@
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
     
-    $cadastro = ("INSERT INTO `usuarios` (`nome`)
+    $cadastro = ("INSERT INTO `usuarios` (`nomeUsuarios`)
     VALUES('$nome')");
     mysql_query($cadastro);
 
@@ -30,5 +30,13 @@
     VALUES({$id}, '$rua', '$numero', '$bairro')");
     mysql_query($cadastro3);
 
-	header("location:/Banco/cadastroProf.php");
+    if( $cadastro == '' || $cadastro1 == '' || $cadastro2 == '' || $cadastro3 == ''){
+        echo "<script>alert('Houve um erro ao cadastrar!');
+        location.href=\"/Banco/cadastroProf.php\"</script>";
+    }else{
+        echo "<script>alert('Registro cadastrado com sucesso!');
+        location.href=\"/Banco/cadastroProf.php\"</script>";
+    }
+
+	#header("location:/Banco/cadastroProf.php");
 	?>
