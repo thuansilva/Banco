@@ -62,7 +62,7 @@
 		</div>
 	</nav>
 
-	
+
 
 	<?php
 	include("../Banco/conexao/conexao.php");
@@ -71,28 +71,30 @@
 	$con = $mysqli->query($consulta);
 	?>
 
-		<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-			<form method="post" action="/Banco/conexao/conexaoPesquisarProfessor.php">
-				<legend>
-					<h2>Pesquisar Professor</h2>
-				</legend>
-				<br/>
-				<div class="form-row ">
-					<div class="form-group col-md-4 aligh">
+	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
+		<form method="post" action="/Banco/conexao/conexaoPesquisarProfessor.php">
+			<legend>
+				<h2>Pesquisar Professor</h2>
+			</legend>
+			<br/>
+			<div class="row justify-content-md-center ">
+				<div class="form-row col-md-8 ">
+					<div class="form-group justify col-md-8">
 						<!--		<label >Pesquisar</label> -->
 						<input type="text" class="form-control" placeholder="Digite o nome do professor" name="professor" required autofocus>
 					</div>
 					<div class="form-group col-md-4">
-					
+
 
 						<button type="submit" class="btn btn-primary"> Buscar </button>
 					</div>
 				</div>
-				
+			</div>
 
-			</form>
-		</div>
-		<!-- Tabela -->
+
+		</form>
+	</div>
+	<!-- Tabela -->
 	<form id="lista" name="lista" method="post">
 
 		<div class="table-responsive">
@@ -104,101 +106,98 @@
 							<th scope="col">Nome</th>
 							<th scope="col">Email</th>
 							<th scope="col">CPF</th>
-							<th>                 </th>
+							<th> </th>
 
 
 						</tr>
-					</thead>		
+					</thead>
 
-						<?php
+					<?php
 			while ($tbl=$con->fetch_array()) {
 						?>
 
-							<tr>
-								<td class="dif1">
-									<?php echo $tbl["idUsuario"];?>
-								</td>
-								<td>
-									<?php echo $tbl["nomeUsuarios"];?>
-								</td>
-								<td>
-									<?php echo $tbl["email"];?>
-								</td>
-								<td>
-									<?php echo $tbl["cpf"];?>
-								</td>
-								<td>
-									<button type="button" role="button" class="btn btn-outline-info"  
-									data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
-										Visualizar
-										<i class="fa fa-info"></i>
-									</button>
-									<button type="button" role="button" class="btn btn-outline-info"  
-									data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
-										Modificar
-										<i class="fa fa-edit"></i>
-									</button>
-									<button type="button" role="button" class="btn btn-outline-info"  
-									data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
-										Excluir
-										<i class="fa fa-trash"></i>
-									</button>
-								</td>
-							</tr>
+					<tr>
+						<td class="dif1">
+							<?php echo $tbl["idUsuario"];?>
+						</td>
+						<td>
+							<?php echo $tbl["nomeUsuarios"];?>
+						</td>
+						<td>
+							<?php echo $tbl["email"];?>
+						</td>
+						<td>
+							<?php echo $tbl["cpf"];?>
+						</td>
+						<td>
+							<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
+
+								<i class="fa fa-info"></i>
+							</button>
+							<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
+
+								<i class="fa fa-edit"></i>
+							</button>
+							<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
+
+								<i class="fa fa-trash"></i>
+							</button>
+						</td>
 					</tr>
-			</form>
-			<?php } ?>
+					</tr>
+	</form>
+	<?php } ?>
 	</table>
 	</div>
 	</div>
 
-<div class="modal fade" id="PesquisaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal fade" id="PesquisaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="PesquisaModal">Dados do Professor</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          			<span aria-hidden="true">&times;</span>
-        			</button>
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
 				<div class="modal-body">
 					<!-- Formulario -->
-				<form method="POST" action="/Banco/conexao/conexaoCadastroProf.php">
-		<div class="form-row ">
-			<div class="form-group col-md-6">
-				<label >Nome Completo</label>
-				<input type="text" class="form-control" name="nome" required autofocus>
-			</div>
-			<div class="form-group col-md-6 ">
-				<label >Email</label>
-				<input type="email" class="form-control"  placeholder="exemple@exemple.com" name="email" required autofocus>
-			</div>
-		</div>	
-		<div class="form-row">
-			<div class="form-group col-md-6">
-				<label>CPF</label>
-				<input type="text" class="form-control" name="cpf" placeholder="00000000-00" required autofocus>
-			</div>
-			<div class="form-group col-md-6">
-				<label>Telefone</label>
-				<input type="text" class="form-control" name="telefone" placeholder="(xx)xxxxx-xxxx" required autofocus>
-			</div>
-		</div>
-		<div class="form-row ">
-			<div class="form-group col-md-5">
-				<label >Rua</label>
-				<input type="text" class="form-control" placeholder="Coronel Serudo Martins" name="rua" required autofocus>
-			</div>
-			<div class="form-group col-md-5">
-				<label >Bairro</label>
-				<input type="text" class="form-control" placeholder="Iracy" name="bairro">
-			</div>
-			<div class="form-group col-md-2">
-				<label >Número</label>
-				<input type="tel" class="form-control" placeholder= "21" name="numero" required autofocus>
-			</div>
-		</div>
-		</form>
+					<form method="POST" action="/Banco/conexao/conexaoCadastroProf.php">
+						<div class="form-row ">
+							<div class="form-group col-md-6">
+								<label>Nome Completo</label>
+								<input type="text" class="form-control" name="nome" required autofocus>
+							</div>
+							<div class="form-group col-md-6 ">
+								<label>Email</label>
+								<input type="email" class="form-control" placeholder="exemple@exemple.com" name="email" required autofocus>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label>CPF</label>
+								<input type="text" class="form-control" name="cpf" placeholder="00000000-00" required autofocus>
+							</div>
+							<div class="form-group col-md-6">
+								<label>Telefone</label>
+								<input type="text" class="form-control" name="telefone" placeholder="(xx)xxxxx-xxxx" required autofocus>
+							</div>
+						</div>
+						<div class="form-row ">
+							<div class="form-group col-md-5">
+								<label>Rua</label>
+								<input type="text" class="form-control" placeholder="Coronel Serudo Martins" name="rua" required autofocus>
+							</div>
+							<div class="form-group col-md-5">
+								<label>Bairro</label>
+								<input type="text" class="form-control" placeholder="Iracy" name="bairro">
+							</div>
+							<div class="form-group col-md-2">
+								<label>Número</label>
+								<input type="tel" class="form-control" placeholder="21" name="numero" required autofocus>
+							</div>
+						</div>
+					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -206,17 +205,17 @@
 				</div>
 			</div>
 		</div>
-</div>
-			
+	</div>
 
-		
 
-		<!-- Bootstrap JavaScript
+
+
+	<!-- Bootstrap JavaScript
     ================================================== -->
-		<!-- -->
-		<script src="./js/slim.min.js"></script>
-		<script src="./js/popper.min.js"></script>
-		<script src="./js/bootstrap.min.js"></script>
+	<!-- -->
+	<script src="./js/slim.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
 
 </body>
 

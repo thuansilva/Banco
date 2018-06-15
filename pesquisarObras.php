@@ -68,18 +68,20 @@
 	$con = $mysqli->query($consulta);
 	?>
 
-	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
+	<div class="container my-3 px-lg-3 p-md-3  " id="divAluno">
 		<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
 			<legend>
 				<h2>Pesquisar Obras</h2>
 			</legend>
 			<br/>
-			<div class="form-row ">
-				<div class="form-group col-md-8">
-					<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
-				</div>
-				<div class="form-group col-md-4">
-					<button type="submit" class="btn btn-primary"> Buscar </button>
+			<div class="row justify-content-md-center ">
+				<div class="form-row  col-md-8">
+					<div class="form-group  justify col-md-8">
+						<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
+					</div>
+					<div class="form-group col-md-4">
+						<button type="submit" class="btn btn-primary"> Buscar </button>
+					</div>
 				</div>
 			</div>
 		</form>
@@ -118,11 +120,19 @@
 							<?php echo $tbl["dataCadastro"];?>
 						</td>
 						<td>
-							<button type="button" role="button" class="btn btn-outline-info"  
-							data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
-								Visualizar
+							<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
+
 								<i class="fa fa-info"></i>
 							</button>
+							<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
+
+								<i class="fa fa-edit"></i>
+							</button>
+							<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
+
+								<i class="fa fa-trash"></i>
+							</button>
+
 						</td>
 					</tr>
 
