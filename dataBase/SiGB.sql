@@ -107,17 +107,6 @@ CREATE TABLE IF NOT EXISTS `enderecousuario` (
   PRIMARY KEY (`endUsuario_PK`),
   KEY `FK_USUARIOS_enderecoUsuario` (`idUsuario_FK`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-<<<<<<< HEAD
-
---
--- Extraindo dados da tabela `enderecousuario`
---
-
-INSERT INTO `enderecousuario` (`endUsuario_PK`, `idUsuario_FK`, `rua`, `numero`, `bairro`) VALUES
-(1, 1, 'Caldas Novas', 234, 'Jardim Florestal'),
-(2, 2, 'O Lar', 123, 'Onde o lar existe');
-=======
->>>>>>> 4d28a13fb3a6d32b67af98907c9533685dbaabdd
 
 -- --------------------------------------------------------
 
@@ -187,16 +176,6 @@ CREATE TABLE IF NOT EXISTS `revistas` (
   KEY `FK_OBRAS_REVISTAS` (`idObras_FK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-<<<<<<< HEAD
---
--- Extraindo dados da tabela `revistas`
---
-
-INSERT INTO `revistas` (`idObras_FK`, `titulo`, `edicao`) VALUES
-(2, 'A repugnacao dos repugnados', 2);
-
-=======
->>>>>>> 4d28a13fb3a6d32b67af98907c9533685dbaabdd
 -- --------------------------------------------------------
 
 --
@@ -224,17 +203,6 @@ CREATE TABLE IF NOT EXISTS `telefoneusuario` (
   PRIMARY KEY (`telefone_PK`),
   KEY `FK_USUARIOS_telefoneUsuario` (`idUsuario_FK`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-<<<<<<< HEAD
-
---
--- Extraindo dados da tabela `telefoneusuario`
---
-
-INSERT INTO `telefoneusuario` (`telefone_PK`, `telefone`, `idUsuario_FK`) VALUES
-(1, '9887438743', 1),
-(2, '(92)88888-8888', 2);
-=======
->>>>>>> 4d28a13fb3a6d32b67af98907c9533685dbaabdd
 
 -- --------------------------------------------------------
 
@@ -260,17 +228,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nome` varchar(50) NOT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-<<<<<<< HEAD
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`idUsuario`, `nome`) VALUES
-(1, 'dante'),
-(2, 'Thuan Matheus');
-=======
->>>>>>> 4d28a13fb3a6d32b67af98907c9533685dbaabdd
 
 -- --------------------------------------------------------
 
