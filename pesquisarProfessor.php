@@ -133,6 +133,16 @@
 										Visualizar
 										<i class="fa fa-info"></i>
 									</button>
+									<button type="button" role="button" class="btn btn-outline-info"  
+									data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
+										Modificar
+										<i class="fa fa-edit"></i>
+									</button>
+									<button type="button" role="button" class="btn btn-outline-info"  
+									data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
+										Excluir
+										<i class="fa fa-trash"></i>
+									</button>
 								</td>
 							</tr>
 					</tr>
