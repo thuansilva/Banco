@@ -236,11 +236,13 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios_emprestimo` (
+  `idEmprestimo` int(11) NOT NULL,
   `idBibliotecaria_FK` int(11) NOT NULL,
   `idObras_FK` int(11) NOT NULL,
   `idUsuario_FK` int(11) NOT NULL,
   `dataDevolucao` date NOT NULL,
   `dataEmprestimo` date NOT NULL,
+  PRIMARY KEY (`idEmprestimo`),
   KEY `FK_BIBLIOTECARIA_USUARIOS_EMPRESTIMO` (`idObras_FK`),
   KEY `FK_OBRAS_USUARIOS_EMPRESTIMO` (`idUsuario_FK`),
   KEY `FK_USUARIOS_USUARIOS_EMPRESTIMO` (`idBibliotecaria_FK`)
