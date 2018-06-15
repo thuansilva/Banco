@@ -130,7 +130,7 @@
 							<?php echo $tbl['idUsuario'];?>
 						</td>
 						<td>
-							<?php echo $tbl['nome'];?>
+							<?php echo $tbl['nomeUsuarios'];?>
 						</td>
 						<td>
 							<?php echo $tbl['serie'];?>
@@ -145,13 +145,10 @@
 								<i class="fa fa-info"></i>
 							</button>
 
-							
-							
-
 							<button type="button" class="btn btn-outline-warning" 
 							data-toggle="modal" data-target="#PesquisaModal" 
 							data-whatever="<?php echo $tbl['idUsuario'];?>" 
-							data-whatevernome="<?php echo $tbl['nome'];?>" 
+							data-whatevernome="<?php echo $tbl['nomeUsuarios'];?>" 
 							data-whatevertelefone="<?php echo $tbl['telefone'];?>" 
 							data-whateverresponsavel="<?php echo $tbl['responsavel'];?>"
 							data-whateverturma="<?php echo $tbl['turma'];?>" 
@@ -175,12 +172,12 @@
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nome']; ?></h4>
+												<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nomeUsuarios']; ?></h4>
 												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 											</div>
 											<div class="modal-body">
 												<p><?php echo "Identificador: ", $tbl['idUsuario']; ?></p>
-												<p><?php echo "Nome: ", $tbl['nome']; ?></p>
+												<p><?php echo "Nome: ", $tbl['nomeUsuarios']; ?></p>
 												<p><?php echo "Telefone: ", $tbl['telefone']; ?></p>
 												<p><?php echo "Responsavel: ", $tbl['responsavel']; ?></p>
 												<p><?php echo "Turma: ", $tbl['turma']; ?></p>

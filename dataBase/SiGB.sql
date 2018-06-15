@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `livros` (
 CREATE TABLE IF NOT EXISTS `obras` (
   `idObras` int(11) NOT NULL AUTO_INCREMENT,
   `dataCadastro` date NOT NULL,
-  `nome` varchar(50) NOT NULL,
+  `nomeObras` varchar(50) NOT NULL,
   `anoPublicacao` int(11) NOT NULL,
   `obs` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`idObras`)
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `tem` (
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
+  `nomeUsuarios` varchar(50) NOT NULL,
   PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 

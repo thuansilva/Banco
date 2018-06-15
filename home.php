@@ -67,11 +67,6 @@
       </div>     
     </nav>
 
-
-
-
-
-  
     <!--                    BEm VIndo                        -->
   <div class="position-relative over  p-3 p-md-5 text-center " id="fundo">
       
@@ -83,8 +78,6 @@
 
 
  <!--                    Conteúdo                       -->
-
-
       <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
           <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5  
           text-center text-white overflow-hidden" style="border-radius: 21px 21px 0 0">

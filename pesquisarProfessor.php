@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>Pesquisar Professores</title>
 	<link rel="icon" href="../Banco/img/favicon.ico">
+	<link rel="stylesheet" href="../Banco/css/font-awesome.min.css">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet">
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
 </head>
@@ -65,7 +66,7 @@
 
 	<?php
 	include("../Banco/conexao/conexao.php");
-	$consulta = "SELECT `usuarios`.`idUsuario`, `usuarios`.`nome`, `professores`.`email`, `professores`.`cpf` FROM 
+	$consulta = "SELECT `usuarios`.`idUsuario`, `usuarios`.`nomeUsuarios`, `professores`.`email`, `professores`.`cpf` FROM 
 	`usuarios` INNER JOIN `professores` ON `usuarios`.`idUsuario` = `professores`.`idUsuario_FK`";
 	$con = $mysqli->query($consulta);
 	?>
@@ -118,7 +119,7 @@
 									<?php echo $tbl["idUsuario"];?>
 								</td>
 								<td>
-									<?php echo $tbl["nome"];?>
+									<?php echo $tbl["nomeUsuarios"];?>
 								</td>
 								<td>
 									<?php echo $tbl["email"];?>
@@ -127,7 +128,11 @@
 									<?php echo $tbl["cpf"];?>
 								</td>
 								<td>
-									<button type="button" href="" class="btn btn-info" data-toggle="modal"data-target="#PesquisaModal">Info</button>
+									<button type="button" role="button" class="btn btn-outline-info"  
+									data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
+										Visualizar
+										<i class="fa fa-info"></i>
+									</button>
 								</td>
 							</tr>
 					</tr>

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Devolução</title>
+	<link rel="stylesheet" href="../Banco/css/font-awesome.min.css">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
 	<link href="../Banco/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -62,7 +63,11 @@
 
 	<?php
 	include("../Banco/conexao/conexao.php");
-	$consulta = "SELECT * FROM `usuarios_emprestimo`";
+	$consulta = "SELECT `usuarios_emprestimo`.`idEmprestimo`, `usuarios_emprestimo`.`idBibliotecaria_FK`, `usuarios`.`nomeUsuarios`,
+	 `obras`.`nomeObras`, `usuarios_emprestimo`.`dataDevolucao`, `usuarios_emprestimo`.`dataEmprestimo` 
+    FROM `usuarios_emprestimo`
+    INNER JOIN `usuarios` ON `usuarios`.`idUsuario` = `usuarios_emprestimo`.`idUsuario_FK`
+	INNER JOIN `obras` ON `obras`.`idObras` = `usuarios_emprestimo`.`idObras_FK`";
 	$con = $mysqli->query($consulta);
 	?>
 
@@ -93,8 +98,9 @@
 				<table class="table my-2">
 					<thead class="thead-light">
 						<tr>
-							<th scope="col">Cod. Obra</th>
-							<th scope="col">Cod. Usuário</th>
+							<th scope="col">Cod. Empr.</th>
+							<th scope="col">Nome Obra</th>
+							<th scope="col">Nome Usuário</th>
 							<th scope="col">Data Empréstimo</th>
 							<th scope="col">Data Devolução</th>
 							<th>                 </th>
@@ -109,10 +115,13 @@
 
 		<tr>
 			<td class="dif1">
-				<?php echo $tbl["idObras_FK"];?>
+				<?php echo $tbl["idEmprestimo"];?>
 			</td>
 			<td>
-				<?php echo $tbl["idUsuario_FK"];?>
+				<?php echo $tbl["nomeObras"];?>
+			</td>
+			<td>
+				<?php echo $tbl["nomeUsuarios"];?>
 			</td>
 			<td>
 				<?php echo $tbl["dataEmprestimo"];?>
@@ -121,40 +130,40 @@
 				<?php echo $tbl["dataDevolucao"];?>
 			</td>
 			<td>
-				<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario_FK']; ?>">
-					Visualizar
-				</button>
+			<button type="button" role="button" class="btn btn-outline-info"  
+			data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
+				Visualizar
+				<i class="fa fa-info"></i>
+			</button>					
+			<button type="button" role="button" class="btn btn-outline-danger"  
+			data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
+				Excluir
+				<i class="fa fa-trash "></i>
+			</button>
 			</td>
 		</tr>
 		<!-- Inicio Modal -->
-		<div class="modal fade" id="myModal<?php echo $tbl['idUsuario']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="myModal<?php echo $tbl['idEmprestimo']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nome']; ?></h4>
+						<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nomeObras']; ?></h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-											<div class="modal-body">
-												<p><?php echo "Identificador: ", $tbl['idUsuario']; ?></p>
-												<p><?php echo "Nome: ", $tbl['nome']; ?></p>
-												<p><?php echo "Telefone: ", $tbl['telefone']; ?></p>
-												<p><?php echo "Responsavel: ", $tbl['responsavel']; ?></p>
-												<p><?php echo "Turma: ", $tbl['turma']; ?></p>
-												<p><?php echo "Serie: ", $tbl['serie']; ?></p>
-												<p><?php echo "Matricula: ", $tbl['matricula']; ?></p>
-												<p><?php echo "Rua: ", $tbl['rua']; ?></p>
-												<p><?php echo "Bairro: ", $tbl['bairro']; ?></p>
-												<p><?php echo "Numero: ", $tbl['numero']; ?></p>
-
-											<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
-
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Fim Modal -->
+					<div class="modal-body">
+						<p><?php echo "Identificador Empréstimo: ", $tbl['idEmprestimo']; ?></p>
+						<p><?php echo "Identificador Obra: ", $tbl['nomeObras']; ?></p>
+						<p><?php echo "Identificador Usuário: ", $tbl['nomeUsuarios']; ?></p>
+						<p><?php echo "Data Empréstimo: ", $tbl['dataEmprestimo']; ?></p>
+						<p><?php echo "Data Devolução: ", $tbl['dataDevolucao']; ?></p>
+						<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Fim Modal -->
 	</form>
 	<?php } ?>
 	

@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Pesquisar Obras</title>
+	<link rel="stylesheet" href="../Banco/css/font-awesome.min.css">
 	<link rel="icon" href="../Banco/img/favicon.ico">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet">
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
@@ -62,7 +63,7 @@
 
 	<?php
 	include("../Banco/conexao/conexao.php");
-	$consulta = "SELECT `obras`.`idObras`, `obras`.`nome`, `obras`.`dataCadastro`
+	$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
     FROM `obras`";
 	$con = $mysqli->query($consulta);
 	?>
@@ -94,7 +95,7 @@
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">Identificador</th>
-							<th scope="col">Nome</th>
+							<th scope="col">Nome </th>
 							<th scope="col">Data de Cadastro</th>
 							<th></th>
 
@@ -111,13 +112,17 @@
 							<?php echo $tbl["idObras"];?>
 						</td>
 						<td>
-							<?php echo $tbl["nome"];?>
+							<?php echo $tbl["nomeObras"];?>
 						</td>
 						<td>
 							<?php echo $tbl["dataCadastro"];?>
 						</td>
 						<td>
-							<button type = "button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaObras">Info</button>
+							<button type="button" role="button" class="btn btn-outline-info"  
+							data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
+								Visualizar
+								<i class="fa fa-info"></i>
+							</button>
 						</td>
 					</tr>
 
