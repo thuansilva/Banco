@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Empréstimo</title>
+	<link rel="icon" href="../Banco/img/icone.png">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
 </head>

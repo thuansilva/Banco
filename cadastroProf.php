@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 <meta charset ="UTF-8"/>
-	<link rel="icon" href="../Banco/img/favicon.ico" >
+<link rel="icon" href="../Banco/img/icone.png">
 	<title> Cadastrar Professor(a)</title>
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >

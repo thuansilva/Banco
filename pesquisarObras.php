@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>Pesquisar Obras</title>
 	<link rel="stylesheet" href="../Banco/css/font-awesome.min.css">
-	<link rel="icon" href="../Banco/img/favicon.ico">
+	<link rel="icon" href="../Banco/img/icone.png">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet">
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
 </head>

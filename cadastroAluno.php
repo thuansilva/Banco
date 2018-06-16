@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset ="UTF-8"/>
-	<link rel="icon" href="../Banco/img/favicon.ico" >
+	<link rel="icon" href="../Banco/img/icone.png">
 	<title> Cadastrar Aluno</title>
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
@@ -10,36 +10,41 @@
 <body>
 <!--     															  Navbar         -->
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
-				<div class="container ">
-				  <a class="navbar-brand h1" href="home.php"> SIGB </a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite" 
-					data-target="#navbarSupportedContent">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarSite">
-					  <ul class="navbar-nav ml-auto ">
-						<li class="nav-item dropdown px-2">
-						  <a class="nav-link dropdown-toggle " href="#" id="navbarSite" role="button" 
-						  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastro</a>
-							  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
-								<a class="dropdown-item" href="/Banco/cadastroLR.php"> Obras</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecário(a)</a>
-							  </div>
-						</li>
-						<li class="nav-item dropdown px-2">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarSite" role="button" 
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pesquisar</a>
-								<div class="dropdown-menu" >
-									<a class="dropdown-item" href="/Banco/pesquisarProfessor.php"> Professor</a>
-									<a class="dropdown-item" href="/Banco/pesquisarAlunos.php"> Aluno</a>
-								  	<a class="dropdown-item" href="/Banco/pesquisarObras.php"> Obras</a>
-								</div>
-						</li>
-						<ul class="navbar-nav px-2">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+		<div class="container ">
+	  		<a class="navbar-brand h1" href="home.php"> SIGB </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite" data-target="#navbarSupportedContent">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSite">
+				<ul class="navbar-nav ml-auto ">
+					<li class="nav-item dropdown px-2">
+						<a class="nav-link dropdown-toggle " href="#" id="navbarSite" role="button" 
+						  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Cadastro
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item " href="/Banco/cadastroProf.php">Professor(a)</a>
+							<a class="dropdown-item" href="/Banco/cadastroAluno.php"> Aluno(a)</a>
+							<a class="dropdown-item" href="/Banco/cadastroLR.php"> Obras</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="/Banco/cadastroBibli.php"> Bibliotecário(a)</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown px-2">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarSite" role="button" 
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Pesquisar
+							</a>
+							<div class="dropdown-menu" >
+								<a class="dropdown-item" href="/Banco/pesquisarProfessor.php">
+									Professor
+								</a>
+								<a class="dropdown-item" href="/Banco/pesquisarAlunos.php"> Aluno</a>
+								<a class="dropdown-item" href="/Banco/pesquisarObras.php"> Obras</a>
+							</div>
+					</li>
+					<ul class="navbar-nav px-2">
 							<li class="nav-item ">
 							   <a class="nav-link" href="/Banco/emprestimo.php"> Empréstimo</a>
 							</li>

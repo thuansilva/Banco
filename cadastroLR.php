@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset ="UTF-8"/>
-	<link rel="icon" href="../Banco/img/favicon.ico" >
+	<link rel="icon" href="../Banco/img/icone.png">
 	<title> Cadastrar Obras</title>
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
@@ -103,7 +103,7 @@
 							<div class="form-row ">
 									<div class="form-group col-md-6">
 										<label >Autor</label>
-										<input type="text" class="form-control" name="autor" required autofocus>
+										<input type="text" class="form-control" placeholder="Ariano Suassuna" name="autor" required autofocus>
 									</div>
 									<div class="form-group col-md-3">
 											<label >Editora</label>
@@ -122,7 +122,7 @@
 							<div class="form-row">
 								<div class="form-group col-md-12">
 									<label>Observações</label>
-									<textarea class="form-control"name="obs" >  me respeita thaixxx .....isso é o melhor que pode fazer?? ...Eu só vejo codigos mortos(Sexto sentido) 
+									<textarea class="form-control" name="obs" >
 									</textarea>
 							</div>
 							</div>
@@ -172,13 +172,13 @@
 						<div class="form-row">
 								<div class="form-group col-md-12">
 									<label>Observações</label>
-									<textarea class="form-control"name="obs" > O que não te mata te deixa mais...  estranho(Batman) 
+									<textarea class="form-control"name="obs" >
 									</textarea>
 								</div>
 						</div>
 						<center>
 								<button type="reset" class="btn btn-secondary">Limpar</button>
-								<button type="submit" class="btn btn-primary "> Salvar </button>
+								<button type="submit" class="btn btn-primary ">Salvar</button>
 							<hr>
 						</center>
 					</form>

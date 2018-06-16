@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Devolução</title>
+	<link rel="icon" href="../Banco/img/icone.png">
 	<link rel="stylesheet" href="../Banco/css/font-awesome.min.css">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
@@ -133,10 +134,10 @@
 				Visualizar
 				<i class="fa fa-info"></i>
 			</button>					
-			<button type="submit" role="button" class="btn btn-outline-danger"  
+			<button type="submit" role="button" class="btn btn-outline-success"  
 			data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
 				Devolver
-				<i class="fa fa-trash "></i>
+				<i class="fa fa-undo "></i>
 			</button>
 			</td>
 		</tr>

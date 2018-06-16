@@ -2,7 +2,7 @@
 <html ="pt-br">
   <head>
     <meta charset="utf-8">
-    <link rel="icon" href="../Banco/img/favicon.ico">
+    <link rel="icon" href="../Banco/img/icone.png">
     <title>Login</title>
     <!--  Bootstrap  -->
     <link href="../Banco/css/bootstrap.min.css" rel="stylesheet">

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="icon" href="../Banco/img/favicon.ico">
+  <link rel="icon" href="../Banco/img/icone.png">
   <title>SiGB</title>
   <link href="../Banco/css/bootstrap.min.css" rel="stylesheet">
   <link href="../Banco/css/home.css" rel="stylesheet">
@@ -85,7 +85,7 @@
     <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 > 
           text-center text-white overflow-hidden" style="border-radius: 21px 21px 0 0">
       <h2>Quem Somos?</h2>
-      <p class="lead" align='center'>Sistema criado por alunos da Universidade Federal do Amazonas para auxiliar o gerenciamento de Biblioteca</p>
+      <p class="lead" align='justify'>Sistema criado por alunos da Universidade Federal do Amazonas para auxiliar o gerenciamento de Biblioteca</p>
     </div>
 
 
@@ -93,7 +93,7 @@
                text-center overflow-hidden " style="border-radius: 21px 21px 0 0">
       <div class="my-3 p-3">
         <h2>Para você!</h2>
-        <p class="lead" align='center'> O Sigb foi penssado especialmente
+        <p class="lead" align='justify'> O Sigb foi pensado especialmente
            para colaborar na organizaçao na sua biblioteca, guardando os dados 
           dos seus usuários e recuperando quando for requisistado.
         </p>
@@ -114,21 +114,18 @@
       <div class="row">
         <div class="col-lg-4 ml-auto text-center">
           <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-          <p>(66)66666-6666 </p>
+          <p>(92) 99258-5842 </p>
         </div>
         <div class="col-lg-4 mr-auto text-center">
           <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
           <p>
-            <a href="mailto:your-email@your-domain.com">Sigb@exemple.com</a>
+            <a href="mailto:your-email@your-domain.com">sigb@gmail.com</a>
           </p>
         </div>
       </div>
     </div>
   </section>
   <p class="mt-5 mb-3  text-center">&copy; SIGB Todos os Direitos Reservados</p>
-
-
-
 
   <!-- Bootstrap JavaScript
     ================================================== -->
