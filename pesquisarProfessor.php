@@ -79,7 +79,6 @@
 	#$resultado = mysqli_query($conn, $consulta);
 	$con = $mysqli->query($consulta);
 	?>
-<<<<<<< HEAD
 	<!-- Campo de Pesquisa -->
 		<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
 			<form method="post" action="/Banco/conexao/conexaoPesquisarProfessor.php">
@@ -89,40 +88,16 @@
 				<br/>
 				<div class="form-row ">
 					<div class="form-group col-md-4 aligh">
-=======
-
-	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-		<form method="post" action="/Banco/conexao/conexaoPesquisarProfessor.php">
-			<legend>
-				<h2>Pesquisar Professor</h2>
-			</legend>
-			<br/>
-			<div class="row justify-content-md-center ">
-				<div class="form-row col-md-8 ">
-					<div class="form-group justify col-md-8">
->>>>>>> 561410720391e64754071631e74c1debadd17196
 						<!--		<label >Pesquisar</label> -->
 						<input type="text" class="form-control" placeholder="Digite o nome do professor" name="professor" required autofocus>
 					</div>
 					<div class="form-group col-md-4">
-<<<<<<< HEAD
-=======
-
->>>>>>> 561410720391e64754071631e74c1debadd17196
 
 						<button type="submit" name="busca"  class="btn btn-primary"> Buscar </button>
 					</div>
 				</div>
-<<<<<<< HEAD
 			</form>
 		</div>
-=======
-			</div>
-
-
-		</form>
-	</div>
->>>>>>> 561410720391e64754071631e74c1debadd17196
 	<!-- Tabela -->
 	<form id="lista" name="lista" method="post">
 
@@ -135,25 +110,13 @@
 							<th scope="col">Nome</th>
 							<th scope="col">Email</th>
 							<th scope="col">CPF</th>
-<<<<<<< HEAD
 							<th>                 </th>
-=======
-							<th> </th>
-
-
->>>>>>> 561410720391e64754071631e74c1debadd17196
 						</tr>
 					</thead>
 
 					<?php
-<<<<<<< HEAD
 					while ($tbl=$con->fetch_array()) {
 					?>
-=======
-			while ($tbl=$con->fetch_array()) {
-						?>
-
->>>>>>> 561410720391e64754071631e74c1debadd17196
 					<tr>
 						<td class="dif1">
 							<?php echo $tbl["idUsuario"];?>
@@ -168,7 +131,6 @@
 							<?php echo $tbl["cpf"];?>
 						</td>
 						<td>
-<<<<<<< HEAD
 							<button type="button" role="button" class="btn btn-outline-info"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario'];?>">
 								Visualizar
@@ -217,24 +179,6 @@
 							</div>
 							<!-- Fim Modal -->
 		</form>
-=======
-							<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
-
-								<i class="fa fa-info"></i>
-							</button>
-							<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
-
-								<i class="fa fa-edit"></i>
-							</button>
-							<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaModal<?php echo $tbl['idUsuario']; ?>">
-
-								<i class="fa fa-trash"></i>
-							</button>
-						</td>
-					</tr>
-					</tr>
-	</form>
->>>>>>> 561410720391e64754071631e74c1debadd17196
 	<?php } ?>
 	</table>
 	</div>
@@ -251,7 +195,6 @@
 				</div>
 				<div class="modal-body">
 					<!-- Formulario -->
-<<<<<<< HEAD
 				<form method="POST" action="/Banco/conexao/conexaoCadastroProf.php">
 		<div class="form-row ">
 			<div class="form-group col-md-6">
@@ -288,44 +231,6 @@
 			</div>
 		</div>
 		</form>
-=======
-					<form method="POST" action="/Banco/conexao/conexaoCadastroProf.php">
-						<div class="form-row ">
-							<div class="form-group col-md-6">
-								<label>Nome Completo</label>
-								<input type="text" class="form-control" name="nome" required autofocus>
-							</div>
-							<div class="form-group col-md-6 ">
-								<label>Email</label>
-								<input type="email" class="form-control" placeholder="exemple@exemple.com" name="email" required autofocus>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label>CPF</label>
-								<input type="text" class="form-control" name="cpf" placeholder="00000000-00" required autofocus>
-							</div>
-							<div class="form-group col-md-6">
-								<label>Telefone</label>
-								<input type="text" class="form-control" name="telefone" placeholder="(xx)xxxxx-xxxx" required autofocus>
-							</div>
-						</div>
-						<div class="form-row ">
-							<div class="form-group col-md-5">
-								<label>Rua</label>
-								<input type="text" class="form-control" placeholder="Coronel Serudo Martins" name="rua" required autofocus>
-							</div>
-							<div class="form-group col-md-5">
-								<label>Bairro</label>
-								<input type="text" class="form-control" placeholder="Iracy" name="bairro">
-							</div>
-							<div class="form-group col-md-2">
-								<label>Número</label>
-								<input type="tel" class="form-control" placeholder="21" name="numero" required autofocus>
-							</div>
-						</div>
-					</form>
->>>>>>> 561410720391e64754071631e74c1debadd17196
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -337,7 +242,6 @@
 
 
 
-<<<<<<< HEAD
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -370,15 +274,6 @@
 		  
 		})
 	</script>
-=======
-
-	<!-- Bootstrap JavaScript
-    ================================================== -->
-	<!-- -->
-	<script src="./js/slim.min.js"></script>
-	<script src="./js/popper.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
->>>>>>> 561410720391e64754071631e74c1debadd17196
 
 </body>
 
