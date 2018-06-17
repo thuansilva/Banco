@@ -190,7 +190,6 @@
 									</div>
 								</div>
 								<!-- Fim Modal -->
-	
 					<?php } ?>
 				</table>
 			</div>

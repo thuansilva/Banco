@@ -233,8 +233,8 @@
 		</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary" href="./Banco/conexao/conexaoAtualizarProfessor">Salvar</button>
 				</div>
 			</div>
 		</div>
@@ -263,7 +263,7 @@
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
 		  modal.find('.modal-title').text('ID do Aluno: ' + recipient)
-		  modal.find('#id_Aluno').val(recipient)
+		  modal.find('#idUsuario_FK').val(recipient)
 		  modal.find('#nome').val(recipientnome)
 		  modal.find('#email').val(recipientemail)
 		  modal.find('#cpf').val(recipientcpf)

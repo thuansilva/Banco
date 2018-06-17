@@ -74,7 +74,7 @@
 
 	<!-- Campo de Pesquisa -->
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-		<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
+		<form method="post" action="/Banco/conexao/conexaoPesquisarDevolucao.php">
 			<legend>
 				<h2>Devolução de Obras</h2>
 			</legend>
@@ -92,7 +92,7 @@
 
 
 	<!-- Tabela -->
-	<form id="lista" name="lista" method="post" action="/Banco/conexao/conexaoDevolucao.php">
+	<form id="lista" name="lista" method="post" action="">
 
 		<div class="table-responsive">
 			<div class="container  px-lg-3 p-md-3 text-lg-left ">
@@ -133,9 +133,10 @@
 			data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
 				Visualizar
 				<i class="fa fa-info"></i>
-			</button>					
-			<button type="submit" role="button" class="btn btn-outline-success"  
-			data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
+			</button>	
+				
+			<button type="button" role="button" class="btn btn-outline-success"  
+				data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
 				Devolver
 				<i class="fa fa-undo "></i>
 			</button>
