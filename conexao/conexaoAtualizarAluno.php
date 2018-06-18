@@ -18,7 +18,12 @@
 	$bairro = $_POST['bairro'];
 	$numero = $_POST['numero'];
 
-	$result = "UPDATE `usuarios` INNER JOIN `telefoneusuario` ON `usuarios`.`idUsuario` = `telefoneusuario`.`idUsuario_FK` INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK` INNER JOIN `enderecousuario` ON `usuarios`.`idUsuario` = `enderecousuario`.`idUsuario_FK` SET `usuarios`.`nomeUsuarios` = '$nome', `telefoneusuario`.`telefone` = '$telefone', `alunos`.`responsavel` = '$responsavel', `alunos`.`turma` = '$turma', `alunos`.`serie` = '$serie', `alunos`.`matricula` = '$matricula', `enderecousuario`.`rua` = '$rua', `enderecousuario`.`bairro` = '$bairro', `enderecousuario`.`numero` = '$numero' WHERE `usuarios`.`idUsuario` = '$id'";
+	$result = "UPDATE `usuarios` 
+	INNER JOIN `telefoneusuario` ON `usuarios`.`idUsuario` = `telefoneusuario`.`idUsuario_FK` 
+	INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK` 
+	INNER JOIN `enderecousuario` ON `usuarios`.`idUsuario` = `enderecousuario`.`idUsuario_FK` 
+	SET `usuarios`.`nomeUsuarios` = '$nome', `telefoneusuario`.`telefone` = '$telefone', `alunos`.`responsavel` = '$responsavel', `alunos`.`turma` = '$turma', `alunos`.`serie` = '$serie', `alunos`.`matricula` = '$matricula', `enderecousuario`.`rua` = '$rua', `enderecousuario`.`bairro` = '$bairro', `enderecousuario`.`numero` = '$numero' 
+	WHERE `usuarios`.`idUsuario` = '$id'";
 
 	#$resul_up = mysqli_query($mysqli, $result);
 	$result_up = $conn->query($result);

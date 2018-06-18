@@ -76,7 +76,8 @@
 	<?php
 	include("../Banco/conexao/conexao.php");
 	$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
-    FROM `obras`";
+    FROM `obras`
+    INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`";
 	$con = $mysqli->query($consulta);
 	?>
 	<div class="container my-3 px-lg-3 p-md-3" id="divAluno">
@@ -286,7 +287,8 @@
 			<?php
 			include("../Banco/conexao/conexao.php");
 			$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
-    		FROM `obras`";
+    		FROM `obras`
+    		INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`";
 			$con = $mysqli->query($consulta);
 			?>
 

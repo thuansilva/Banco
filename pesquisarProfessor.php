@@ -99,7 +99,7 @@
 			</form>
 		</div>
 	<!-- Tabela -->
-	<form id="lista" name="lista" method="post">
+	<form id="lista" name="lista" method="post" action="./conexao/conexaoRemoverProfessor.php">
 
 		<div class="table-responsive">
 			<div class="container  px-lg-3 p-md-3 text-lg-left ">
@@ -149,7 +149,7 @@
 								Editar
 								<i class="fa fa-edit"></i>
 							</button>					
-							<button type="button" role="button" class="btn btn-outline-danger"  
+							<button type="submit" role="button" class="btn btn-outline-danger"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
 								Excluir
 								<i class="fa fa-trash "></i>
