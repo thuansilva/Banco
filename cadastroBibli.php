@@ -78,7 +78,7 @@
 			</div>
 			<div class="form-group col-md-2">
 				<label for="inputtelefone" >Telefone</label>
-				<input type="tel" class= "form-control" id="inputtelefone" placeholder="(xx)xxxxx-xxxx" name="telefone"> 
+				<input type="tel" class= "form-control" id="inputtelefone" placeholder="(00) 00000-0000" name="telefone"> 
 			</div>
 		</div>
 		
@@ -86,7 +86,7 @@
 		<div class="form-row ">
 			<div class="form-group col-md-5">
 				<label >Rua</label>
-				<input type="text" class="form-control"placeholder="Betel"  name="rua" required autofocus>
+				<input type="text" class="form-control" placeholder="Sete e Setembro"  name="rua" required autofocus>
 			</div>
 			<div class="form-group col-md-5">
 				<label >Bairro</label>
@@ -94,7 +94,7 @@
 			</div>
 			<div class="form-group col-md-2">
 				<label >Número</label>
-				<input type="tel" class="form-control" placeholder="xx"  name="numero" required autofocus>
+				<input type="tel" class="form-control" placeholder="00"  name="numero" required autofocus>
 			</div>
 		</div>
 		
@@ -112,16 +112,12 @@
 		<div>
 			<center>
 				<button type="reset" class="btn btn-secondary ">Limpar</button>
-				<button type="submit" class="btn btn-primary  "> Salvar </button>
+				<button type="submit" class="btn btn-primary  ">Salvar </button>
 				<hr>
 		 	</center>		
 		</div>
 		</form>
 	</div>
-
-				
-
-
 
  <!-- Bootstrap JavaScript
     ================================================== -->

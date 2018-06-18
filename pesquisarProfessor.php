@@ -72,6 +72,7 @@
 	INNER JOIN `professores` ON `usuarios`.`idUsuario` = `professores`.`idUsuario_FK`
 	INNER JOIN `enderecousuario` ON `usuarios`.`idUsuario` = `enderecousuario`.`idUsuario_FK`";
 	
+	
 	#$resultado = mysqli_query($conn, $consulta);
 	$con = $mysqli->query($consulta);
 	?>

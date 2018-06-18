@@ -31,6 +31,7 @@
             echo "<TD>$email </TD>";
             echo "</TR>";
         }
+        
     }else{
         die('Error: '.mysql_error());
     }

@@ -76,42 +76,42 @@
 				</div>
 				<div class="form-group col-md-4" >
 					<label >Telefone</label>
-					<input type="text" class="form-control" name="telefone" required autofocus>
+					<input type="text" class="form-control" name="telefone" placeholder="(00) 00000-0000" required autofocus>
 				</div>
 			</div>
 	
 			<div class="form-row  ">
 				<div class="form-group col-md-12 mx-auto" >
 					<label >Responsável</label>
-					<input type="text" class="form-control" name="responsavel" required autofocus>
+					<input type="text" class="form-control" name="responsavel" placeholder="Maria Antonieta" required autofocus>
 					</div>
 				</div>
 			<div class="form-row ">
 				<div class="form-group col-md-3">
 					<label >Turma</label>
-					<input type="text" class="form-control" name="turma" required autofocus>
+					<input type="text" class="form-control" name="turma" placeholder="1" required autofocus>
 				</div>
 				<div class="form-group col-md-4">
 					<label >Série</label>
-					<input type="text" class="form-control" name="serie" required autofocus>
+					<input type="text" class="form-control" name="serie" placeholder="8º ano" required autofocus>
 				</div>
 				<div class="form-group col-md-5">
 					<label>Matrícula</label>
-					<input type="text" class="form-control" name="matricula" required autofocus>
+					<input type="text" class="form-control" name="matricula" placeholder="000000000" required autofocus>
 				</div>
 			</div>
 			<div class="form-row ">
 				<div class="form-group col-md-5">
 					<label >Rua</label>
-					<input type="text" class="form-control" name="rua" required autofocus>
+					<input type="text" class="form-control" name="rua" placeholder="Rua Armindo Auzier" required autofocus>
 				</div>
 				<div class="form-group col-md-5">
 					<label >Bairro</label>
-					<input type="text" class="form-control" name="bairro">
+					<input type="text" class="form-control" name="bairro" placeholder="Jauray">
 				</div>
 				<div class="form-group col-md-2">
 					<label >Número</label>
-					<input type="tel" class="form-control" name="numero" required autofocus>
+					<input type="tel" class="form-control" name="numero" placeholder="0" required autofocus>
 				</div>
 			</div>
 			<center>

@@ -68,7 +68,7 @@
     INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
 	INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
 	INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`
-	INNER JOIN `possui` ON `possui`.`idEditora_FK` = `obras`.`idObras`
+	INNER JOIN  `possui` ON  `possui`.`idObras_FK` =  `obras`.`idObras` 
 	INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
 	/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
 	FROM `obras`
@@ -120,7 +120,7 @@
 							<table class="table  my-2  ">
 								<thead class="thead-light">
 									<tr>
-										<th scope="col">Identificador</th>
+										<th scope="col">Cod. Livro</th>
 										<th scope="col">Nome </th>
 										<th scope="col">Autor</th>
 										<th></th>
@@ -340,11 +340,10 @@
 							<table class="table  my-2  ">
 								<thead class="thead-light">
 									<tr>
-										<th scope="col">Identificador</th>
+										<th scope="col">Cod. Revista</th>
 										<th scope="col">Nome </th>
 										<th scope="col">Editora</th>
 										<th></th>
-
 									</tr>
 								</thead>
 

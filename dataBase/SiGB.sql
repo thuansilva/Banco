@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `alunos` (
 
 CREATE TABLE IF NOT EXISTS `autor` (
   `idAutor` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
+  `nomeAutor` varchar(50) NOT NULL,
   PRIMARY KEY (`idAutor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `bibliotecaria` (
 
 CREATE TABLE IF NOT EXISTS `editora` (
   `idEditora` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
+  `nomeEditora` varchar(50) NOT NULL,
   PRIMARY KEY (`idEditora`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

@@ -81,7 +81,7 @@
     <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 > 
           text-center text-white overflow-hidden" style="border-radius: 21px 21px 0 0">
       <h2>Quem Somos?</h2>
-      <p class="lead" align='justify'>Sistema criado por alunos da Universidade Federal do Amazonas para auxiliar o gerenciamento de Biblioteca</p>
+      <p class="lead" align='justify'>Sistema criado por alunos da Universidade Federal do Amazonas para auxiliar o gerenciamento de Biblioteca. Seu nome SiGB, é a sigla para Sistema Gerenciador de Bibliotecas</p>
     </div>
 
 
@@ -89,14 +89,11 @@
                text-center overflow-hidden " style="border-radius: 21px 21px 0 0">
       <div class="my-3 p-3">
         <h2>Para você!</h2>
-        <p class="lead" align='justify'> O Sigb foi pensado especialmente
-           para colaborar na organizaçao na sua biblioteca, guardando os dados 
-          dos seus usuários e recuperando quando for requisistado.
+        <p class="lead" align='justify'> O Sigb foi pensado especialmente para colaborar na organizaçao da sua biblioteca, guardando os dados das suas obras e seus usuários, assim como recuperando-os quando for requisistado.
         </p>
       </div>
     </div>
   </div>
-
 
   <!--                    Rodapé (Footer)                      -->
 
