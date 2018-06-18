@@ -64,25 +64,22 @@
 		</div>
 	</nav>
 
-
 					<!-- Primeira Parte do aba Livros -->
-
 
 	<?php
 	include("../Banco/conexao/conexao.php");
-	$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
+	$consulta = "SELECT * FROM `obras`
+    INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
+	INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
+	INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`
+	INNER JOIN `possui` ON `possui`.`idEditora_FK` = `obras`.`idObras`
+	INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
+	/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
 	FROM `obras`
    	INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
 	INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
 	INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`";
-
-	//	 "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`, `editora`.`nomeEditora` 
-	//FROM `obras`
-   // INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
-	//INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
-	//INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`
-	//INNER JOIN `possui` ON `possui`.`idEditora_FK` = `obras`.`idObras`
-	//INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
+*/
 	$con = $mysqli->query($consulta);
 	?>
 	<div class="container my-3 px-lg-3 p-md-3" id="divAluno">
@@ -152,16 +149,26 @@
 				</td>
 				<td>
 					<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal<?php echo $tbl['idObras']; ?>">
-					Visualizar
-					<i class="fa fa-info"></i>
+						Visualizar
+						<i class="fa fa-info"></i>
 					</button>
-					<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaObras<?php echo $tbl['idObras']; ?>">
-					Editar
-					<i class="fa fa-edit"></i>
-					</button>
+					<button type="button" class="btn btn-outline-warning" 
+							data-toggle="modal" data-target="#PesquisaModal" 
+							data-whatever="<?php echo $tbl['idObras'];?>" 
+							data-whatevernome="<?php echo $tbl['nomeObras'];?>" 
+							data-whateverisbn="<?php echo $tbl['isbn'];?>"
+							data-whateveranopublicacao="<?php echo $tbl['anoPublicacao'];?>"
+							data-whateverautor="<?php echo $tbl['nomeAutor'];?>" 
+							data-whatevereditora="<?php echo $tbl['nomeEditora'];?>" 
+							data-whatevervolume="<?php echo $tbl['volume'];?>" 
+							data-whateverdatacadastro="<?php echo $tbl['dataCadastro'];?>"
+							data-whateverdataobs="<?php echo $tbl['obs'];?>">
+								Editar
+								<i class="fa fa-edit"></i>
+							</button>
 					<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObras<?php echo $tbl['idObras']; ?>">
-					Excluir
-					<i class="fa fa-trash"></i>
+						Excluir
+						<i class="fa fa-trash"></i>
 					</button>
 				</td>
 			</tr>
@@ -174,9 +181,14 @@
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 										</div>
 										<div class="modal-body">
-											<p><?php echo "Identificador: ", $tbl['idObras']; ?></p>
+											<p><?php echo "Cod. Livro: ", $tbl['idObras']; ?></p>
 											<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
-											<p><?php echo "Autor: ", $tbl['nomeAutor']; ?></p> ?></p>
+											<p><?php echo "ISBN: ", $tbl['isbn']; ?></p> 
+											<p><?php echo "Ano Publicação: ", $tbl['anoPublicacao']; ?></p> 
+											<p><?php echo "Autor: ", $tbl['nomeAutor']; ?></p> 
+											<p><?php echo "Editora: ", $tbl['nomeEditora']; ?></p> 
+											<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p> 
+											<p><?php echo "Observação: ", $tbl['obs']; ?></p>
 											<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
 										</div>
 									</div>
@@ -245,7 +257,7 @@
 		</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>
@@ -262,26 +274,25 @@
 		  var button = $(event.relatedTarget) // Button that triggered the modal
 		  var recipient = button.data('whatever') // Extract info from data-* attributes
 		  var recipientnome = button.data('whatevernome')
-		  var recipientemail = button.data('whateveremail')
-		  var recipientcpf = button.data('whatevercpf')
-		  var recipienttelefone = button.data('whatevertelefone')
-		  var recipientrua = button.data('whateverrua')
-		  var recipientbairro = button.data('whateverbairro')
-		  var recipientnumero = button.data('whatevernumero')
+		  var recipientisbn = button.data('whateverisbn')
+		  var recipientanopublicacao = button.data('whateveranopublicacao')
+		  var recipientautor = button.data('whateverautor')
+		  var recipienteditora = button.data('whatevereditora')
+		  var recipientdatacadastro = button.data('whateverdatacadastro')
+		  var recipientobd = button.data('whateverobs')
 
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
 		  modal.find('.modal-title').text('ID da Obra: ' + recipient)
-		  modal.find('#id_Professor').val(recipient)
+		  modal.find('#id_Obra').val(recipient)
 		  modal.find('#nome').val(recipientnome)
-		  modal.find('#email').val(recipientemail)
-		  modal.find('#cpf').val(recipientcpf)
-		  modal.find('#telefone').val(recipienttelefone)
-		  modal.find('#rua').val(recipientrua)
-		  modal.find('#bairro').val(recipientbairro)
-		  modal.find('#numero').val(recipientnumero)
-		  
+		  modal.find('#isbn').val(recipientisbn)
+		  modal.find('#anopublicacao').val(recipientanopublicacao)
+		  modal.find('#autor').val(recipientautor)
+		  modal.find('#editora').val(recipienteditora)
+		  modal.find('#datacadastro').val(recipientdatacadastro)
+		  modal.find('#obs').val(recipientobs)
 		})
 	</script>
 
@@ -291,8 +302,7 @@
 
 			<?php
 			include("../Banco/conexao/conexao.php");
-			$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `editora`.`nomeEditora`
-			FROM `obras`
+			$consulta = "SELECT * FROM `obras`
    			INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`
 			INNER JOIN `possui` ON `possui`.`idObras_FK` = `obras`.`idObras`
 			INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
@@ -359,15 +369,17 @@
 									</td>
 									<td>
 										<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaObras2">
-										Visualizar	<i class="fa fa-info"></i>
+											Visualizar	
+											<i class="fa fa-info"></i>
 										</button>
 										<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
-										Modificar	<i class="fa fa-edit"></i>
+											Editar	
+											<i class="fa fa-edit"></i>
 										</button>
 										<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
-										Excluir	<i class="fa fa-trash"></i>
+											Excluir	
+											<i class="fa fa-trash"></i>
 										</button>
-
 									</td>
 								</tr>
 
@@ -385,27 +397,31 @@
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalCenterTitle">Dados da Obra </h5>
+								<h5 class="modal-title" id="myModalLabel"><?php echo $tbl['nomeObras']; ?> </h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
+								<p><?php echo "Cod. Revista: ", $tbl['idObras']; ?></p>
+								<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
+								<p><?php echo "Ano Publicação: ", $tbl['anoPublicacao']; ?></p> 
+								<p><?php echo "Edição: ", $tbl['edicao']; ?></p> 
+								<p><?php echo "Editora: ", $tbl['nomeEditora']; ?></p> 
+								<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p> 
+								<p><?php echo "Observação: ", $tbl['obs']; ?></p>
+								<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
+							</div>
+							<div class="modal-body">
 								<!-- Formulario -->
 
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechars</button>
-								<button type="button" class="btn btn-primary">Salvar</button>
 							</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
-
-
 		</div>
-	
 	</div>
 		<!-- Bootstrap JavaScript
     ================================================== -->

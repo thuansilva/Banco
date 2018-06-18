@@ -102,7 +102,6 @@
 		</div>
 	<!-- Tabela -->
 	<form id="lista" name="lista" method="post" action="./conexao/conexaoRemoverProfessor.php">
-
 		<div class="table-responsive">
 			<div class="container  px-lg-3 p-md-3 text-lg-left ">
 				<table class="table my-2">
@@ -156,35 +155,35 @@
 								Excluir
 								<i class="fa fa-trash "></i>
 							</button>
-							</td>
-						</tr>
-						 <!-- Inicio Modal -->
-							<div class="modal fade" id="myModal<?php echo $tbl['idUsuario']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nomeUsuarios']; ?></h4>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										</div>
-										<div class="modal-body">
-											<p><?php echo "Identificador: ", $tbl['idUsuario']; ?></p>
-											<p><?php echo "Nome: ", $tbl['nomeUsuarios']; ?></p>
-											<p><?php echo "CPF: ", $tbl['cpf']; ?></p>
-											<p><?php echo "Telefone: ", $tbl['telefone']; ?></p>
-											<p><?php echo "Rua: ", $tbl['rua']; ?></p>
-											<p><?php echo "Bairro: ", $tbl['bairro']; ?></p>
-											<p><?php echo "Numero: ", $tbl['numero']; ?></p>
-											<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
-										</div>
-									</div>
+						</td>
+					</tr>
+					<!-- Inicio Modal -->
+					<div class="modal fade" id="myModal<?php echo $tbl['idUsuario']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nomeUsuarios']; ?></h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								</div>
+								<div class="modal-body">
+									<p><?php echo "Identificador: ", $tbl['idUsuario']; ?></p>
+									<p><?php echo "Nome: ", $tbl['nomeUsuarios']; ?></p>
+									<p><?php echo "CPF: ", $tbl['cpf']; ?></p>
+									<p><?php echo "Telefone: ", $tbl['telefone']; ?></p>
+									<p><?php echo "Rua: ", $tbl['rua']; ?></p>
+									<p><?php echo "Bairro: ", $tbl['bairro']; ?></p>
+									<p><?php echo "Numero: ", $tbl['numero']; ?></p>
+									<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
 								</div>
 							</div>
-							<!-- Fim Modal -->
-		</form>
-	<?php } ?>
-	</table>
-	</div>
-	</div>
+						</div>
+					</div>
+					<!-- Fim Modal -->
+					<?php } ?>
+				</table>
+			</div>
+		</div>
+	</form>
 
 	<div class="modal fade" id="PesquisaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
@@ -196,50 +195,48 @@
 					</button>
 				</div>
 				<div class="modal-body">
-				
-					<!-- Formulario -->
-				
-				<form method="post" action="/Banco/conexao/conexaoAtualizarProfessor.php">
-		<div class="form-row ">
-			<div class="form-group col-md-6">
-				<label for="nome">Nome Completo</label>
-				<input type="text" class="form-control" id="nome" name="nome" required autofocus >
-			</div>
-			<div class="form-group col-md-6 ">
-				<label for="email">Email</label>
-				<input type="email" class="form-control"  id="email" name="email" required autofocus>
-			</div>
-		</div>	
-		<div class="form-row">
-			<div class="form-group col-md-6">
-				<label for="cpf">CPF</label>
-				<input type="text" class="form-control" id="cpf" name="cpf"  required autofocus>
-			</div>
-			<div class="form-group col-md-6">
-				<label for="telefone">Telefone</label>
-				<input type="text" class="form-control" id="telefone" name="telefone" required autofocus >
-			</div>
-		</div>
-		<div class="form-row ">
-			<div class="form-group col-md-5">
-				<label for="rua">Rua</label>
-				<input type="text" class="form-control" id="rua" name="rua" required autofocus >
-			</div>
-			<div class="form-group col-md-5">
-				<label for="bairro">Bairro</label>
-				<input type="text" class="form-control" id="bairro" name="bairro" required autofocus >
-			</div>
-			<div class="form-group col-md-2">
-				<label for="numero">Número</label>
-				<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
-			</div>
-			<input id="id_Professor" type="hidden" name="id_Professor">
-		</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Salvar</button>
-				</div>
-		</form>
+					<!-- Formulario -->				
+					<form method="post" action="/Banco/conexao/conexaoAtualizarProfessor.php">
+						<div class="form-row ">
+							<div class="form-group col-md-6">
+								<label for="nome">Nome Completo</label>
+								<input type="text" class="form-control" id="nome" name="nome" required autofocus >
+							</div>
+							<div class="form-group col-md-6 ">
+								<label for="email">Email</label>
+								<input type="email" class="form-control"  id="email" name="email" required autofocus>
+							</div>
+						</div>	
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="cpf">CPF</label>
+								<input type="text" class="form-control" id="cpf" name="cpf"  required autofocus>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="telefone">Telefone</label>
+								<input type="text" class="form-control" id="telefone" name="telefone" required autofocus >
+							</div>
+						</div>
+						<div class="form-row ">
+							<div class="form-group col-md-5">
+								<label for="rua">Rua</label>
+								<input type="text" class="form-control" id="rua" name="rua" required autofocus >
+							</div>
+							<div class="form-group col-md-5">
+								<label for="bairro">Bairro</label>
+								<input type="text" class="form-control" id="bairro" name="bairro" required autofocus >
+							</div>
+							<div class="form-group col-md-2">
+								<label for="numero">Número</label>
+								<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
+							</div>
+							<input id="id_Professor" type="hidden" name="id_Professor">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Salvar</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
