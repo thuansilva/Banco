@@ -79,7 +79,8 @@
 				<h2>Devolução de Obras</h2>
 			</legend>
 			<br/>
-			<div class="form-row ">
+			<div class="row justify-content-md-center ">
+			<div class="form-row col-md-8">
 				<div class="form-group col-md-8">
 					<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
 				</div>
@@ -87,6 +88,7 @@
 					<button type="submit" class="btn btn-primary"> Buscar </button>
 				</div>
 			</div>
+		</div>
 		</form>
 	</div>
 
@@ -135,7 +137,7 @@
 				<i class="fa fa-info"></i>
 			</button>-->
 
-			<button type="button" class="btn btn-outline-info" 
+			<button type="button" class="btn btn-outline-success" 
 			data-toggle="modal" data-target="#PesquisaModal" 
 			data-whatever="<?php echo $tbl['idEmprestimo'];?>" 
 			data-whatevernomeobras="<?php echo $tbl['nomeObras'];?>" 

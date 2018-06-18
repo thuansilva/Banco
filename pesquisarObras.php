@@ -10,12 +10,7 @@
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
 
 
-	<!-- Bootstrap JavaScript
-    ================================================== -->
-	<!-- -->
-	<script src="./js/slim.min.js"></script>
-	<script src="./js/popper.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -348,15 +343,13 @@
 									</td>
 									<td>
 										<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaObras2">
-											<i class="fa fa-info"></i>
+										Visualizar	<i class="fa fa-info"></i>
 										</button>
 										<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
-
-											<i class="fa fa-edit"></i>
+										Modificar	<i class="fa fa-edit"></i>
 										</button>
 										<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
-
-											<i class="fa fa-trash"></i>
+										Excluir	<i class="fa fa-trash"></i>
 										</button>
 
 									</td>
@@ -396,7 +389,17 @@
 
 
 		</div>
+	
 	</div>
+		<!-- Bootstrap JavaScript
+    ================================================== -->
+	<!-- -->
+	<script src="../js/slim.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+
+	
 </body>
 
 </html>

@@ -86,15 +86,17 @@
 					<h2>Pesquisar Professor</h2>
 				</legend>
 				<br/>
-				<div class="form-row ">
-					<div class="form-group col-md-10 aligh">
+				<div class="row justify-content-md-center ">
+				<div class="form-row col-md-8 ">
+					<div class="form-group col-md-8">
 						<!--		<label >Pesquisar</label> -->
 						<input type="text" class="form-control" placeholder="Digite o nome do professor" name="professor" required autofocus>
 					</div>
-					<div class="form-group col-md-2">
+					<div class="form-group col-md-4">
 
 						<button type="submit" name="busca"  class="btn btn-primary"> Buscar </button>
 					</div>
+				</div>
 				</div>
 			</form>
 		</div>
