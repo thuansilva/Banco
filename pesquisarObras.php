@@ -182,6 +182,7 @@
 											<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
 											<p><?php echo "ISBN: ", $tbl['isbn']; ?></p> 
 											<p><?php echo "Ano Publicação: ", $tbl['anoPublicacao']; ?></p> 
+											<p><?php echo "Volume: ", $tbl['volume']; ?></p>
 											<p><?php echo "Autor: ", $tbl['nomeAutor']; ?></p> 
 											<p><?php echo "Editora: ", $tbl['nomeEditora']; ?></p> 
 											<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p> 
@@ -216,7 +217,7 @@
 
 					<!-- Formulario -->
 
-		<form method="post" action="/Banco/conexao/conexaoAtualizarObras.php">
+		<form method="post" action="/Banco/conexao/conexaoAtualizarLivro.php">
 		<div class="form-row ">
 			<div class="form-group col-md-6">
 				<label for="nome">Nome Completo</label>
@@ -404,6 +405,7 @@
 								<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
 								<p><?php echo "Ano Publicação: ", $tbl['anoPublicacao']; ?></p> 
 								<p><?php echo "Edição: ", $tbl['edicao']; ?></p> 
+								<p><?php echo "Título: ", $tbl['titulo']; ?></p> 
 								<p><?php echo "Editora: ", $tbl['nomeEditora']; ?></p> 
 								<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p> 
 								<p><?php echo "Observação: ", $tbl['obs']; ?></p>

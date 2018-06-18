@@ -80,8 +80,8 @@
   <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
     <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 > 
           text-center text-white overflow-hidden" style="border-radius: 21px 21px 0 0">
-      <h2>Quem Somos?</h2>
-      <p class="lead" align='justify'>Sistema criado por alunos da Universidade Federal do Amazonas para auxiliar o gerenciamento de Biblioteca. Seu nome SiGB, é a sigla para Sistema Gerenciador de Bibliotecas</p>
+      <h2>Sobre Nós</h2>
+      <p class="lead" align='justify'>O SiGB, é um Sistema Gerenciador de Biblioteca, sendo desenvolvido por alunos da Universidade Federal do Amazonas, visando facilitar e estruturar o funcionamenta da biblioteca</p>
     </div>
 
 

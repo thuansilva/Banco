@@ -9,21 +9,18 @@
 
 	$id = $_POST['idObras'];
 	$nome = $_POST['nomeObras'];
-	$isbn = $_POST['isbn'];
 	$ano = $_POST['anoPublicacao'];
-	$autor = $_POST['nomeAutor'];
+	$titulo = $_POST['titulo'];
+	$edicao = $_POST['edicao'];
 	$editora = $_POST['nomeEditora'];
-	$volume = $_POST['volume'];
 	$dataCadastro = $_POST['dataCadastro'];
 	$obs = $_POST['obs'];
 
 	$result = "UPDATE  `obras` 
-	INNER JOIN  `livros` ON  `obras`.`idObras` =  `livros`.`idObras_FK` 
-	INNER JOIN  `tem` ON  `tem`.`isbn_fk` = `livros`.`isbn` 
-	INNER JOIN  `autor` ON  `autor`.`idAutor` =  `tem`.`idAutor_FK` 
+	INNER JOIN  `revistas` ON  `obras`.`idObras` =  `revistas`.`idObras_FK`  
 	INNER JOIN  `possui` ON  `possui`.`idObras_FK` = `obras`.`idObras` 
 	INNER JOIN  `editora` ON  `editora`.`idEditora` =  `possui`.`idEditora_FK` 
-	SET  `obras`.`nomeObras` = '$nome', `obras`.`anoPublicacao` =  '$ano', `obras`.`dataCadastro` =  '$dataCadastro', `obras`.`obs` =  '$obs', `livros`.`volume` =  '$volume', `autor`.`nomeAutor` =  '$autor', `editora`.`nomeEditora` =  '$editora' 
+	SET  `obras`.`nomeObras` = '$nome', `obras`.`anoPublicacao` =  '$ano', `obras`.`dataCadastro` =  '$dataCadastro', `obras`.`obs` =  '$obs', `revistas`.`titulo` =  '$titulo', `revistas`.`edicao` =  '$edicao', `editora`.`nomeEditora` =  '$editora' 
 	WHERE  `obras`.`idObras` =  '$id'";
 
 	#$resul_up = mysqli_query($mysqli, $result);
