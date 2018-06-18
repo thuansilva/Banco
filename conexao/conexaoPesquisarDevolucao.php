@@ -15,7 +15,7 @@
 
     if(mysql_num_rows($result) > 0){
         
-        echo "Operacao realiada com sucesso";
+        echo "Operacao realizada com sucesso";
 
         echo "<table border='1'";
         echo "<tr><td>Cod. Empr.</td>"

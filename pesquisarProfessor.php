@@ -133,7 +133,7 @@
 						<td>
 							<button type="button" role="button" class="btn btn-outline-info"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario'];?>">
-								Visualizar
+								
 								<i class="fa fa-info"></i>
 							</button>
 							<button type="button" class="btn btn-outline-warning" 
@@ -146,12 +146,12 @@
 							data-whateverrua="<?php echo $tbl['rua'];?>" 
 							data-whateverbairro="<?php echo $tbl['bairro'];?>" 
 							data-whatevernumero="<?php echo $tbl['numero'];?>">
-								Editar
+								
 								<i class="fa fa-edit"></i>
 							</button>					
 							<button type="button" role="button" class="btn btn-outline-danger"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
-								Excluir
+								
 								<i class="fa fa-trash "></i>
 							</button>
 							</td>
