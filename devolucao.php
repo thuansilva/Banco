@@ -64,7 +64,8 @@
 	 `obras`.`nomeObras`, `usuarios_emprestimo`.`dataDevolucao`, `usuarios_emprestimo`.`dataEmprestimo` 
     FROM `usuarios_emprestimo`
     INNER JOIN `usuarios` ON `usuarios`.`idUsuario` = `usuarios_emprestimo`.`idUsuario_FK`
-	INNER JOIN `obras` ON `obras`.`idObras` = `usuarios_emprestimo`.`idObras_FK`";
+	INNER JOIN `obras` ON `obras`.`idObras` = `usuarios_emprestimo`.`idObras_FK`
+	ORDER BY  `obras`.`nomeObras` ";
 	$con = $mysqli->query($consulta);
 	?>
 

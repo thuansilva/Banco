@@ -71,7 +71,8 @@
 	$consulta = "SELECT * FROM `usuarios`
     INNER JOIN `telefoneusuario` ON `usuarios`.`idUsuario` = `telefoneusuario`.`idUsuario_FK`
 	INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK`
-    INNER JOIN `enderecousuario` ON `usuarios`.`idUsuario` = `enderecousuario`.`idUsuario_FK`";
+    INNER JOIN `enderecousuario` ON `usuarios`.`idUsuario` = `enderecousuario`.`idUsuario_FK`
+    ORDER BY  `usuarios`.`nomeUsuarios` ";
 	
 	#$resultado = mysqli_query($conn, $consulta);
 	$con = $mysqli->query($consulta);

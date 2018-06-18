@@ -69,7 +69,8 @@
 	INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
 	INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`
 	INNER JOIN  `possui` ON  `possui`.`idObras_FK` =  `obras`.`idObras` 
-	INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
+	INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`
+	ORDER BY `obras`.`nomeObras`";
 	/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
 	FROM `obras`
    	INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
@@ -93,7 +94,7 @@
 		<div class="tab-content py-lg-3" id="myTabContent">
 			<div class="tab-pane fade show active" id="home" aria-labelledby="home-tab">
 				<div class="container my-3 px-lg-3 p-md-3  " id="divAluno">
-					<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
+					<form method="post" action="/Banco/conexao/conexaoPesquisarLivro.php">
 						<legend>
 							<h2>Pesquisar Livro</h2>
 						</legend>
@@ -101,7 +102,7 @@
 						<div class="row justify-content-md-center ">
 							<div class="form-row  col-md-8">
 								<div class="form-group  justify col-md-8">
-									<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
+									<input type="text" class="form-control" placeholder="Digite o nome do livro" name="obra" required autofocus>
 								</div>
 								<div class="form-group col-md-4">
 									<button type="submit" class="btn btn-primary"> Buscar </button>
@@ -301,7 +302,8 @@
 			$consulta = "SELECT * FROM `obras`
    			INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`
 			INNER JOIN `possui` ON `possui`.`idObras_FK` = `obras`.`idObras`
-			INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
+			INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`
+			ORDER BY  `obras`.`nomeObras` ";
 			/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
     		FROM `obras`
     		INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`";
@@ -309,11 +311,11 @@
 			$con = $mysqli->query($consulta);
 			?>
 
-			<!-- Segunda Parte          -->
+			<!-- Segunda Parte    -->
 
 			<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 				<div class="container my-3 px-lg-3 p-md-3  " id="divAluno">
-					<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
+					<form method="post" action="/Banco/conexao/conexaoPesquisarRevista.php">
 						<legend>
 							<h2>Pesquisar Revista</h2>
 						</legend>
@@ -321,7 +323,7 @@
 						<div class="row justify-content-md-center ">
 							<div class="form-row  col-md-8">
 								<div class="form-group  justify col-md-8">
-									<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
+									<input type="text" class="form-control" placeholder="Digite o nome da revista" name="obra" required autofocus>
 								</div>
 								<div class="form-group col-md-4">
 									<button type="submit" class="btn btn-primary"> Buscar </button>
@@ -379,13 +381,13 @@
 								</tr>
 
 								</tr>
-				</form>
+				
 				<?php } ?>
 
 				</table>
 				</div>
 				</div>
-
+				</form>
 
 				<!-- Segundo  Modal -->
 				<div class="modal fade" id="PesquisaObras2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

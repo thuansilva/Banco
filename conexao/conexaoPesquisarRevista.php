@@ -5,9 +5,10 @@
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
     
-    $pesquisa = ("SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
-    FROM `obras`
-    INNER JOIN `livros` ON `livros`.`idObras_FK` = `obras`.`idObras`
+    $pesquisa = ("SELECT `obras`.`idObras` ,  `obras`.`nomeObras` ,  `obras`.`dataCadastro`
+    INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`
+    INNER JOIN `possui` ON `possui`.`idObras_FK` = `obras`.`idObras`
+    INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`
     WHERE `obras`.`nomeObras` LIKE  '%$nome%'");
     $result = mysql_query($pesquisa);
 
@@ -16,7 +17,7 @@
         echo "Operacao realiada com sucesso";
 
         echo "<table border='1'";
-        echo "<tr><td>ID</td>"
+        echo "<tr><td>Co. Revista</td>"
              ."<td>Nome</td>"
              ."<td>Data de Cadastro</td>"
              ."</tr>";

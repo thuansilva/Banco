@@ -70,7 +70,8 @@
 	$consulta = "SELECT * FROM `usuarios`
 	INNER JOIN `telefoneusuario` ON `usuarios`.`idUsuario` = `telefoneusuario`.`idUsuario_FK` 
 	INNER JOIN `professores` ON `usuarios`.`idUsuario` = `professores`.`idUsuario_FK`
-	INNER JOIN `enderecousuario` ON `usuarios`.`idUsuario` = `enderecousuario`.`idUsuario_FK`";
+	INNER JOIN `enderecousuario` ON `usuarios`.`idUsuario` = `enderecousuario`.`idUsuario_FK`
+	ORDER BY  `usuarios`.`nomeUsuarios` ";
 	
 	
 	#$resultado = mysqli_query($conn, $consulta);
@@ -230,7 +231,7 @@
 							<input id="id_Professor" type="hidden" name="id_Professor">
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 							<button type="submit" class="btn btn-primary">Salvar</button>
 						</div>
 					</form>

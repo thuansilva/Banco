@@ -7,16 +7,15 @@
 	$conn = mysqli_connect($host, $usuario, $senha, $banco);
 	#$mysqli = new mysqli($host, $usuario, $senha, $banco);
 
-	$id = $_POST['id_Aluno'];
-	$nome = $_POST['nome'];
-	$telefone = $_POST['telefone'];
-	$responsavel = $_POST['responsavel'];
-	$turma = $_POST['turma'];
-	$serie = $_POST['serie'];
-	$matricula = $_POST['matricula'];
-	$rua = $_POST['rua'];
-	$bairro = $_POST['bairro'];
-	$numero = $_POST['numero'];
+	$id = $_POST['idObras'];
+	$nome = $_POST['nomeObras'];
+	$isbn = $_POST['isbn'];
+	$ano = $_POST['anoPublicacao'];
+	$autor = $_POST['nomeAutor'];
+	$editora = $_POST['nomeEditora'];
+	$volume = $_POST['volume'];
+	$dataCadastro = $_POST['dataCadastro'];
+	$obs = $_POST['obs'];
 
 	$result = "UPDATE `obras` 
 	INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK` 
