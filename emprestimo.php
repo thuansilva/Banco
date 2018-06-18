@@ -63,7 +63,7 @@
 			<div class="form-row">
 				<div class="form-group col-md-4">
 					<label>Código bibliotecário(a)</label>
-					<input type="number" class="form-control" placeholder="Digite o identificador do bibliotecário(a)" name="bibliotecario" required autofocus>
+					<input type="number" class="form-control" value="2" name="bibliotecario" required autofocus>
 				</div>
 				<div class="form-group col-md-4" >
 					<label>Código da Obra</label>

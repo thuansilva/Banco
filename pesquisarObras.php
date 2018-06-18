@@ -9,7 +9,14 @@
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet">
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
 
-
+		<!-- Bootstrap JavaScript
+    ================================================== -->
+	<!-- -->
+	<script src="../Banco/js/slim.min.js"></script>
+	<script src="../Banco/js/popper.min.js"></script>
+	<script src="../Banco/js/bootstrap.min.js"></script>
+	<script src="../Banco/js/jquery.min.js"></script>
+	<script src="./personalizado.js"></script>
 
 </head>
 
@@ -69,8 +76,7 @@
 	INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
 	INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`
 	INNER JOIN  `possui` ON  `possui`.`idObras_FK` =  `obras`.`idObras` 
-	INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`
-	ORDER BY `obras`.`nomeObras`";
+	INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
 	/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
 	FROM `obras`
    	INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
@@ -150,20 +156,27 @@
 						<i class="fa fa-info"></i>
 					</button>
 					<button type="button" class="btn btn-outline-warning" 
-							data-toggle="modal" data-target="#PesquisaModal" 
+							data-toggle="modal" data-target="#PesquisaObras" 
 							data-whatever="<?php echo $tbl['idObras'];?>" 
 							data-whatevernome="<?php echo $tbl['nomeObras'];?>" 
-							data-whateverisbn="<?php echo $tbl['isbn'];?>"
 							data-whateveranopublicacao="<?php echo $tbl['anoPublicacao'];?>"
 							data-whateverautor="<?php echo $tbl['nomeAutor'];?>" 
 							data-whatevereditora="<?php echo $tbl['nomeEditora'];?>" 
 							data-whatevervolume="<?php echo $tbl['volume'];?>" 
 							data-whateverdatacadastro="<?php echo $tbl['dataCadastro'];?>"
-							data-whateverdataobs="<?php echo $tbl['obs'];?>">
+							data-whateverobs="<?php echo $tbl['obs'];?>">
 								Editar
 								<i class="fa fa-edit"></i>
 							</button>
-					<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObras<?php echo $tbl['idObras']; ?>">
+					<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObrasLivros" 
+							data-whatever="<?php echo $tbl['idObras'];?>" 
+							data-whatevernome="<?php echo $tbl['nomeObras'];?>" 
+							data-whateveranopublicacao="<?php echo $tbl['anoPublicacao'];?>"
+							data-whateverautor="<?php echo $tbl['nomeAutor'];?>" 
+							data-whatevereditora="<?php echo $tbl['nomeEditora'];?>" 
+							data-whatevervolume="<?php echo $tbl['volume'];?>" 
+							data-whateverdatacadastro="<?php echo $tbl['dataCadastro'];?>"
+							data-whateverobs="<?php echo $tbl['obs'];?>">
 						Excluir
 						<i class="fa fa-trash"></i>
 					</button>
@@ -181,8 +194,8 @@
 											<p><?php echo "Cod. Livro: ", $tbl['idObras']; ?></p>
 											<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
 											<p><?php echo "ISBN: ", $tbl['isbn']; ?></p> 
-											<p><?php echo "Ano Publicação: ", $tbl['anoPublicacao']; ?></p> 
 											<p><?php echo "Volume: ", $tbl['volume']; ?></p>
+											<p><?php echo "Ano Publicação: ", $tbl['anoPublicacao']; ?></p> 
 											<p><?php echo "Autor: ", $tbl['nomeAutor']; ?></p> 
 											<p><?php echo "Editora: ", $tbl['nomeEditora']; ?></p> 
 											<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p> 
@@ -193,12 +206,11 @@
 								</div>
 							</div>
 							<!-- Fim Modal -->
-				</form>
 				<?php } ?>
-
 				</table>
-				</div>
-				</div>
+			</div>
+		</div>
+	</form>
 
 
 				<!--O primeiro        Modal -->
@@ -219,44 +231,103 @@
 
 		<form method="post" action="/Banco/conexao/conexaoAtualizarLivro.php">
 		<div class="form-row ">
-			<div class="form-group col-md-6">
-				<label for="nome">Nome Completo</label>
+			<div class="form-group col-md-12">
+				<label for="nome">Nome do Livro</label>
 				<input type="text" class="form-control" id="nome" name="nome" required autofocus >
 			</div>
-			<div class="form-group col-md-6 ">
-				<label for="email">Email</label>
-				<input type="email" class="form-control"  id="email" name="email" required autofocus>
+			<div class="form-group col-md-12 ">
+				<label for="autor">Autor</label>
+				<input type="text" class="form-control"  id="autor" name="autor" required autofocus>
 			</div>
 		</div>	
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label for="cpf">CPF</label>
-				<input type="text" class="form-control" id="cpf" name="cpf"  required autofocus>
+				<label for="editora">Editora</label>
+				<input type="text" class="form-control" id="editora" name="editora"  required autofocus>
 			</div>
 			<div class="form-group col-md-6">
-				<label for="telefone">Telefone</label>
-				<input type="text" class="form-control" id="telefone" name="telefone" required autofocus >
+				<label for="volume">Volume</label>
+				<input type="number" class="form-control" id="volume" name="volume"  required autofocus>
 			</div>
 		</div>
 		<div class="form-row ">
-			<div class="form-group col-md-5">
-				<label for="rua">Rua</label>
-				<input type="text" class="form-control" id="rua" name="rua" required autofocus >
+			<div class="form-group col-md-6">
+				<label for="anopublicacao">Ano de Publicacao</label>
+				<input type="text" class="form-control" id="anopublicacao" name="anopublicacao" required autofocus >
 			</div>
-			<div class="form-group col-md-5">
-				<label for="bairro">Bairro</label>
-				<input type="text" class="form-control" id="bairro" name="bairro" required autofocus >
+			<div class="form-group col-md-6">
+				<label for="datacadastro">Data de Cadastro</label>
+				<input type="text" class="form-control" id="datacadastro" name="datacadastro" required autofocus >
 			</div>
-			<div class="form-group col-md-2">
-				<label for="numero">Número</label>
-				<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
+			<div class="form-group col-md-12">
+				<label for="obs">Obs</label>
+				<input type="text" class="form-control" id="obs" name="obs" required autofocus >
 			</div>
-			<input id="id_Professor" type="hidden" name="id_Professor">
+			<input id="id_Obras" type="hidden" name="id_Obras">
 		</div>
-				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="PesquisaObrasLivros" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="PesquisaObrasLivros"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- Formulario -->
+					<form method="post" action="/Banco/conexao/conexaoRemoverLivro.php">
+						<div class="form-row ">
+							<div class="form-group col-md-12">
+								<label for="nome">Nome do Livro</label>
+								<input type="text" class="form-control" id="nome" name="nome" required autofocus >
+							</div>
+							<div class="form-group col-md-12 ">
+								<label for="autor">Autor</label>
+								<input type="text" class="form-control"  id="autor" name="autor" required autofocus>
+							</div>
+						</div>	
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="editora">Editora</label>
+								<input type="text" class="form-control" id="editora" name="editora"  required autofocus>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="volume">Volume</label>
+								<input type="number" class="form-control" id="volume" name="volume"  required autofocus>
+							</div>
+						</div>
+						<div class="form-row ">
+							<div class="form-group col-md-6">
+								<label for="anopublicacao">Ano de Publicacao</label>
+								<input type="text" class="form-control" id="anopublicacao" name="anopublicacao" required autofocus >
+							</div>
+							<div class="form-group col-md-6">
+								<label for="datacadastro">Data de Cadastro</label>
+								<input type="text" class="form-control" id="datacadastro" name="datacadastro" required autofocus >
+							</div>
+							<div class="form-group col-md-12">
+								<label for="obs">Obs</label>
+								<input type="text" class="form-control" id="obs" name="obs" required autofocus >
+							</div>
+							<input id="id_Obras" type="hidden" name="id_Obras">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+							<button type="submit" class="btn btn-danger">Sim</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -272,20 +343,47 @@
 		  var button = $(event.relatedTarget) // Button that triggered the modal
 		  var recipient = button.data('whatever') // Extract info from data-* attributes
 		  var recipientnome = button.data('whatevernome')
-		  var recipientisbn = button.data('whateverisbn')
 		  var recipientanopublicacao = button.data('whateveranopublicacao')
 		  var recipientautor = button.data('whateverautor')
 		  var recipienteditora = button.data('whatevereditora')
+		  var recipientvolume = button.data('whatevervolume')
 		  var recipientdatacadastro = button.data('whateverdatacadastro')
-		  var recipientobd = button.data('whateverobs')
+		  var recipientobs = button.data('whateverobs')
 
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
-		  modal.find('.modal-title').text('ID da Obra: ' + recipient)
-		  modal.find('#id_Obra').val(recipient)
+		  modal.find('.modal-title').text('ID de Livros: ' + recipient)
+		  modal.find('#id_Obras').val(recipient)
 		  modal.find('#nome').val(recipientnome)
-		  modal.find('#isbn').val(recipientisbn)
+		  modal.find('#volume').val(recipientvolume)
+		  modal.find('#anopublicacao').val(recipientanopublicacao)
+		  modal.find('#autor').val(recipientautor)
+		  modal.find('#editora').val(recipienteditora)
+		  modal.find('#datacadastro').val(recipientdatacadastro)
+		  modal.find('#obs').val(recipientobs)
+		})
+	</script>
+
+	<script type="text/javascript">
+		$('#PesquisaObrasLivros').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  var recipientnome = button.data('whatevernome')
+		  var recipientanopublicacao = button.data('whateveranopublicacao')
+		  var recipientautor = button.data('whateverautor')
+		  var recipienteditora = button.data('whatevereditora')
+		  var recipientvolume = button.data('whatevervolume')
+		  var recipientdatacadastro = button.data('whateverdatacadastro')
+		  var recipientobs = button.data('whateverobs')
+
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title').text('Certeza que deseja excluir?')
+		  modal.find('#id_Obras').val(recipient)
+		  modal.find('#nome').val(recipientnome)
+		  modal.find('#volume').val(recipientvolume)
 		  modal.find('#anopublicacao').val(recipientanopublicacao)
 		  modal.find('#autor').val(recipientautor)
 		  modal.find('#editora').val(recipienteditora)
@@ -297,14 +395,12 @@
 	</div>
 
 			<!-- Final da priemeira parteee -->
-
 			<?php
 			include("../Banco/conexao/conexao.php");
 			$consulta = "SELECT * FROM `obras`
    			INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`
 			INNER JOIN `possui` ON `possui`.`idObras_FK` = `obras`.`idObras`
-			INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`
-			ORDER BY  `obras`.`nomeObras` ";
+			INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
 			/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
     		FROM `obras`
     		INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`";
@@ -312,7 +408,7 @@
 			$con = $mysqli->query($consulta);
 			?>
 
-			<!-- Segunda Parte    -->
+			<!-- Segunda Parte          -->
 
 			<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 				<div class="container my-3 px-lg-3 p-md-3  " id="divAluno">
@@ -366,36 +462,44 @@
 										<?php echo $tbl["nomeEditora"];?>
 									</td>
 									<td>
-										<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaObras2">
-											Visualizar	
-											<i class="fa fa-info"></i>
-										</button>
-										<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
-											Editar	
-											<i class="fa fa-edit"></i>
-										</button>
-										<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
-											Excluir	
-											<i class="fa fa-trash"></i>
-										</button>
-									</td>
-								</tr>
-
-								</tr>
-				
-				<?php } ?>
-
-				</table>
-				</div>
-				</div>
-				</form>
+						<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal2">
+						Visualizar	
+						<i class="fa fa-info"></i>
+						</button>
+						<button type="button" class="btn btn-outline-warning" 
+							data-toggle="modal" data-target="#PesquisaObras2" 
+							data-whatever="<?php echo $tbl['idObras'];?>"
+							data-whatevernomeobras="<?php echo $tbl['nomeObras'];?>" 
+							data-whateveranopublicacao="<?php echo $tbl['anoPublicacao'];?>"
+							data-whatevertitulo="<?php echo $tbl['titulo'];?>"
+							data-whateveredicao="<?php echo $tbl['edicao'];?>"
+							data-whatevereditora="<?php echo $tbl['nomeEditora'];?>"
+							data-whateverdatacadastro="<?php echo $tbl['dataCadastro'];?>"
+							data-whateverobs="<?php echo $tbl['obs'];?>">
+								Editar
+								<i class="fa fa-edit"></i>
+						</button>
+						<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObrasRevista" 
+							data-whatever="<?php echo $tbl['idObras'];?>"
+							data-whatevernomeobras="<?php echo $tbl['nomeObras'];?>" 
+							data-whateveranopublicacao="<?php echo $tbl['anoPublicacao'];?>"
+							data-whatevertitulo="<?php echo $tbl['titulo'];?>"
+							data-whateveredicao="<?php echo $tbl['edicao'];?>"
+							data-whatevereditora="<?php echo $tbl['nomeEditora'];?>"
+							data-whateverdatacadastro="<?php echo $tbl['dataCadastro'];?>"
+							data-whateverobs="<?php echo $tbl['obs'];?>">
+							Excluir	
+							<i class="fa fa-trash"></i>
+						</button>
+					</td>
+				</tr>
 
 				<!-- Segundo  Modal -->
-				<div class="modal fade" id="PesquisaObras2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel"><?php echo $tbl['nomeObras']; ?> </h5>
+								<h5 class="modal-title" id="myModalLabel"><?php echo $tbl['nomeObras']; ?></h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
@@ -404,30 +508,199 @@
 								<p><?php echo "Cod. Revista: ", $tbl['idObras']; ?></p>
 								<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
 								<p><?php echo "Ano Publicação: ", $tbl['anoPublicacao']; ?></p> 
+								<p><?php echo "Titulo: ", $tbl['titulo']; ?></p>
 								<p><?php echo "Edição: ", $tbl['edicao']; ?></p> 
-								<p><?php echo "Título: ", $tbl['titulo']; ?></p> 
 								<p><?php echo "Editora: ", $tbl['nomeEditora']; ?></p> 
 								<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p> 
 								<p><?php echo "Observação: ", $tbl['obs']; ?></p>
 								<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
 							</div>
-							<div class="modal-body">
-								<!-- Formulario -->
-
-							</div>
 						</div>
 					</div>
 				</div>
+			<!-- Fim Modal -->
+				
+				<?php } ?>
 
+			</table>
+		</div>
+	</div>
+</form>
+			<!-- Modal -->
+	<div class="modal fade" id="PesquisaObras2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title2" id="PesquisaObras2"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+			<!-- Formulario -->
+
+		<form method="post" action="/Banco/conexao/conexaoAtualizarRevista.php">
+		<div class="form-row ">
+			<div class="form-group col-md-12">
+				<label for="nome">Nome da Revista</label>
+				<input type="text" class="form-control" id="nome" name="nome" required autofocus >
+			</div>
+		</div>	
+		<div class="form-row">
+			<div class="form-group col-md-12">
+				<label for="titulo">Titulo</label>
+				<input type="text" class="form-control" id="titulo" name="titulo"  required autofocus>
+			</div>
+			<div class="form-group col-md-7">
+				<label for="editora">Editora</label>
+				<input type="text" class="form-control" id="editora" name="editora" required autofocus >
+			</div>
+		</div>
+		<div class="form-row ">
+			<div class="form-group col-md-2">
+				<label for="edicao">Edicao</label>
+				<input type="text" class="form-control" id="edicao" name="edicao" required autofocus >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="anopublicacao">Ano de Publicacao</label>
+				<input type="text" class="form-control" id="anopublicacao" name="anopublicacao" required autofocus >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="datacadastro">Data de Cadastro</label>
+				<input type="date" class="form-control" id="datacadastro" name="datacadastro" required autofocus >
+			</div>
+			<div class="form-group col-md-12">
+				<label for="obs">Observação</label>
+				<textarea type="text" class="form-control" id="obs" name="obs" required autofocus ></textarea>
+			</div>
+			<input id="id_revista" type="hidden" name="id_Obras">
+		</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
 			</div>
 		</div>
 	</div>
-		<!-- Bootstrap JavaScript
-    ================================================== -->
-	<!-- -->
-	<script src="../js/slim.min.js"></script>
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+
+<!-- Modal -->
+	<div class="modal fade" id="PesquisaObrasRevista" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title2" id="PesquisaObrasRevista"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+			<!-- Formulario -->
+
+		<form method="post" action="/Banco/conexao/conexaoRemoverRevista.php">
+		<div class="form-row ">
+			<div class="form-group col-md-12">
+				<label for="nome">Nome da Revista</label>
+				<input type="text" class="form-control" id="nome" name="nome" required autofocus >
+			</div>
+		</div>	
+		<div class="form-row">
+			<div class="form-group col-md-12">
+				<label for="titulo">Titulo</label>
+				<input type="text" class="form-control" id="titulo" name="titulo"  required autofocus>
+			</div>
+			<div class="form-group col-md-7">
+				<label for="editora">Editora</label>
+				<input type="text" class="form-control" id="editora" name="editora" required autofocus >
+			</div>
+		</div>
+		<div class="form-row ">
+			<div class="form-group col-md-2">
+				<label for="edicao">Edicao</label>
+				<input type="text" class="form-control" id="edicao" name="edicao" required autofocus >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="anopublicacao">Ano de Publicacao</label>
+				<input type="text" class="form-control" id="anopublicacao" name="anopublicacao" required autofocus >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="datacadastro">Data de Cadastro</label>
+				<input type="date" class="form-control" id="datacadastro" name="datacadastro" required autofocus >
+			</div>
+			<div class="form-group col-md-12">
+				<label for="obs">Observação</label>
+				<textarea type="text" class="form-control" id="obs" name="obs" required autofocus ></textarea>
+			</div>
+			<input id="id_revista" type="hidden" name="id_revista">
+		</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+					<button type="submit" class="btn btn-danger">Sim</button>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+	<script type="text/javascript">
+		$('#PesquisaObras2').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  var recipientnomeobras = button.data('whatevernomeobras')
+		  var recipientanopublicacao = button.data('whateveranopublicacao')
+		  var recipienttitulo = button.data('whatevertitulo')
+		  var recipientedicao = button.data('whateveredicao')
+		  var recipienteditora = button.data('whatevereditora')
+		  var recipientdatacadastro = button.data('whateverdatacadastro')
+		  var recipientobs = button.data('whateverobs')
+
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title2').text('ID da Revista: ' + recipient)
+		  modal.find('#id_revista').val(recipient)
+		  modal.find('#nome').val(recipientnomeobras)
+		  modal.find('#anopublicacao').val(recipientanopublicacao)
+		  modal.find('#titulo').val(recipienttitulo)
+		  modal.find('#edicao').val(recipientedicao)
+		  modal.find('#editora').val(recipienteditora)
+		  modal.find('#datacadastro').val(recipientdatacadastro)
+		  modal.find('#obs').val(recipientobs)
+		})
+	</script>
+
+	<script type="text/javascript">
+		$('#PesquisaObrasRevista').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  var recipientnomeobras = button.data('whatevernomeobras')
+		  var recipientanopublicacao = button.data('whateveranopublicacao')
+		  var recipienttitulo = button.data('whatevertitulo')
+		  var recipientedicao = button.data('whateveredicao')
+		  var recipienteditora = button.data('whatevereditora')
+		  var recipientdatacadastro = button.data('whateverdatacadastro')
+		  var recipientobs = button.data('whateverobs')
+
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title2').text('Certeza que deseja excluir?')
+		  modal.find('#id_revista').val(recipient)
+		  modal.find('#nome').val(recipientnomeobras)
+		  modal.find('#anopublicacao').val(recipientanopublicacao)
+		  modal.find('#titulo').val(recipienttitulo)
+		  modal.find('#edicao').val(recipientedicao)
+		  modal.find('#editora').val(recipienteditora)
+		  modal.find('#datacadastro').val(recipientdatacadastro)
+		  modal.find('#obs').val(recipientobs)
+		})
+	</script>
 
 
 	

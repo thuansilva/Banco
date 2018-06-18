@@ -12,7 +12,8 @@
 	<script src="./Banco/js/slim.min.js"></script>
 	<script src="./Banco/js/popper.min.js"></script>
 	<script src="./Banco/js/bootstrap.min.js"></script>
-	<script src="./Banco/js/jquery.min.js"></script>
+	<script src="../Banco/js/jquery.min.js"></script>
+	<script src="./personalizado.js"></script>
 </head>
 
 <body>
@@ -88,15 +89,13 @@
 				<div class="form-row col-md-8 ">
 					<div class="form-group col-md-8">
 						<!--		<label >Pesquisar</label> -->
-						<input type="text" class="form-control" placeholder="Digite o nome do professor" name="professor" required autofocus>
+						<input type="text" class="form-control" placeholder="Digite o nome do professor" id="pesquisa2" name="pesquisa2" required autofocus>
 					</div>
-					<div class="form-group col-md-4">
-
-						<button type="submit" name="busca"  class="btn btn-primary"> Buscar </button>
-					</div>
+					
 				</div>
 				</div>
 			</form>
+			<ul class="resultado"></ul>
 		</div>
 	<!-- Tabela -->
 	<form id="lista" name="lista" method="post" action="/Banco/conexao/conexaoRemoverProfessor.php">
@@ -233,7 +232,7 @@
 							</div>
 							<div class="form-group col-md-2">
 								<label for="numero">Número</label>
-								<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
+								<input type="number" class="form-control" id="numero" name="numero" required autofocus >
 							</div>
 							<input id="id_Professor" type="hidden" name="id_Professor">
 						</div>

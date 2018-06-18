@@ -7,14 +7,13 @@
 	$conn = mysqli_connect($host, $usuario, $senha, $banco);
 	#$mysqli = new mysqli($host, $usuario, $senha, $banco);
 
-	$id = $_POST['idObras'];
-	$nome = $_POST['nomeObras'];
-	$isbn = $_POST['isbn'];
-	$ano = $_POST['anoPublicacao'];
-	$autor = $_POST['nomeAutor'];
-	$editora = $_POST['nomeEditora'];
+	$id = $_POST['id_Obras'];
+	$nome = $_POST['nome'];
+	$ano = $_POST['anopublicacao'];
+	$autor = $_POST['autor'];
+	$editora = $_POST['editora'];
 	$volume = $_POST['volume'];
-	$dataCadastro = $_POST['dataCadastro'];
+	$dataCadastro = $_POST['datacadastro'];
 	$obs = $_POST['obs'];
 
 	$result = "UPDATE  `obras` 
@@ -36,4 +35,5 @@
 		echo "<script>alert('Falha na atualização do registro!');
         location.href=\"/Banco/pesquisarObras.php\"</script>";
 	}
+
 ?>

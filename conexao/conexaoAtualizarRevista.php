@@ -7,13 +7,13 @@
 	$conn = mysqli_connect($host, $usuario, $senha, $banco);
 	#$mysqli = new mysqli($host, $usuario, $senha, $banco);
 
-	$id = $_POST['idObras'];
-	$nome = $_POST['nomeObras'];
-	$ano = $_POST['anoPublicacao'];
+	$id = $_POST['id_Obras'];
+	$nome = $_POST['nome'];
+	$ano = $_POST['anopublicacao'];
 	$titulo = $_POST['titulo'];
 	$edicao = $_POST['edicao'];
-	$editora = $_POST['nomeEditora'];
-	$dataCadastro = $_POST['dataCadastro'];
+	$editora = $_POST['editora'];
+	$dataCadastro = $_POST['datacadastro'];
 	$obs = $_POST['obs'];
 
 	$result = "UPDATE  `obras` 

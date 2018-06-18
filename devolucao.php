@@ -8,6 +8,16 @@
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet" >
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet" >
 	<link href="../Banco/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Bootstrap JavaScript
+    ================================================== -->
+    <!-- -->
+    <script src="./Banco/js/slim.min.js" ></script>
+    <script src="./Banco/js/popper.min.js" ></script>
+    <script src="./Banco/js/bootstrap.min.js" ></script>
+    <script src="../Banco/js/jquery.min.js"></script>
+	<script src="./personalizado.js"></script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
@@ -79,16 +89,14 @@
 			<div class="row justify-content-md-center ">
 			<div class="form-row col-md-8">
 				<div class="form-group col-md-8">
-					<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
+					<input type="text" class="form-control" placeholder="Digite o nome da obra" id="pesquisa3" name="pesquisa3" required autofocus>
 				</div>
-				<div class="form-group col-md-4">
-					<button type="submit" class="btn btn-primary"> Buscar </button>
-				</div>
-			</div>
+				
 		</div>
 		</form>
+		
 	</div>
-
+<ul class="resultado"></ul>
 
 	<!-- Tabela -->
 	<form id="lista" name="lista" method="post"> <!--action="/Banco/conexao/conexaoDevolucao.php"-->
@@ -254,15 +262,7 @@
 			modal.find('#datae').val(recipientdatae)
 			modal.find('#datad').val(recipientdatad)
 		})
-	</script>
-
- <!-- Bootstrap JavaScript
-    ================================================== -->
-    <!-- -->
-    <script src="Banco/js/slim.min.js" ></script>
-    <script src="Banco/js/popper.min.js" ></script>
-    <script src="Banco/js/bootstrap.min.js" ></script>
-		
+	</script>		
 
 </body>
 </html>

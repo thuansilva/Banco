@@ -15,13 +15,19 @@
 
 
 	$remProf = ("DELETE FROM `telefoneusuario` WHERE `idUsuario_FK`='$id'");
+	$result_up = $conn->query($remProf);
+
 	$remProf1 =	("DELETE FROM `enderecousuario` WHERE `idUsuario_FK`='$id");
+	$result_up = $conn->query($remProf1);
+
 	$remProf2 =	("DELETE FROM `professores` WHERE `idUsuario_FK` = '$id'");
+	$result_up = $conn->query($remProf2);
+
 	$remProf3 =	("DELETE FROM `usuarios`WHERE `idUsuario` = '$id'");
+	$result_up = $conn->query($remProf3);
 
-	$result_up = $conn->query($remProf, $remProf1, $remProf2, $remProf3);
 
-	#echo "<script>alert('Exclusão efetuada com sucesso!');
-   #    location.href=\"/Banco/pesquisarProfessor.php\"</script>";
+	echo "<script>alert('Exclusão efetuada com sucesso!');
+       location.href=\"/Banco/pesquisarProfessor.php\"</script>";
 	#location.href=\"/Banco/conexaophp\"</script>";
 ?>

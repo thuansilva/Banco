@@ -1,6 +1,6 @@
 <?php
 	session_start();
-    $id = $_POST['id'];
+
 	$nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
 	$responsavel = $_POST['responsavel'];
