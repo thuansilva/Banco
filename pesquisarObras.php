@@ -8,6 +8,14 @@
 	<link rel="icon" href="../Banco/img/icone.png">
 	<link href="../Banco/css/bootstrap.min.css " rel="stylesheet">
 	<link href="../Banco/css/cadastrarAluno.css " rel="stylesheet">
+
+
+	<!-- Bootstrap JavaScript
+    ================================================== -->
+	<!-- -->
+	<script src="./js/slim.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -61,122 +69,332 @@
 		</div>
 	</nav>
 
+
+					<!-- Primeira Parte do aba Livros -->
+
+
 	<?php
 	include("../Banco/conexao/conexao.php");
 	$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
     FROM `obras`";
 	$con = $mysqli->query($consulta);
 	?>
+	<div class="container my-3 px-lg-3 p-md-3" id="divAluno">
+		<ul class="nav nav-tabs px-3" id="myTab" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Livro</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Revista</a>
+			</li>
+		</ul>
 
-	<div class="container my-3 px-lg-3 p-md-3  " id="divAluno">
-		<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
-			<legend>
-				<h2>Pesquisar Obras</h2>
-			</legend>
-			<br/>
-			<div class="row justify-content-md-center ">
-				<div class="form-row  col-md-8">
-					<div class="form-group  justify col-md-8">
-						<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
-					</div>
-					<div class="form-group col-md-4">
-						<button type="submit" class="btn btn-primary"> Buscar </button>
-					</div>
+
+
+		<div class="tab-content py-lg-3" id="myTabContent">
+			<div class="tab-pane fade show active" id="home" aria-labelledby="home-tab">
+				<div class="container my-3 px-lg-3 p-md-3  " id="divAluno">
+					<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
+						<legend>
+							<h2>Pesquisar Livro</h2>
+						</legend>
+						<br/>
+						<div class="row justify-content-md-center ">
+							<div class="form-row  col-md-8">
+								<div class="form-group  justify col-md-8">
+									<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
+								</div>
+								<div class="form-group col-md-4">
+									<button type="submit" class="btn btn-primary"> Buscar </button>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
-			</div>
-		</form>
-	</div>
 
 
-	<form id="lista" name="lista" method="post">
+				<form id="lista" name="lista" method="post">
 
-		<div class="table-responsive">
-			<div class="container  px-lg-3 p-md-3 text-lg-left ">
+					<div class="table-responsive">
+						<div class="container  px-lg-3 p-md-3 text-lg-left ">
 
-				<table class="table  my-2  ">
-					<thead class="thead-light">
-						<tr>
-							<th scope="col">Identificador</th>
-							<th scope="col">Nome </th>
-							<th scope="col">Data de Cadastro</th>
-							<th></th>
+							<table class="table  my-2  ">
+								<thead class="thead-light">
+									<tr>
+										<th scope="col">Identificador</th>
+										<th scope="col">Nome </th>
+										<th scope="col">Data de Cadastro</th>
+										<th></th>
 
-						</tr>
-					</thead>
+									</tr>
+								</thead>
 
-					<?php
+								<?php
 			while ($tbl=$con->fetch_array()) {
 			#while ($tbl = mysql_fetch_array($con)) {
 			?>
 
-					<tr>
-						<td class="dif1">
-							<?php echo $tbl["idObras"];?>
-						</td>
-						<td>
-							<?php echo $tbl["nomeObras"];?>
-						</td>
-						<td>
-							<?php echo $tbl["dataCadastro"];?>
-						</td>
-						<td>
-							<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
+			<tr>
+				<td class="dif1">
+					<?php echo $tbl["idObras"];?>
+				</td>
+				<td>
+					<?php echo $tbl["nomeObras"];?>
+				</td>
+				<td>
+					<?php echo $tbl["dataCadastro"];?>
+				</td>
+				<td>
+					<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal<?php echo $tbl['idObras']; ?>">
+					Visualizar
+					<i class="fa fa-info"></i>
+					</button>
+					<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaObras<?php echo $tbl['idObras']; ?>">
+					Editar
+					<i class="fa fa-edit"></i>
+					</button>
+					<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObras<?php echo $tbl['idObras']; ?>">
+					Excluir
+					<i class="fa fa-trash"></i>
+					</button>
+				</td>
+			</tr>
+			<!-- Inicio Modal -->
+							<div class="modal fade" id="myModal<?php echo $tbl['idObras']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title text-center" id="myModalLabel"><?php echo $tbl['nomeObras']; ?></h4>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										</div>
+										<div class="modal-body">
+											<p><?php echo "Identificador: ", $tbl['idObras']; ?></p>
+											<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
+											<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p>
+											<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Fim Modal -->
+				</form>
+				<?php } ?>
 
-								<i class="fa fa-info"></i>
-							</button>
-							<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
-
-								<i class="fa fa-edit"></i>
-							</button>
-							<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="##PesquisaObras<?php echo $tbl['idObras']; ?>">
-
-								<i class="fa fa-trash"></i>
-							</button>
-
-						</td>
-					</tr>
-
-					</tr>
-	</form>
-	<?php } ?>
-
-	</table>
-	</div>
-	</div>
+				</table>
+				</div>
+				</div>
 
 
-	<!-- Modal -->
+				<!--O primeiro        Modal -->
+
+				<!-- Modal -->
 	<div class="modal fade" id="PesquisaObras" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">Dados da Obra </h5>
+					<h5 class="modal-title" id="PesquisaObras"></h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
+
 					<!-- Formulario -->
 
+		<form method="post" action="/Banco/conexao/conexaoAtualizarObras.php">
+		<div class="form-row ">
+			<div class="form-group col-md-6">
+				<label for="nome">Nome Completo</label>
+				<input type="text" class="form-control" id="nome" name="nome" required autofocus >
+			</div>
+			<div class="form-group col-md-6 ">
+				<label for="email">Email</label>
+				<input type="email" class="form-control"  id="email" name="email" required autofocus>
+			</div>
+		</div>	
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="cpf">CPF</label>
+				<input type="text" class="form-control" id="cpf" name="cpf"  required autofocus>
+			</div>
+			<div class="form-group col-md-6">
+				<label for="telefone">Telefone</label>
+				<input type="text" class="form-control" id="telefone" name="telefone" required autofocus >
+			</div>
+		</div>
+		<div class="form-row ">
+			<div class="form-group col-md-5">
+				<label for="rua">Rua</label>
+				<input type="text" class="form-control" id="rua" name="rua" required autofocus >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="bairro">Bairro</label>
+				<input type="text" class="form-control" id="bairro" name="bairro" required autofocus >
+			</div>
+			<div class="form-group col-md-2">
+				<label for="numero">Número</label>
+				<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
+			</div>
+			<input id="id_Professor" type="hidden" name="id_Professor">
+		</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+	<script type="text/javascript">
+		$('#PesquisaObras').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  var recipientnome = button.data('whatevernome')
+		  var recipientemail = button.data('whateveremail')
+		  var recipientcpf = button.data('whatevercpf')
+		  var recipienttelefone = button.data('whatevertelefone')
+		  var recipientrua = button.data('whateverrua')
+		  var recipientbairro = button.data('whateverbairro')
+		  var recipientnumero = button.data('whatevernumero')
+
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title').text('ID da Obra: ' + recipient)
+		  modal.find('#id_Professor').val(recipient)
+		  modal.find('#nome').val(recipientnome)
+		  modal.find('#email').val(recipientemail)
+		  modal.find('#cpf').val(recipientcpf)
+		  modal.find('#telefone').val(recipienttelefone)
+		  modal.find('#rua').val(recipientrua)
+		  modal.find('#bairro').val(recipientbairro)
+		  modal.find('#numero').val(recipientnumero)
+		  
+		})
+	</script>
+
+	</div>
+
+			<!-- Final da priemeira parteee -->
+
+			<?php
+			include("../Banco/conexao/conexao.php");
+			$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
+    		FROM `obras`";
+			$con = $mysqli->query($consulta);
+			?>
+
+			<!-- Segunda Parte          -->
+
+			<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+				<div class="container my-3 px-lg-3 p-md-3  " id="divAluno">
+					<form method="post" action="/Banco/conexao/conexaoPesquisarObras.php">
+						<legend>
+							<h2>Pesquisar Revista</h2>
+						</legend>
+						<br/>
+						<div class="row justify-content-md-center ">
+							<div class="form-row  col-md-8">
+								<div class="form-group  justify col-md-8">
+									<input type="text" class="form-control" placeholder="Digite o nome da obra" name="obra" required autofocus>
+								</div>
+								<div class="form-group col-md-4">
+									<button type="submit" class="btn btn-primary"> Buscar </button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
 
 
-	<!-- Bootstrap JavaScript
-    ================================================== -->
-	<!-- -->
-	<script src="./js/slim.min.js"></script>
-	<script src="./js/popper.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
+				<form id="lista" name="lista" method="post">
+
+					<div class="table-responsive">
+						<div class="container  px-lg-3 p-md-3 text-lg-left ">
+
+							<table class="table  my-2  ">
+								<thead class="thead-light">
+									<tr>
+										<th scope="col">Identificador</th>
+										<th scope="col">Nome </th>
+										<th scope="col">Data de Cadastro</th>
+										<th></th>
+
+									</tr>
+								</thead>
+
+								<?php
+			while ($tbl=$con->fetch_array()) {
+			#while ($tbl = mysql_fetch_array($con)) {
+			?>
+
+								<tr>
+									<td class="dif1">
+										<?php echo $tbl["idObras"];?>
+									</td>
+									<td>
+										<?php echo $tbl["nomeObras"];?>
+									</td>
+									<td>
+										<?php echo $tbl["dataCadastro"];?>
+									</td>
+									<td>
+										<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaObras2">
+											<i class="fa fa-info"></i>
+										</button>
+										<button type="button" role="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
+
+											<i class="fa fa-edit"></i>
+										</button>
+										<button type="button" role="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#PesquisaObras2<?php echo $tbl['idObras']; ?>">
+
+											<i class="fa fa-trash"></i>
+										</button>
+
+									</td>
+								</tr>
+
+								</tr>
+				</form>
+				<?php } ?>
+
+				</table>
+				</div>
+				</div>
 
 
+				<!-- Segundo  Modal -->
+				<div class="modal fade" id="PesquisaObras2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalCenterTitle">Dados da Obra </h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<!-- Formulario -->
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechars</button>
+								<button type="button" class="btn btn-primary">Salvar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
 </body>
 
 </html>

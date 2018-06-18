@@ -87,11 +87,11 @@
 				</legend>
 				<br/>
 				<div class="form-row ">
-					<div class="form-group col-md-4 aligh">
+					<div class="form-group col-md-10 aligh">
 						<!--		<label >Pesquisar</label> -->
 						<input type="text" class="form-control" placeholder="Digite o nome do professor" name="professor" required autofocus>
 					</div>
-					<div class="form-group col-md-4">
+					<div class="form-group col-md-2">
 
 						<button type="submit" name="busca"  class="btn btn-primary"> Buscar </button>
 					</div>
@@ -133,7 +133,7 @@
 						<td>
 							<button type="button" role="button" class="btn btn-outline-info"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario'];?>">
-								
+								Visualizar
 								<i class="fa fa-info"></i>
 							</button>
 							<button type="button" class="btn btn-outline-warning" 
@@ -146,12 +146,12 @@
 							data-whateverrua="<?php echo $tbl['rua'];?>" 
 							data-whateverbairro="<?php echo $tbl['bairro'];?>" 
 							data-whatevernumero="<?php echo $tbl['numero'];?>">
-								
+								Editar
 								<i class="fa fa-edit"></i>
 							</button>					
 							<button type="button" role="button" class="btn btn-outline-danger"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
-								
+								Excluir
 								<i class="fa fa-trash "></i>
 							</button>
 							</td>
@@ -188,14 +188,16 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="PesquisaModal">Dados do Professor</h5>
+					<h5 class="modal-title" id="PesquisaModal"></h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
+				
 					<!-- Formulario -->
-				<form method="POST" action="/Banco/conexao/conexaoCadastroProf.php">
+				
+				<form method="post" action="/Banco/conexao/conexaoAtualizarProfessor.php">
 		<div class="form-row ">
 			<div class="form-group col-md-6">
 				<label for="nome">Nome Completo</label>
@@ -229,12 +231,13 @@
 				<label for="numero">Número</label>
 				<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
 			</div>
+			<input id="id_Professor" type="hidden" name="id_Professor">
 		</div>
-		</form>
-				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary" href="./Banco/conexao/conexaoAtualizarProfessor">Salvar</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+		</form>
 				</div>
 			</div>
 		</div>
@@ -262,8 +265,8 @@
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
-		  modal.find('.modal-title').text('ID do Aluno: ' + recipient)
-		  modal.find('#idUsuario_FK').val(recipient)
+		  modal.find('.modal-title').text('ID do Professor: ' + recipient)
+		  modal.find('#id_Professor').val(recipient)
 		  modal.find('#nome').val(recipientnome)
 		  modal.find('#email').val(recipientemail)
 		  modal.find('#cpf').val(recipientcpf)

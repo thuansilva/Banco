@@ -138,7 +138,7 @@
 						<td>
 							<button type="button" role="button" class="btn btn-outline-info"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
-								
+								Visualizar
 								<i class="fa fa-info"></i>
 							</button>
 
@@ -154,13 +154,13 @@
 							data-whateverrua="<?php echo $tbl['rua'];?>" 
 							data-whateverbairro="<?php echo $tbl['bairro'];?>" 
 							data-whatevernumero="<?php echo $tbl['numero'];?>">
-								
+								Editar
 								<i class="fa fa-edit"></i>
 							</button>					
 							<button type="button" role="button" class="btn btn-outline-danger"  
 							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
-								
-								<i class="fa fa-trash"></i>
+								Excluir
+								<i class="fa fa-trash "></i>
 							</button>
 						</td>
 					</tr>
@@ -190,6 +190,7 @@
 									</div>
 								</div>
 								<!-- Fim Modal -->
+	
 					<?php } ?>
 				</table>
 			</div>
@@ -212,7 +213,7 @@
 
 					<!-- Formulario -->
 
-					<form method="post" action="/Banco/conexao/conexaoAtualizar.php">
+					<form method="post" action="/Banco/conexao/conexaoAtualizarAluno.php">
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="nome">Nome Completo</label>
@@ -256,12 +257,12 @@
 								<label for="numero">Número</label>
 								<input type="tel" class="form-control" id="numero" name="numero" required autofocus>
 							</div>
-							<input id="id_Aluno" type="hidden" name="id">
+							<input id="id_Aluno" type="hidden" name="id_Aluno">
 						</div>
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary">Salvar</button>
+							<button type="submit" class="btn btn-primary">Salvar</button>
 						</div>
 					</form>
 				</div>

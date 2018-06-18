@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	$nome = $_POST['obra'];
+    #echo "$obra";
 
     $conexao = mysql_connect('localhost', 'root', '') or die (mysql_error());
     $select = mysql_select_db('sigb') or die (mysql_error());
@@ -15,7 +16,7 @@
 
     if(mysql_num_rows($result) > 0){
         
-        echo "Operacao realizada com sucesso";
+        echo "Operacao realiada com sucesso";
 
         echo "<table border='1'";
         echo "<tr><td>Cod. Empr.</td>"
@@ -40,7 +41,7 @@
             echo "</tr>";
         }
     }else{
-        die('Error: '.mysql_error());
+        die('Error: Nenhum Item Encontrado! '.mysql_error());
     }
     
 	#header("location:/Banco/devolucao.php");

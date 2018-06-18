@@ -8,7 +8,7 @@
     $pesquisa = ("SELECT `usuarios`.`idUsuario`, `usuarios`.`nomeUsuarios`, `professores`.`email`
     FROM `usuarios`
     INNER JOIN `professores` ON `usuarios`.`idUsuario` = `professores`.`idUsuario_FK`
-    WHERE `usuarios`.`nomeUsuarios` LIKE  '%$nome%'");
+    WHERE `usuarios`.`nome` LIKE  '%$nome%'");
     $result = mysql_query($pesquisa);
 
     if(mysql_num_rows($result) > 0){
@@ -35,5 +35,5 @@
         die('Error: '.mysql_error());
     }
     
-	#header("location:/Banco/pesquisarProfessor.php");
+	#header("location:/Banco/pesquisarAlunos.php");
 	?>

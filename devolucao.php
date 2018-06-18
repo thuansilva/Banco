@@ -74,7 +74,7 @@
 
 	<!-- Campo de Pesquisa -->
 	<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-		<form method="post" action="./conexao/conexaoPesquisarDevolucao.php">
+		<form method="post" action="/Banco/conexao/conexaoPesquisarDevolucao.php">
 			<legend>
 				<h2>Devolução de Obras</h2>
 			</legend>
@@ -92,7 +92,7 @@
 
 
 	<!-- Tabela -->
-	<form id="lista" name="lista" method="post" action="/Banco/conexao/conexaoDevolucao.php">
+	<form id="lista" name="lista" method="post"> <!--action="/Banco/conexao/conexaoDevolucao.php"-->
 
 		<div class="table-responsive">
 			<div class="container  px-lg-3 p-md-3 text-lg-left ">
@@ -129,17 +129,27 @@
 				<?php echo $tbl["dataDevolucao"];?>
 			</td>
 			<td>
-			<button type="button" role="button" class="btn btn-outline-info"  
-			data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
+	<!--		<button type="button" role="button" class="btn btn-outline-info"  
+			data-toggle="modal" data-target="#myModal<?#php echo $tbl['idEmprestimo']; ?>">
 				Visualizar
 				<i class="fa fa-info"></i>
-			</button>	
-				
-			<button type="submit" role="button" class="btn btn-outline-success"  
-				data-toggle="modal" data-target="#myModal<?php echo $tbl['idEmprestimo']; ?>">
+			</button>-->
+
+			<button type="button" class="btn btn-outline-info" 
+			data-toggle="modal" data-target="#PesquisaModal" 
+			data-whatever="<?php echo $tbl['idEmprestimo'];?>" 
+			data-whatevernomeobras="<?php echo $tbl['nomeObras'];?>" 
+			data-whatevernomeusuario="<?php echo $tbl['nomeUsuarios'];?>" 
+			data-whateverdatae="<?php echo $tbl['dataEmprestimo'];?>"
+			data-whateverdatad="<?php echo $tbl['dataDevolucao'];?>">
+			Devolver
+			<i class="fa fa-undo "></i>
+			</button>
+		<!--	<button type="button" role="button" class="btn btn-outline-success"  
+			data-toggle="modal" data-target="conexaoDevolucao.php<?#php echo $tbl['idEmprestimo']; ?>">
 				Devolver
 				<i class="fa fa-undo "></i>
-			</button>
+			</button>-->
 			</td>
 		</tr>
 		<!-- Inicio Modal -->
@@ -164,19 +174,95 @@
 			</div>
 		</div>
 		<!-- Fim Modal -->
-	</form>
 	<?php } ?>
 	
 	</table>
 	</div>
 	</div>
+</form>
+
+	<!-- Modal -->
+
+	<div class="modal fade" id="PesquisaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="PesquisaModal"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					<!-- Formulario -->
+
+					<form method="post" action="/Banco/conexao/conexaoDevolucao.php">
+						<div class="form-row">
+							<div class="form-group col-md-12">
+								<label for="nomeobra">Nome da Obra</label>
+								<input type="text" class="form-control" id="nomeobra" name="nomeobra" required autofocus>
+							</div>
+							<div class="form-group col-md-12">
+								<label for="nomeusuario">Nome do Usuario</label>
+								<input type="text" class="form-control" id="nomeusuario" name="nomeusuario" required autofocus>
+							</div>
+						</div>
+						<div class="form-row  ">
+							<div class="form-group col-md-6 mx-auto">
+								<label for="datae">Data do Emprestimo</label>
+								<input type="text" class="form-control" id="datae" name="datae" required autofocus>
+							</div>
+						
+							<div class="form-group col-md-6">
+								<label for="datad">Data de Devolucao</label>
+								<input type="text" class="form-control" id="datad" name="datad" required autofocus>
+							</div>
+							<input id="id_Emprestimo" type="hidden" name="id_Emprestimo">
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Concluir</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$('#PesquisaModal').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget) // Button that triggered the modal
+			var recipient = button.data('whatever') // Extract info from data-* attributes
+			var recipientnomeobra = button.data('whatevernomeobras')
+			var recipientnomeusuario = button.data('whatevernomeusuario')
+			var recipientdatae = button.data('whateverdatae')
+			var recipientdatad = button.data('whateverdatad')
+			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+			var modal = $(this)
+			modal.find('.modal-title').text('ID do Aluno: ' + recipient)
+			modal.find('#id_Emprestimo').val(recipient)
+			modal.find('#nomeobra').val(recipientnomeobra)
+			modal.find('#nomeusuario').val(recipientnomeusuario)
+			modal.find('#datae').val(recipientdatae)
+			modal.find('#datad').val(recipientdatad)
+		})
+	</script>
 
  <!-- Bootstrap JavaScript
     ================================================== -->
     <!-- -->
-    <script src="./js/slim.min.js" ></script>
-    <script src="./js/popper.min.js" ></script>
-    <script src="./js/bootstrap.min.js" ></script>
+    <script src="Banco/js/slim.min.js" ></script>
+    <script src="Banco/js/popper.min.js" ></script>
+    <script src="Banco/js/bootstrap.min.js" ></script>
 		
 
 </body>

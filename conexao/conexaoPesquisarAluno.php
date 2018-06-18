@@ -8,7 +8,7 @@
     $pesquisa = ("SELECT `usuarios`.`idUsuario`, `usuarios`.`nomeUsuarios`, `alunos`.`serie`, `alunos`.`turma`
     FROM `usuarios`
     INNER JOIN `alunos` ON `usuarios`.`idUsuario` = `alunos`.`idUsuario_FK`
-    WHERE `usuarios`.`nomeUsuarios` LIKE  '%$nome%'");
+    WHERE `usuarios`.`nome` LIKE  '%$nome%'");
     $result = mysql_query($pesquisa);
 
     if(mysql_num_rows($result) > 0){
