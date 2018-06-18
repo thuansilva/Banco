@@ -54,11 +54,7 @@
         </ul>
         <ul class="navbar-nav ml-auto px-md-4">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown">Usuário </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#"> Perfil </a>
-              <a class="dropdown-item" href="index.php"> Sair</a>
-            </div>
+            <a class="nav-link" href="index.php"> Sair</a>
           </li>
         </ul>
       </div>
