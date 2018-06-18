@@ -21,7 +21,7 @@
     VALUES({$id}, '$titulo', '$edicao')");
     mysql_query($cadastro1);
 
- 	$cadastro2 = ("INSERT INTO `editora` (`nome`)
+ 	$cadastro2 = ("INSERT INTO `editora` (`nomeEditora`)
     VALUES ('$editora')");
     mysql_query($cadastro2);
 

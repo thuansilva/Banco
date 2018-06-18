@@ -70,9 +70,19 @@
 
 	<?php
 	include("../Banco/conexao/conexao.php");
-	$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
-    FROM `obras`
-    INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`";
+	$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
+	FROM `obras`
+   	INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
+	INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
+	INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`";
+
+	//	 "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`, `editora`.`nomeEditora` 
+	//FROM `obras`
+   // INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
+	//INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
+	//INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`
+	//INNER JOIN `possui` ON `possui`.`idEditora_FK` = `obras`.`idObras`
+	//INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
 	$con = $mysqli->query($consulta);
 	?>
 	<div class="container my-3 px-lg-3 p-md-3" id="divAluno">
@@ -119,7 +129,7 @@
 									<tr>
 										<th scope="col">Identificador</th>
 										<th scope="col">Nome </th>
-										<th scope="col">Data de Cadastro</th>
+										<th scope="col">Autor</th>
 										<th></th>
 
 									</tr>
@@ -138,7 +148,7 @@
 					<?php echo $tbl["nomeObras"];?>
 				</td>
 				<td>
-					<?php echo $tbl["dataCadastro"];?>
+					<?php echo $tbl["nomeAutor"];?>
 				</td>
 				<td>
 					<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal<?php echo $tbl['idObras']; ?>">
@@ -166,7 +176,7 @@
 										<div class="modal-body">
 											<p><?php echo "Identificador: ", $tbl['idObras']; ?></p>
 											<p><?php echo "Nome: ", $tbl['nomeObras']; ?></p>
-											<p><?php echo "Data de Cadastro: ", $tbl['dataCadastro']; ?></p>
+											<p><?php echo "Autor: ", $tbl['nomeAutor']; ?></p> ?></p>
 											<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
 										</div>
 									</div>
@@ -281,9 +291,15 @@
 
 			<?php
 			include("../Banco/conexao/conexao.php");
-			$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
+			$consulta = "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `editora`.`nomeEditora`
+			FROM `obras`
+   			INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`
+			INNER JOIN `possui` ON `possui`.`idObras_FK` = `obras`.`idObras`
+			INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
+			/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `obras`.`dataCadastro`
     		FROM `obras`
     		INNER JOIN `revistas` ON `obras`.`idObras` = `revistas`.`idObras_FK`";
+    		*/
 			$con = $mysqli->query($consulta);
 			?>
 
@@ -320,7 +336,7 @@
 									<tr>
 										<th scope="col">Identificador</th>
 										<th scope="col">Nome </th>
-										<th scope="col">Data de Cadastro</th>
+										<th scope="col">Editora</th>
 										<th></th>
 
 									</tr>
@@ -339,7 +355,7 @@
 										<?php echo $tbl["nomeObras"];?>
 									</td>
 									<td>
-										<?php echo $tbl["dataCadastro"];?>
+										<?php echo $tbl["nomeEditora"];?>
 									</td>
 									<td>
 										<button type="button" role="button" class="btn btn-outline-info" data-toggle="modal" data-target="#PesquisaObras2">

@@ -22,7 +22,7 @@
     VALUES('$isbn', {$id}, '$volume')");
     mysql_query($cadastro1);
 
- 	$cadastro2 = ("INSERT INTO `editora` (`nome`)
+ 	$cadastro2 = ("INSERT INTO `editora` (`nomeEditora`)
     VALUES ('$editora')");
     mysql_query($cadastro2);
 
@@ -32,7 +32,7 @@
     VALUES ('$identificador', '$id')");
     mysql_query($cadastro3);
 
-    $cadastro4 = ("INSERT INTO `autor` (`nome`)
+    $cadastro4 = ("INSERT INTO `autor` (`nomeAutor`)
     VALUES ('$autor')");
     mysql_query($cadastro4);
 
