@@ -99,7 +99,7 @@
 			</form>
 		</div>
 	<!-- Tabela -->
-	<form id="lista" name="lista" method="post" action="./conexao/conexaoRemoverProfessor.php">
+	<form id="lista" name="lista" method="post" action="/Banco/conexao/conexaoRemoverProfessor.php">
 		<div class="table-responsive">
 			<div class="container  px-lg-3 p-md-3 text-lg-left ">
 				<table class="table my-2">
@@ -148,8 +148,16 @@
 								Editar
 								<i class="fa fa-edit"></i>
 							</button>					
-							<button type="submit" role="button" class="btn btn-outline-danger"  
-							data-toggle="modal" data-target="#myModal<?php echo $tbl['idUsuario']; ?>">
+							<button type="button" class="btn btn-outline-danger" 
+							data-toggle="modal" data-target="#PesquisaModal2" 
+							data-whatever="<?php echo $tbl['idUsuario'];?>" 
+							data-whatevernome="<?php echo $tbl['nomeUsuarios'];?>" 
+							data-whateveremail="<?php echo $tbl['email'];?>"
+							data-whatevercpf="<?php echo $tbl['cpf'];?>"
+							data-whatevertelefone="<?php echo $tbl['telefone'];?>" 
+							data-whateverrua="<?php echo $tbl['rua'];?>" 
+							data-whateverbairro="<?php echo $tbl['bairro'];?>" 
+							data-whatevernumero="<?php echo $tbl['numero'];?>">
 								Excluir
 								<i class="fa fa-trash "></i>
 							</button>
@@ -171,7 +179,6 @@
 									<p><?php echo "Rua: ", $tbl['rua']; ?></p>
 									<p><?php echo "Bairro: ", $tbl['bairro']; ?></p>
 									<p><?php echo "Numero: ", $tbl['numero']; ?></p>
-									<!--	<type="button" class="btn btn-outline-info" data-dismiss="modal">Alterar</button> -->
 								</div>
 							</div>
 						</div>
@@ -240,6 +247,63 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="PesquisaModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="PesquisaModal2"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- Formulario -->				
+					<form method="post" action="/Banco/conexao/conexaoRemoverProfessor.php">
+						<div class="form-row ">
+							<div class="form-group col-md-6">
+								<label for="nome">Nome Completo</label>
+								<input type="text" class="form-control" id="nome" name="nome" required autofocus >
+							</div>
+							<div class="form-group col-md-6 ">
+								<label for="email">Email</label>
+								<input type="email" class="form-control"  id="email" name="email" required autofocus>
+							</div>
+						</div>	
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="cpf">CPF</label>
+								<input type="text" class="form-control" id="cpf" name="cpf"  required autofocus>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="telefone">Telefone</label>
+								<input type="text" class="form-control" id="telefone" name="telefone" required autofocus >
+							</div>
+						</div>
+						<div class="form-row ">
+							<div class="form-group col-md-5">
+								<label for="rua">Rua</label>
+								<input type="text" class="form-control" id="rua" name="rua" required autofocus >
+							</div>
+							<div class="form-group col-md-5">
+								<label for="bairro">Bairro</label>
+								<input type="text" class="form-control" id="bairro" name="bairro" required autofocus >
+							</div>
+							<div class="form-group col-md-2">
+								<label for="numero">Número</label>
+								<input type="tel" class="form-control" id="numero" name="numero" required autofocus >
+							</div>
+							<input id="id_Professor" type="hidden" name="id_Professor">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+							<button type="submit" class="btn btn-danger">Sim</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -262,7 +326,35 @@
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 		  var modal = $(this)
-		  modal.find('.modal-title').text('ID do Professor: ' + recipient)
+		  modal.find('.modal-title').text('Cod. do Professor: ' + recipient)
+		  modal.find('#id_Professor').val(recipient)
+		  modal.find('#nome').val(recipientnome)
+		  modal.find('#email').val(recipientemail)
+		  modal.find('#cpf').val(recipientcpf)
+		  modal.find('#telefone').val(recipienttelefone)
+		  modal.find('#rua').val(recipientrua)
+		  modal.find('#bairro').val(recipientbairro)
+		  modal.find('#numero').val(recipientnumero)
+		  
+		})
+	</script>
+
+	<script type="text/javascript">
+		$('#PesquisaModal2').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  var recipientnome = button.data('whatevernome')
+		  var recipientemail = button.data('whateveremail')
+		  var recipientcpf = button.data('whatevercpf')
+		  var recipienttelefone = button.data('whatevertelefone')
+		  var recipientrua = button.data('whateverrua')
+		  var recipientbairro = button.data('whateverbairro')
+		  var recipientnumero = button.data('whatevernumero')
+
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  modal.find('.modal-title').text('Certeza que deseja excluir?')
 		  modal.find('#id_Professor').val(recipient)
 		  modal.find('#nome').val(recipientnome)
 		  modal.find('#email').val(recipientemail)
