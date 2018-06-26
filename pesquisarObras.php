@@ -77,7 +77,7 @@
 	INNER JOIN `autor` ON `autor`.`idAutor` = `tem`.`idAutor_FK`
 	INNER JOIN  `possui` ON  `possui`.`idObras_FK` =  `obras`.`idObras` 
 	INNER JOIN `editora` ON `editora`.`idEditora` = `possui`.`idEditora_FK`";
-	/*"SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
+	/* "SELECT `obras`.`idObras`, `obras`.`nomeObras`, `autor`.`nomeAutor`
 	FROM `obras`
    	INNER JOIN `livros` ON `obras`.`idObras` = `livros`.`idObras_FK`
 	INNER JOIN `tem` ON `tem`.`isbn_fk` = `livros`.`isbn`
@@ -108,14 +108,13 @@
 						<div class="row justify-content-md-center ">
 							<div class="form-row  col-md-8">
 								<div class="form-group  justify col-md-8">
-									<input type="text" class="form-control" placeholder="Digite o nome do livro" name="obra" required autofocus>
+									<input type="text" class="form-control" placeholder="Digite o nome do livro" id="pesquisa4" name="pesquisa4" required autofocus>
 								</div>
-								<div class="form-group col-md-4">
-									<button type="submit" class="btn btn-primary"> Buscar </button>
-								</div>
+								
 							</div>
 						</div>
 					</form>
+					<ul class="resultado"></ul>
 				</div>
 
 
@@ -135,7 +134,7 @@
 									</tr>
 								</thead>
 
-								<?php
+			<?php
 			while ($tbl=$con->fetch_array()) {
 			#while ($tbl = mysql_fetch_array($con)) {
 			?>
@@ -629,7 +628,8 @@
 			</div>
 			<div class="form-group col-md-12">
 				<label for="obs">Observação</label>
-				<textarea type="text" class="form-control" id="obs" name="obs" required autofocus ></textarea>
+				<input type="text" class="form-control" id="obs" name="obs" required autofocus >
+			<!--	<textarea type="text" class="form-control" id="obs" name="obs" required autofocus ></textarea> -->
 			</div>
 			<input id="id_revista" type="hidden" name="id_revista">
 		</div>

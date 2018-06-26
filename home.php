@@ -80,8 +80,9 @@
   <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
     <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 > 
           text-center text-white overflow-hidden" style="border-radius: 21px 21px 0 0">
+          <br><br>
       <h2>Sobre Nós</h2>
-      <p class="lead" align='justify'>O SiGB, é um Sistema Gerenciador de Biblioteca, sendo desenvolvido por alunos da Universidade Federal do Amazonas, visando facilitar e estruturar o funcionamenta da biblioteca</p>
+      <p class="lead" align='justify'>O SiGB, é um Sistema Gerenciador de Biblioteca, desenvolvido por alunos da Universidade Federal do Amazonas, visando facilitar e estruturar o funcionamenta da biblioteca da Escola Dom Paulo Mc Hugh.</p>
     </div>
 
 
@@ -89,7 +90,7 @@
                text-center overflow-hidden " style="border-radius: 21px 21px 0 0">
       <div class="my-3 p-3">
         <h2>Para você!</h2>
-        <p class="lead" align='justify'> O Sigb foi pensado especialmente para colaborar na organizaçao da sua biblioteca, guardando os dados das suas obras e seus usuários, assim como recuperando-os quando for requisistado.
+        <p class="lead" align='justify'> O Sigb foi pensado especialmente para colaborar na organizaçao da sua biblioteca, armazenando os dados das suas obras e seus usuários, assim como recuperando-os quando forem requisistados.
         </p>
       </div>
     </div>

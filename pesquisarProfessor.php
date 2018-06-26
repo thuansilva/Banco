@@ -80,7 +80,7 @@
 	?>
 	<!-- Campo de Pesquisa -->
 		<div class="container my-3 px-lg-3 p-md-3 " id="divAluno">
-			<form method="post" action="/Banco/conexao/conexaoPesquisarProfessor.php">
+			<form method="post">
 				<legend>
 					<h2>Pesquisar Professor</h2>
 				</legend>
